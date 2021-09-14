@@ -1,0 +1,22 @@
+{
+  "name": "loanflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "report": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrisxavix/LoanFlow.git"
+  },
+  "author": "CChillogalli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrisxavix/LoanFlow/issues"
+  },
+  "homepage": "https://github.com/Chrisxavix/LoanFlow#readme",
+  "devDependencies": {
+    "multiple-cucumber-html-reporter": "^1.18.0"
+  }
+}
