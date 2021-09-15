@@ -1,12 +1,12 @@
-package steps.pom.pages;
+package pom.pages;
 
 import org.openqa.selenium.WebDriver;
 import steps.hook.Hook;
-import steps.pom.messages.Messages;
-import steps.pom.pages.global.Global;
-import steps.pom.pages.login.Login;
-import steps.pom.pages.transactions.Tr062100;
-import steps.pom.utilities.Utilities;
+import pom.messages.Messages;
+import pom.pages.global.Global;
+import pom.pages.login.Login;
+import pom.pages.transactions.Tr062100;
+import pom.utilities.Utilities;
 import java.io.IOException;
 import java.util.List;
 

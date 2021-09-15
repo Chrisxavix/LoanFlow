@@ -3,7 +3,7 @@ package steps.init;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import steps.pom.tests.loanFlow;
+import pom.tests.loanFlow;
 
 import java.io.IOException;
 

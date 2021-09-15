@@ -1,4 +1,4 @@
-package steps.pom.messages;
+package pom.messages;
 
 public class Messages {
 

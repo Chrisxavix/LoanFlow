@@ -1,4 +1,4 @@
-package steps.pom.pages.login;
+package pom.pages.login;
 
 import org.openqa.selenium.By;
 

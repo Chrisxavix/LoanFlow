@@ -1,4 +1,4 @@
-package steps.pom.pages.global;
+package pom.pages.global;
 
 import org.openqa.selenium.By;
 

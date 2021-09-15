@@ -1,9 +1,8 @@
-package steps.pom.tests;
+package pom.tests;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import steps.pom.pages.StartPages;
-import steps.pom.pages.transactions.Tr062100;
+import pom.pages.StartPages;
 
 import java.io.IOException;
 
