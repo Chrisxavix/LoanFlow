@@ -1,4 +1,4 @@
-package steps.pom.pages.transactions;
+package pom.pages.transactions;
 
 import org.openqa.selenium.By;
 

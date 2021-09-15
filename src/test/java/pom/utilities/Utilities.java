@@ -1,4 +1,4 @@
-package steps.pom.utilities;
+package pom.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import steps.hook.Hook;
-import steps.pom.pages.global.Global;
+import pom.pages.global.Global;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
