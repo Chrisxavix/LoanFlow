@@ -29,7 +29,7 @@ public class Investments extends StartPages {
         driver.findElement(loginPage.getBtnSubmit()).submit();
             /* +Validaciones:
                Compruebo que la pantalla es el entorno FitBank */
-        Assert.assertEquals(message.getErrorDataLogin(),message.getTitleFitbank(), driver.getTitle());
+        Assert.assertEquals(message.getErrorDataLogin(), message.getTitleFitbank(), driver.getTitle());
     }
 
     public void typeTransaction() throws Throwable {

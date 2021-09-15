@@ -57,15 +57,15 @@ public class Utilities {
         mainOfWindow = driver.getWindowHandle();
         for (String handle : windows) {
             driver.switchTo().window(handle);
-            String pagetitle = driver.getTitle();
-            if(handle != mainWindow) {
+            String pageTitle = driver.getTitle();
+            if (handle != mainWindow) {
                 secondOfWindow = handle;
             }
-            if (pagetitle.equalsIgnoreCase("Error")) {
+            if (pageTitle.equalsIgnoreCase("Error")) {
                 /* Se cierra con el botón de la página de error */
                 Thread.sleep(3000);
                 driver.switchTo().window(mainWindow);
-            } else if (pagetitle.equalsIgnoreCase("")) {
+            } else if (pageTitle.equalsIgnoreCase("")) {
                 Thread.sleep(timeWindow);
                 driver.switchTo().window(mainWindow);
             } else {
@@ -79,7 +79,7 @@ public class Utilities {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
         String time = dateFormat.format(now);
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("./src/test/assets/screenshots/loanflow/scenario" + screenshot + "/" + transaction + "/" + "step" + step++ + "-" + time + ".png"));
     }
 
@@ -117,7 +117,7 @@ public class Utilities {
         for (int i = 0; i < cellLength; i++) {
             dataExcel.add(formatter.formatCellValue(sheetDocument.getRow(countScenario).getCell(i)));
         }
-        /* Visuaiza en la consola los datos cargados en el Excel */
+        /* Visualiza en la consola los datos cargados en el Excel */
         for (int j = 0; j < dataExcel.size(); j++) {
             System.out.println("DataExcel, celda " + j + ": " + dataExcel.get(j));
         }
