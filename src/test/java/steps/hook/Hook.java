@@ -24,7 +24,8 @@ public class Hook {
         driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
         driver = driverManager.getDriver();
         driver.manage().window().maximize();
-        driver.get("http://10.1.115.64:8380/WEB3/ingreso.html");
+        //driver.get("http://10.1.115.64:8380/WEB3/ingreso.html");
+        driver.get("http://10.16.5.64:8380/WEB3/ingreso.html");
         countScenario++;
         if (countScenario == 1) {
             FileUtils.deleteDirectory(new File("./src/test/assets/screenshots/loanflow"));
