@@ -47,4 +47,29 @@ public class loadFlow extends StartPages {
         //util.waitPass(2000, "TR062100");
         driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(3));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Test */
 }
