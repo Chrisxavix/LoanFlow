@@ -1,11 +1,16 @@
 package steps.pom.tests;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import steps.pom.pages.StartPages;
+import steps.pom.pages.transactions.Tr062100;
+
 import java.io.IOException;
 
 
 public class Investments extends StartPages {
+
+    private Tr062100 tr062100 = new Tr062100();
 
     public Investments() throws IOException { }
 
@@ -33,6 +38,6 @@ public class Investments extends StartPages {
     }
 
     public void typeTransaction() throws Throwable {
-
+        driver.findElement(tr062100.getTxtTransactions()).sendKeys(util.readExcel().get(2) + Keys.ENTER);
     }
 }
