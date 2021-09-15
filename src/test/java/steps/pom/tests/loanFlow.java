@@ -50,4 +50,5 @@ public class loanFlow extends StartPages {
         util.waitPass(10000, "TR062100");
         driver.findElement(tr062100.getTxtIdCod()).sendKeys(loanFlow.get(4));
     }
+    /*Test*/
 }
