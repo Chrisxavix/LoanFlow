@@ -2,14 +2,14 @@ package steps.init;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import steps.pom.tests.Investments;
+import steps.pom.tests.loadFlow;
+
 import java.io.IOException;
 
 public class TestMain {
 
-    Investments investments = new Investments();
+    loadFlow investments = new loadFlow();
 
     public TestMain() throws IOException {
     }

@@ -8,9 +8,9 @@ import steps.pom.pages.transactions.Tr062100;
 import java.io.IOException;
 
 
-public class Investments extends StartPages {
+public class loadFlow extends StartPages {
 
-    public Investments() throws IOException { }
+    public loadFlow() throws IOException { }
 
     public void openBrowser() throws Throwable {
         caseScreen++;
