@@ -10,8 +10,6 @@ import java.io.IOException;
 
 public class Investments extends StartPages {
 
-    private Tr062100 tr062100 = new Tr062100();
-
     public Investments() throws IOException { }
 
     public void openBrowser() throws Throwable {
@@ -21,23 +19,32 @@ public class Investments extends StartPages {
     }
 
     public void closeSessionAndTypeUserPassword() throws Throwable {
+
         /* Forzar cierre de sesiones */
         driver.findElement(loginPage.getLinkMoreOptions()).click();
         driver.findElement(loginPage.getBtnForceClose()).click();
         /*util.screenshot();*/
         util.screenshot(caseScreen, caseScreenLogin);
         /* Ingreso de usuario y contraseña */
-        driver.findElement(loginPage.getTxtUser()).sendKeys(investments.get(0));
-        driver.findElement(loginPage.getTxtPassword()).sendKeys(investments.get(1));
+        driver.findElement(loginPage.getTxtUser()).sendKeys(loanFlow.get(0));
+        driver.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(1));
         util.screenshot(caseScreen, caseScreenLogin);
         /*util.screenshot();*/
         driver.findElement(loginPage.getBtnSubmit()).submit();
             /* +Validaciones:
                Compruebo que la pantalla es el entorno FitBank */
         Assert.assertEquals(message.getErrorDataLogin(), message.getTitleFitbank(), driver.getTitle());
+
     }
 
     public void typeTransaction() throws Throwable {
-        driver.findElement(tr062100.getTxtTransactions()).sendKeys(util.readExcel().get(2) + Keys.ENTER);
+        System.out.println("---" + util.readExcel().get(1));
+        driver.findElement(tr062100.getTxtTransactions()).sendKeys(loanFlow.get(2));
+        Thread.sleep(5000);
+    }
+
+    public void idDeudor() throws Throwable {
+        //util.waitPass(2000, "TR062100");
+        driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(3));
     }
 }

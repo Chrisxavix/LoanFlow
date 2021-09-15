@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class Tr062100 {
 
-    private final By txtTransactions = By.id("entorno-pt");
+    private By txtTransactions = By.id("entorno-pt");
 
     //DEUDOR-CODEUDOR Y GARANTES
     private final By txtId = By.id("c_F2Id_0");
