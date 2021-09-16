@@ -40,8 +40,8 @@ public class Utilities {
             cont++;
             Thread.sleep(200);
             status = driver.findElement(global.getTxtStatus()).getText();
-            System.out.println("STATUS DEL WHILE: " + status);
-            System.out.println("ENTRA AL WHILE: " + cont);
+           /* System.out.println("STATUS DEL WHILE: " + status);
+            System.out.println("ENTRA AL WHILE: " + cont);*/
         }
         System.out.println("FINAL STATUS: " + status);
         System.out.println(".........................................");
@@ -86,7 +86,7 @@ public class Utilities {
     /* Excel */
     public List<String> readExcel() throws IOException {
         /* Datos del Excel */
-        String fileName = "test062100.xlsx";
+        String fileName = "testRead.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
         //File file = new File("./src/test/assets/exceldocuments/testRead.xlsx");
