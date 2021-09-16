@@ -281,12 +281,5 @@ public class loanFlow extends StartPages {
         util.reactPage();
         util.waitPass(timeSave, "saveTransaction saveTransaction");
         util.switchPDF();
-        /* +Validaciones:
-               Comprobar que el status sea correcto */
-        /*WebElement txtCodeTransaction = driver.findElement(global.getBoxCodeTransaction());
-        WebElement txtStatus = driver.findElement(global.getTxtStatus());
-        String code = txtCodeTransaction.getAttribute("value");
-        util.waitPass(timeSave, "saveTransaction saveTransaction");
-        Assert.assertEquals(message.getErrorValidateTx() + code, message.getSuccessTx(), txtStatus.getText());*/
     }
 }
