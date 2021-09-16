@@ -88,49 +88,51 @@ public class loanFlow extends StartPages {
     public void idExecutive() throws Throwable {
         driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(10));
         WebElement status = driver.findElement(global.getTxtStatus());
-        util.waitPass(30, "Esperando OK");
+        util.waitPass(timeBase, "idExecutive");
     }
 
     public void origin() throws Throwable {
-        Thread.sleep(2000);
-        driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(11) + Keys.ENTER);
+        util.waitPass(timeBase, "Origin");
+        driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(11) + Keys.TAB);
 
     }
 
     public void destFunds() throws Throwable {
-        Thread.sleep(2000);
-        driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(loanFlow.get(12) + Keys.ENTER);
+        util.waitPass(timeBase, "destFunds");
+        driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(loanFlow.get(12));
+        util.waitPass(timeBase, "destFunds");
+        driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(Keys.TAB);
     }
 
     public void recpActivity() throws Throwable {
-        Thread.sleep(2000);
-        driver.findElement(tr062100.getTxtReceptorActivity()).sendKeys(loanFlow.get(13) + Keys.ENTER);
+        util.waitPass(timeBase, "recpActivity");
+        driver.findElement(tr062100.getTxtReceptorActivity()).sendKeys(loanFlow.get(13) + Keys.TAB);
     }
 
     public void amountCred() throws Throwable {
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "amountCred");
         driver.findElement(tr062100.getTxtAmountCredit()).sendKeys(loanFlow.get(14) + Keys.ENTER);
     }
 
     public void capFrecuency() throws Throwable {
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "capFrecuency");
         driver.findElement(tr062100.getTxtCapitalFrequency()).sendKeys(loanFlow.get(15) + Keys.ENTER);
     }
 
     public void numberQuotas() throws Throwable {
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "numberQuotas");
         driver.findElement(tr062100.getTxtNumberQuotas()).sendKeys(loanFlow.get(16) + Keys.ENTER);
     }
 
     public void interestRate() throws Throwable {
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "interestRate");
         driver.findElement(tr062100.getBtnInterestRate()).click();
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "interestRate");
         driver.findElement(tr062100.getBtnCloseInterestRate()).click();
     }
 
     public void saveForm() throws Throwable {
-        Thread.sleep(2000);
+        util.waitPass(timeBase, "saveForm");
         driver.findElement(tr062100.getSaveForm()).sendKeys(Keys.F12);
     }
 

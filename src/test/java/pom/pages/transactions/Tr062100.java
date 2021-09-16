@@ -31,69 +31,24 @@ public class Tr062100 {
 
     private final By saveForm = By.xpath("//*[@id=\'entorno-teclas\']/button[9]");
 
-    public By getTxtId() {
-        return txtId;
-    }
-
-    public By getTxtRelationsText() { return txtRelationsText; }
-
-    public By getTxtIdCod() {
-        return txtIdCod;
-    }
-
-    public By getTxtRelationsCod() { return txtRelationsCod; }
-
-    public By getTxtRelationsCodText() { return txtRelationsCodText; }
-
-    public By getTxtIdGar() {
-        return txtIdGar;
-    }
-
-    public By getTxtRelationsGar() {
-        return txtRelationsGar;
-    }
-
-    public By getTxtRelationsGarText() { return txtRelationsGarText; }
-
-    public By getTxtProductGroup() {
-        return txtProductGroup;
-    }
-
-    public By getTxtProduct() {
-        return txtProduct;
-    }
-
-    public By getTxtIdExecutive() {
-        return txtIdExecutive;
-    }
-
-    public By getTxtOrigin() {
-        return txtOrigin;
-    }
-
-    public By getTxtReceptorActivity() {
-        return txtReceptorActivity;
-    }
-
-    public By getTxtDestinationFunds() {
-        return txtDestinationFunds;
-    }
-
-    public By getTxtAmountCredit() {
-        return txtAmountCredit;
-    }
-
-    public By getTxtCapitalFrequency() {
-        return txtCapitalFrequency;
-    }
-
-    public By getTxtNumberQuotas() {
-        return txtNumberQuotas;
-    }
-
-    public By getBtnInterestRate() { return btnInterestRate; }
-
-    public By getBtnCloseInterestRate() { return btnCloseInterestRate; }
-
-    public By getSaveForm() { return saveForm; }
+    public By getTxtId() { return this.txtId; }
+    public By getTxtRelationsText() { return this.txtRelationsText; }
+    public By getTxtIdCod() { return this.txtIdCod; }
+    public By getTxtRelationsCod() { return this.txtRelationsCod; }
+    public By getTxtRelationsCodText() { return this.txtRelationsCodText; }
+    public By getTxtIdGar() { return this.txtIdGar; }
+    public By getTxtRelationsGar() { return this.txtRelationsGar; }
+    public By getTxtRelationsGarText() { return this.txtRelationsGarText; }
+    public By getTxtProductGroup() { return this.txtProductGroup; }
+    public By getTxtProduct() { return this.txtProduct; }
+    public By getTxtIdExecutive() { return this.txtIdExecutive; }
+    public By getTxtOrigin() { return this.txtOrigin; }
+    public By getTxtReceptorActivity() { return this.txtReceptorActivity; }
+    public By getTxtDestinationFunds() { return this.txtDestinationFunds; }
+    public By getTxtAmountCredit() { return this.txtAmountCredit; }
+    public By getTxtCapitalFrequency() { return this.txtCapitalFrequency; }
+    public By getTxtNumberQuotas() { return this.txtNumberQuotas; }
+    public By getBtnInterestRate() { return this.btnInterestRate; }
+    public By getBtnCloseInterestRate() { return this.btnCloseInterestRate; }
+    public By getSaveForm() { return this.saveForm; }
 }

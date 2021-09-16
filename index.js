@@ -6,7 +6,7 @@ report.generate({
     reportPath: './src/test/assets/report/',
     /*reportPath: './test/report/',*/
     //Abrir el navegador después de terminar el test
-    openReportInBrowser: false,
+    openReportInBrowser: true,
     //Duración en segundos de la prueba
     displayDuration: true,
     //La fecha de la carpeta test a crear
