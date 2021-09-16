@@ -40,7 +40,7 @@ public class Utilities {
             cont++;
             Thread.sleep(200);
             status = driver.findElement(global.getTxtStatus()).getText();
-           /*System.out.println("STATUS DEL WHILE: " + status);
+            /*System.out.println("STATUS DEL WHILE: " + status);
             System.out.println("ENTRA AL WHILE: " + cont);*/
         }
         System.out.println("FINAL STATUS: " + status);
