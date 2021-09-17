@@ -21,6 +21,34 @@ Feature: Inversiones
     And Guardamos el formulario para crear el numero de solicitud
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    When Ingreso la transacción 06-2000
+    Then Ingreso el número de solicitud
+    And Ingreso los datos geográficos
+    And Ingreso los datos del préstamo y comentarios
+    And Genero el reporte
+    Then Guardo la transacción
     Examples:
       | caso |
       | 1    |

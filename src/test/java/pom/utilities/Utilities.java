@@ -130,6 +130,11 @@ public class Utilities {
         Thread.sleep(2200);
     }
 
+    /* Reacción al iniciar una transacción */
+    public void reactStartTransaction() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
     /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
     public void switchPDF() throws AWTException {
         driver.switchTo().window(secondOfWindow);

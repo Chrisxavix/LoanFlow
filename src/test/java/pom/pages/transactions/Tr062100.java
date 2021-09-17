@@ -28,7 +28,6 @@ public class Tr062100 {
     private final By txtNumberQuotas = By.id("c_F4Numcuotas_0");
     private final By btnInterestRate = By.id("c_F4Tasaboton_0");
     private final By btnCloseInterestRate = By.xpath("//*[@id=\'entorno-formulario\']/div[2]/form/div[37]/div[1]/img");
-
     private final By saveForm = By.xpath("//*[@id=\'entorno-teclas\']/button[9]");
 
     public By getTxtId() { return this.txtId; }
