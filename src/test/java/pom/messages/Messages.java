@@ -27,7 +27,7 @@ public class Messages {
     public String getCanton() { return "CUENCA"; }
     public String getParish() { return "EL BATAN"; }
     public String getWayToPay() { return "DEBITO CTA"; }
-    public String getDebitToAccount() { return "FLORES NARVAEZ FREDDY MARCELO"; }
+    public String getDebitToAccount() { return "IMPORAUSTRO CIA. LTDA."; }
     public String getErrorFixedTerm() { return "Error, valores no esperados"; }
 
 }

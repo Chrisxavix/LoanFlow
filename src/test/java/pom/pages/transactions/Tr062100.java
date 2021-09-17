@@ -27,8 +27,11 @@ public class Tr062100 {
     private final By txtCapitalFrequency = By.id("c_F4Cfrecuenciacap_0");
     private final By txtNumberQuotas = By.id("c_F4Numcuotas_0");
     private final By btnInterestRate = By.id("c_F4Tasaboton_0");
-    private final By btnCloseInterestRate = By.xpath("//*[@id=\'entorno-formulario\']/div[2]/form/div[37]/div[1]/img");
+    private final By btnCloseInterestRate = By.xpath("//*[@id=\'entorno-formulario\']/div[2]/form/div[38]/div[1]/img");
     private final By saveForm = By.xpath("//*[@id=\'entorno-teclas\']/button[9]");
+
+    //Numero de solicitud
+    private final By numberSoli = By.id("c_F1Csolicitudpri_0");
 
     public By getTxtId() { return this.txtId; }
     public By getTxtRelationsText() { return this.txtRelationsText; }
@@ -50,4 +53,5 @@ public class Tr062100 {
     public By getBtnInterestRate() { return this.btnInterestRate; }
     public By getBtnCloseInterestRate() { return this.btnCloseInterestRate; }
     public By getSaveForm() { return this.saveForm; }
+    public By getNumberSoli() { return numberSoli; }
 }
