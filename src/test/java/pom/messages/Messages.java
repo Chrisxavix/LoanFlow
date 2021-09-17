@@ -9,4 +9,7 @@ public class Messages {
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
     public String getTitleFitbank() { return "Entorno FitBank"; }
+
+    public String getErrorFixedTerm() { return "Error, valores no esperados"; }
+
 }
