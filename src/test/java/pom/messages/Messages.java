@@ -28,5 +28,6 @@ public class Messages {
     public String getParish() { return "EL BATAN"; }
     public String getWayToPay() { return "DEBITO CTA"; }
     public String getDebitToAccount() { return "FLORES NARVAEZ FREDDY MARCELO"; }
+    public String getErrorFixedTerm() { return "Error, valores no esperados"; }
 
 }
