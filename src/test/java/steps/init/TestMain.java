@@ -39,75 +39,6 @@ public class TestMain {
     public void idCod() throws Throwable {
         loanFlow.idCod();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @When("^Ingreso la transacción 06-2000$")
-    public void typeTx062000() throws Throwable {
-        loanFlow.typeTx062000();
-    }
-
-    @Then("^Ingreso el número de solicitud$")
-    public void typeRequestNumber() throws Throwable {
-        loanFlow.typeRequestNumber();
-    }
-
-    @And("^Ingreso los datos geográficos$")
-    public void typeGeographicalData() throws Throwable {
-        loanFlow.typeGeographicalData();
-    }
-
-    @And("^Ingreso los datos del préstamo y comentarios$")
-    public void typeLoanDataAndComments() throws Throwable {
-        loanFlow.typeLoanDataAndComments();
-    }
-
-    @And("^Genero el reporte$")
-    public void generateReport() throws Throwable {
-        loanFlow.generateReport();
-    }
-
-    @Then("^Guardo la transacción$")
-    public void saveTransaction() throws Throwable {
-        loanFlow.saveTransaction();
-    }
-
     @And("^Por ultimo ingreso la indentificacion del garante y su descripcion$")
     public void idGar() throws Throwable {
         loanFlow.idGarante();
@@ -168,6 +99,35 @@ public class TestMain {
         loanFlow.saveForm();
     }
 
+    @And("^Ingreso la transacción 06-2000$")
+    public void typeTx062000() throws Throwable {
+        loanFlow.typeTx062000();
+    }
+
+    @And("^Ingreso el número de solicitud$")
+    public void typeRequestNumber() throws Throwable {
+        loanFlow.typeRequestNumber();
+    }
+
+    @And("^Ingreso los datos geográficos$")
+    public void typeGeographicalData() throws Throwable {
+        loanFlow.typeGeographicalData();
+    }
+
+    @And("^Ingreso los datos del préstamo y comentarios$")
+    public void typeLoanDataAndComments() throws Throwable {
+        loanFlow.typeLoanDataAndComments();
+    }
+
+    @And("^Genero el reporte$")
+    public void generateReport() throws Throwable {
+        loanFlow.generateReport();
+    }
+
+    @Then("^Guardo la transacción$")
+    public void saveTransaction() throws Throwable {
+        loanFlow.saveTransaction();
+    }
 
 
 }

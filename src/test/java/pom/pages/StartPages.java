@@ -34,5 +34,5 @@ public class StartPages {
     protected final List<String> loanFlow = util.readExcel();
 
     /* Número de Solicitud */
-    protected String requestNumber = "7511000698";
+    protected String requestNumber;
 }

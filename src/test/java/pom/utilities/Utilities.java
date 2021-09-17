@@ -132,7 +132,7 @@ public class Utilities {
 
     /* Reacción al iniciar una transacción */
     public void reactStartTransaction() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
@@ -156,5 +156,9 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
+    }
+
+    public void timeSaveForm() throws Throwable {
+        Thread.sleep(500);
     }
 }

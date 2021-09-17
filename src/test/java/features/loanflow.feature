@@ -19,32 +19,8 @@ Feature: Inversiones
     And Ahora el numero de cuotas
     And Por ultimo calculamos la tasa de interes
     And Guardamos el formulario para crear el numero de solicitud
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    When Ingreso la transacción 06-2000
-    Then Ingreso el número de solicitud
+    And Ingreso la transacción 06-2000
+    And Ingreso el número de solicitud
     And Ingreso los datos geográficos
     And Ingreso los datos del préstamo y comentarios
     And Genero el reporte
