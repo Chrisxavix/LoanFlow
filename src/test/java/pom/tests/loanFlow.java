@@ -143,6 +143,7 @@ public class loanFlow extends StartPages {
     }
 
     public void typeRequestNumber() throws Throwable {
+        util.reactStartTransaction();
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx062000);
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(Keys.ENTER);
