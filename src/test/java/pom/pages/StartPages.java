@@ -2,6 +2,7 @@ package pom.pages;
 
 import org.openqa.selenium.WebDriver;
 import pom.pages.transactions.Tr062000;
+import pom.pages.transactions.Tr062008;
 import steps.hook.Hook;
 import pom.messages.Messages;
 import pom.pages.global.Global;
@@ -30,6 +31,8 @@ public class StartPages {
     protected static final String caseScreenTx062000 = "Tx2_06_2000";
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
+
+    protected static final Tr062008 tr062008 = new Tr062008();
 
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();

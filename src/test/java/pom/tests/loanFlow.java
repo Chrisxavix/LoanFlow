@@ -242,4 +242,13 @@ public class loanFlow extends StartPages {
         util.multipleValidate();
     }
 
+    public void tabWarranty() throws Throwable {
+        driver.findElement(tr062000.getTabWarranty()).click();
+        util.waitPass(timeMedium, "Tab Warranty");
+    }
+
+    public void warrantyProp() throws Throwable {
+        driver.findElement(tr062000.getTabWarranty()).sendKeys(loanFlow.get(26));
+    }
+
 }

@@ -124,10 +124,19 @@ public class TestMain {
         loanFlow.generateReport();
     }
 
-    @Then("^Guardo la transacción$")
+    @And("^Guardo la transacción$")
     public void saveTransaction() throws Throwable {
         loanFlow.saveTransaction();
     }
 
+    @And("^Luego de guardar el formulario, nos dirigimos a la pestana de garantias$")
+    public void tabWarranty() throws Throwable {
+        loanFlow.tabWarranty();
+    }
+
+    @And("^Ahora vamos a ingresar los datos de las garantias propuestas como la identificacion del garante$")
+    public void warrantyProp() throws Throwable {
+        loanFlow.tabWarranty();
+    }
 
 }
