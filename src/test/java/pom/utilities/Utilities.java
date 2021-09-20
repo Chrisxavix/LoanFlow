@@ -1,4 +1,4 @@
-package steps.pom.utilities;
+package pom.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import steps.hook.Hook;
-import steps.pom.pages.global.Global;
+import pom.pages.global.Global;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -25,6 +25,7 @@ public class Utilities {
     private static int countScenario = 0;
     private String mainOfWindow;
     private String secondOfWindow;
+    private final int timeSave = 60;
 
     /* Espera Fluida */
     public void waitPass(int time, String nameBox) throws Throwable {
@@ -32,7 +33,6 @@ public class Utilities {
         String status = driver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);
         int cont = 1;
-        System.out.println("timeFinal" + timeFinal);
         while ((status.equalsIgnoreCase("PROCESANDO...")
                 || status.equalsIgnoreCase("POR FAVOR ESPERE A QUE EL PROCESO ACTUAL TERMINE.")
                 || status.equalsIgnoreCase("CARGANDO FORMULARIO..."))
@@ -89,10 +89,7 @@ public class Utilities {
         String fileName = "testRead.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
-        File file = new File("./src/test/assets/exceldocuments/testRead.xlsx");
-        /*File file = new File("./src/test/assets/exceldocuments/testReadTwo.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadFourErrors.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadEightErrors.xlsx");*/
+        File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook testCasesDocument = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
@@ -129,6 +126,11 @@ public class Utilities {
         Thread.sleep(2200);
     }
 
+    /* Reacción al iniciar una transacción */
+    public void reactStartTransaction() throws InterruptedException {
+        Thread.sleep(2000);
+    }
+
     /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
     public void switchPDF() throws AWTException {
         driver.switchTo().window(secondOfWindow);
@@ -150,5 +152,16 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
+    }
+
+    public void multipleValidate() throws Throwable {
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 1");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 2");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 3");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 4");
     }
 }
