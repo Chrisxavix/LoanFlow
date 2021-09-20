@@ -49,7 +49,7 @@ public class Utilities {
     }
 
     /* Jugar con las pestañas del navegador */
-    public void switchPages(int timeWindow) throws Throwable {
+    public void switchPages(int timeWindow, String print) throws Throwable {
         /* Todas las ventanas abiertas en prueba */
         Set<String> windows = driver.getWindowHandles();
         /* Ventana principal */
@@ -66,10 +66,18 @@ public class Utilities {
                 Thread.sleep(3000);
                 driver.switchTo().window(mainWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
-                Thread.sleep(timeWindow);
-                driver.switchTo().window(mainWindow);
+                if(print.equalsIgnoreCase("yes")) {
+                    Thread.sleep(timeWindow);
+                    this.downloadPDF();
+                    Robot robot = new Robot();
+                    robot.keyPress(KeyEvent.VK_ENTER);
+                    robot.setAutoDelay(600);
+                    robot.keyRelease(KeyEvent.VK_ENTER);
+                    driver.close();
+                }
+                driver.switchTo().window(mainOfWindow);
             } else {
-                driver.switchTo().window(mainWindow);
+                driver.switchTo().window(mainOfWindow);
             }
         }
     }

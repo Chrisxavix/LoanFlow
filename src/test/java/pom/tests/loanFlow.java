@@ -229,18 +229,121 @@ public class loanFlow extends StartPages {
     public void generateReport() throws Throwable {
         WebElement generateReport = driver.findElement(tr062000.getBtnVlcGenerateReport());
         generateReport.click();
-        util.switchPages(0);
+        util.switchPages(0, "no");
         /* +Validaciones:
                Comprobar que esté en el ventana principal */
         Assert.assertEquals(message.getErrorMainView(), message.getTitleIncoMainLoan(), driver.getTitle());
     }
 
     public void saveTransaction() throws Throwable {
+        util.reactPage();
         WebElement save = driver.findElement(global.getBtnF12());
         save.click();
-        util.reactPage();
         util.waitPass(timeSave, "saveTransaction saveTransaction");
         util.multipleValidate();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void selectPrintDocuments() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr062016.getTabMainPrintDocuments()).click();
+        util.waitPass(timeBase, "selectPrintDocuments");
+        util.screenshot(caseScreen, caseScreenTx062016);
+            /* +Validaciones:
+               Comprobar que esté en el ventana de IMPRESIÓN DE DOCUMENTOS - FitBank */
+        Assert.assertEquals(message.getErrorTx06_2016(), message.getTitlePrintDocuments(), driver.getTitle());
+    }
+
+    public void generateReportCheklist() throws Throwable {
+        util.switchPDF();
+        util.reactPage();
+        WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
+        btnChklReport.click();
+        util.switchPages(4000, "yes");
+    }
+
+    public void generateOrder() throws Throwable {
+        util.reactPage();
+        WebElement btnOperationOrder = driver.findElement(tr062016.getBtnOperationOrder());
+        btnOperationOrder.click();
+        util.switchPages(4000, "yes");
+        util.screenshot(caseScreen, caseScreenTx062016);
     }
 
 }

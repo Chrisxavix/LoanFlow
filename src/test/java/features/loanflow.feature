@@ -25,6 +25,45 @@ Feature: Inversiones
     And Ingreso los datos del préstamo y comentarios
     And Genero el reporte
     Then Guardo la transacción
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    When Selecciono la pestaña de impresión de documentos
+    Then Guardo la transacción
+    And Genero el reporte de checklist
+    And Genero la orden de operación
     Examples:
       | caso |
       | 1    |

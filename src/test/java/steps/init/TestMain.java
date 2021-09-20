@@ -130,4 +130,100 @@ public class TestMain {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @When("^Selecciono la pestaña de impresión de documentos$")
+    public void selectPrintDocuments() throws Throwable {
+        loanFlow.selectPrintDocuments();
+    }
+
+    @When("^Genero el reporte de checklist$")
+    public void generateReportCheklist() throws Throwable {
+        loanFlow.generateReportCheklist();
+    }
+
+    @When("^Genero la orden de operación$")
+    public void generateOrder() throws Throwable {
+        loanFlow.generateOrder();
+    }
+
 }
