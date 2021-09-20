@@ -31,6 +31,8 @@ public class Tr062000 {
     private final By txtCommComment = By.xpath("//*[@id='container_32']/table/tbody/tr/td/textarea");
     /* VALIDAR LISTAS DE CONTROL: Vlc */
     private final By btnVlcGenerateReport = By.xpath("//*[@id='container_33']/table/tbody/tr/td/button");
+    /* Cambio de pestaña garantías propuestas*/
+    private final By tabWarranty = By.xpath("//*[@id=\'container_1\']/table/tbody/tr/td/ul/li[2]/a");
 
     /* GETTERS */
 
@@ -59,4 +61,7 @@ public class Tr062000 {
     public By getTxtCommComment() { return this.txtCommComment; }
     /* VALIDAR LISTAS DE CONTROL: Vlc */
     public By getBtnVlcGenerateReport() { return this.btnVlcGenerateReport; }
+    /*Cambio pestaña garantías propuestas*/
+
+    public By getTabWarranty() { return tabWarranty; }
 }
