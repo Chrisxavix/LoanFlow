@@ -134,9 +134,9 @@ public class TestMain {
         loanFlow.tabWarranty();
     }
 
-    @And("^Ahora vamos a ingresar los datos de las garantias propuestas como la identificacion del garante$")
+    @And("^Ahora vamos a ingresar los datos de las garantias propuestas$")
     public void warrantyProp() throws Throwable {
-        loanFlow.tabWarranty();
+        loanFlow.warrantyProp();
     }
 
 }

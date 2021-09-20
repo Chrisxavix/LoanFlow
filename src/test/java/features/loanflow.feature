@@ -26,7 +26,8 @@ Feature: Inversiones
     And Genero el reporte
     And Guardo la transacción
     And Luego de guardar el formulario, nos dirigimos a la pestana de garantias
-#    And Ahora vamos a ingresar los datos de las garantias propuestas como la identificacion del garante
+    And Ahora vamos a ingresar los datos de las garantias propuestas
+    And Guardo la transacción
 
     Examples:
       | caso |
