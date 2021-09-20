@@ -240,7 +240,6 @@ public class loanFlow extends StartPages {
         util.reactPage();
         util.waitPass(timeSave, "saveTransaction saveTransaction");
         util.multipleValidate();
-        //util.switchPDF();
     }
 
 }

@@ -89,11 +89,7 @@ public class Utilities {
         String fileName = "testRead.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
-        //File file = new File("./src/test/assets/exceldocuments/testRead.xlsx");
-        File file = new File("./src/test/assets/exceldocuments/test062100.xlsx");
-        /*File file = new File("./src/test/assets/exceldocuments/testReadTwo.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadFourErrors.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadEightErrors.xlsx");*/
+        File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook testCasesDocument = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
