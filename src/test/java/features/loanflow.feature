@@ -24,7 +24,11 @@ Feature: Inversiones
     And Ingreso los datos geográficos
     And Ingreso los datos del préstamo y comentarios
     And Genero el reporte
-    Then Guardo la transacción
+    And Guardo la transacción
+    And Luego de guardar el formulario, nos dirigimos a la pestana de garantias
+    And Ahora vamos a ingresar los datos de las garantias propuestas
+    And Guardo la transacción
+
     Examples:
       | caso |
       | 1    |
