@@ -25,6 +25,7 @@ public class Utilities {
     private static int countScenario = 0;
     private String mainOfWindow;
     private String secondOfWindow;
+    private final int timeSave = 60;
 
     /* Espera Fluida */
     public void waitPass(int time, String nameBox) throws Throwable {
@@ -32,7 +33,6 @@ public class Utilities {
         String status = driver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);
         int cont = 1;
-        System.out.println("timeFinal" + timeFinal);
         while ((status.equalsIgnoreCase("PROCESANDO...")
                 || status.equalsIgnoreCase("POR FAVOR ESPERE A QUE EL PROCESO ACTUAL TERMINE.")
                 || status.equalsIgnoreCase("CARGANDO FORMULARIO..."))
@@ -89,11 +89,7 @@ public class Utilities {
         String fileName = "testRead.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
-        //File file = new File("./src/test/assets/exceldocuments/testRead.xlsx");
-        File file = new File("./src/test/assets/exceldocuments/test062100.xlsx");
-        /*File file = new File("./src/test/assets/exceldocuments/testReadTwo.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadFourErrors.xlsx");*/
-        /*File file = new File("./src/test/assets/exceldocuments/testReadEightErrors.xlsx");*/
+        File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook testCasesDocument = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
@@ -158,7 +154,14 @@ public class Utilities {
         robot.setAutoDelay(200);
     }
 
-    public void timeSaveForm() throws Throwable {
-        Thread.sleep(500);
+    public void multipleValidate() throws Throwable {
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 1");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 2");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 3");
+        Thread.sleep(200);
+        this.waitPass(timeSave, "validate 4");
     }
 }
