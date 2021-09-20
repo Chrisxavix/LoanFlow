@@ -38,6 +38,7 @@ public class loanFlow extends StartPages {
     public void typeTransaction() throws Throwable {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(2) + Keys.ENTER);
         util.waitPass(timeBase, "typeTransaction");
+        util.screenshot(caseScreen, caseScreenTx062100);
     }
 
     public void idDeudor() throws Throwable {
@@ -104,6 +105,7 @@ public class loanFlow extends StartPages {
     public void amountCred() throws Throwable {
         util.waitPass(timeBase, "amountCred");
         driver.findElement(tr062100.getTxtAmountCredit()).sendKeys(loanFlow.get(14) + Keys.ENTER);
+        util.screenshot(caseScreen, caseScreenTx062100);
     }
 
     public void capFrecuency() throws Throwable {
@@ -120,6 +122,7 @@ public class loanFlow extends StartPages {
         util.waitPass(timeBase, "interestRate");
         driver.findElement(tr062100.getBtnInterestRate()).click();
         util.waitPass(timeBase, "interestRate");
+        util.screenshot(caseScreen, caseScreenTx062100);
         driver.findElement(tr062100.getBtnCloseInterestRate()).click();
     }
 
@@ -129,18 +132,19 @@ public class loanFlow extends StartPages {
         util.timeSaveForm();
         util.waitPass(timeSave, "Val 2");
         requestNumber = driver.findElement(tr062100.getNumberSoli()).getAttribute("value");
+        util.screenshot(caseScreen, caseScreenTx062100);
     }
 
     public void typeTx062000() throws Throwable {
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(17));
-        util.waitPass(timeBase, "");
+        util.waitPass(timeSave, "typeTx062000");
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(Keys.ENTER);
     }
 
     public void typeRequestNumber() throws Throwable {
-        util.reactStartTransaction();
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(requestNumber);
+        util.screenshot(caseScreen, caseScreenTx062000);
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(Keys.ENTER);
         util.waitPass(timeMedium, "typeRequestNumber Validate 1");
         util.waitPass(timeMedium, "typeRequestNumber Validate 2");
@@ -237,7 +241,8 @@ public class loanFlow extends StartPages {
         save.click();
         util.reactPage();
         util.waitPass(timeSave, "saveTransaction saveTransaction");
-        util.switchPDF();
+        //util.switchPDF();
+        util.screenshot(caseScreen, caseScreenTx062000);
     }
 
 }

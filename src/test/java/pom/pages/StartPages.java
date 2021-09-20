@@ -26,6 +26,8 @@ public class StartPages {
     /* Capturador de pantallas por transacción */
     protected static int caseScreen = 0;
     protected static final String caseScreenLogin = "login";
+    protected static final String caseScreenTx062100 = "Tx1_06_2100";
+    protected static final String caseScreenTx062000 = "Tx2_06_2000";
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
 
