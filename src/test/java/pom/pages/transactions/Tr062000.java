@@ -61,7 +61,6 @@ public class Tr062000 {
     public By getTxtCommComment() { return this.txtCommComment; }
     /* VALIDAR LISTAS DE CONTROL: Vlc */
     public By getBtnVlcGenerateReport() { return this.btnVlcGenerateReport; }
-    /*Cambio pestaña garantías propuestas*/
-
+    /* Cambio pestaña garantías propuestas */
     public By getTabWarranty() { return tabWarranty; }
 }

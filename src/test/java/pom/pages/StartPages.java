@@ -2,6 +2,7 @@ package pom.pages;
 
 import org.openqa.selenium.WebDriver;
 import pom.pages.transactions.Tr062000;
+import pom.pages.transactions.Tr062016;
 import pom.pages.transactions.Tr062008;
 import steps.hook.Hook;
 import pom.messages.Messages;
@@ -29,16 +30,16 @@ public class StartPages {
     protected static final String caseScreenLogin = "login";
     protected static final String caseScreenTx062100 = "Tx1_06_2100";
     protected static final String caseScreenTx062000 = "Tx2_06_2000";
+    protected static final String caseScreenTx062016 = "Tx4_06_2016";
     protected static final String caseScreenTx062008 = "Tx3_06_2008";
+    /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
-
+    protected static final Tr062016 tr062016 = new Tr062016();
     protected static final Tr062008 tr062008 = new Tr062008();
-
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();
     protected final List<String> loanFlow = util.readExcel();
-
     /* Número de Solicitud */
     protected String requestNumber;
 }

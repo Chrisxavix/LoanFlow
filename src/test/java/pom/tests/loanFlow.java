@@ -229,7 +229,7 @@ public class loanFlow extends StartPages {
     public void generateReport() throws Throwable {
         WebElement generateReport = driver.findElement(tr062000.getBtnVlcGenerateReport());
         generateReport.click();
-        util.switchPages(0);
+        util.switchPages(0, "no");
         /* +Validaciones:
                Comprobar que esté en el ventana principal */
         Assert.assertEquals(message.getErrorMainView(), message.getTitleIncoMainLoan(), driver.getTitle());
@@ -253,17 +253,45 @@ public class loanFlow extends StartPages {
     public void warrantyProp() throws Throwable {
         util.reactPage();
         driver.findElement(tr062008.getWarrantyProp()).sendKeys(loanFlow.get(27) + Keys.ENTER);
-        util.waitPass(timeBase, "warrantyPro");
+        util.waitPass(timeBase, "warrantyPro identificacion");
         driver.findElement((tr062008.getTxtTypeWarranty())).sendKeys(loanFlow.get(28) + Keys.ENTER);
-        util.waitPass(timeBase, "Type Goods");
+        util.waitPass(timeBase, "Type Garantía");
         driver.findElement((tr062008.getTxtTypeGoods())).sendKeys(loanFlow.get(29) + Keys.ENTER);
-        util.waitPass(timeBase, "Value Commercial");
+        util.waitPass(timeBase, "Bien");
         driver.findElement((tr062008.getTxtValueComercial())).sendKeys(loanFlow.get(30) + Keys.ENTER);
-        util.waitPass(timeBase, "Open");
+        util.waitPass(timeBase, "Value Comercial");
         driver.findElement((tr062008.getChkOpen())).click();
+        util.waitPass(timeBase, "Bien Adquirido");
+        driver.findElement((tr062008.getTxtDescription())).sendKeys(loanFlow.get(31) + Keys.ENTER);
         util.waitPass(timeBase, "Description");
-        driver.findElement((tr062008.getTxtDescription())).sendKeys(loanFlow.get(31) +Keys.ENTER);
-        util.screenshot(caseScreen,caseScreenTx062008);
+        util.screenshot(caseScreen, caseScreenTx062008);
+    }
+
+    public void selectPrintDocuments() throws Throwable {
+        util.reactPage();
+        WebElement test = driver.findElement(tr062016.getTabMainPrintDocuments());
+        test.click();
+        util.waitPass(timeBase, "selectPrintDocuments");
+        util.screenshot(caseScreen, caseScreenTx062016);
+            /* +Validaciones:
+               Comprobar que esté en el ventana de IMPRESIÓN DE DOCUMENTOS - FitBank */
+        Assert.assertEquals(message.getErrorTx06_2016(), message.getTitlePrintDocuments(), driver.getTitle());
+    }
+
+    public void generateReportCheklist() throws Throwable {
+        util.switchPDF();
+        util.reactPage();
+        WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
+        btnChklReport.click();
+        util.switchPages(4000, "yes");
+    }
+
+    public void generateOrder() throws Throwable {
+        util.reactPage();
+        WebElement btnOperationOrder = driver.findElement(tr062016.getBtnOperationOrder());
+        btnOperationOrder.click();
+        util.switchPages(4000, "yes");
+        util.screenshot(caseScreen, caseScreenTx062016);
     }
 
 }
