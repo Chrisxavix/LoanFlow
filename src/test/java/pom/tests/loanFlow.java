@@ -315,8 +315,8 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx000267);
         /* +Validaciones:
                Comprobar que se hayan cargado los datos */
-        WebElement test = driver.findElement(tr000267.getTxtCrgbTerminal());
-        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(0), test.getAttribute("value"));
+        WebElement test = driver.findElement(tr000267.getTxtCrgbUser());
+        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(1), test.getAttribute("value"));
     }
 
 }
