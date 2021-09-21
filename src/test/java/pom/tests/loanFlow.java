@@ -277,7 +277,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx062016);
             /* +Validaciones:
                Comprobar que esté en el ventana de IMPRESIÓN DE DOCUMENTOS - FitBank */
-        Assert.assertEquals(message.getErrorTx06_2016(), message.getTitlePrintDocuments(), driver.getTitle());
+        Assert.assertEquals(message.getErrorTx062016(), message.getTitlePrintDocuments(), driver.getTitle());
     }
 
     public void generateReportCheklist() throws Throwable {
@@ -294,6 +294,29 @@ public class loanFlow extends StartPages {
         btnOperationOrder.click();
         util.switchPages(4000, "yes");
         util.screenshot(caseScreen, caseScreenTx062016);
+    }
+
+    public void validateOrder() throws Throwable {
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(32) + Keys.ENTER);
+        util.waitPass(timeBase, "typeTransaction");
+        util.screenshot(caseScreen, caseScreenTx000267);
+        /* +Validaciones:
+               Comprobar que esté en el ventana de Consulta de Reportes Generados en Batch - FitBank */
+        Assert.assertEquals(message.getErrorTx000267(), message.getTitleQueryReport(), driver.getTitle());
+    }
+
+    public void queryOrder() throws Throwable {
+        util.reactPage();
+        WebElement query = driver.findElement(global.getBtnF7());
+        query.click();
+        util.waitPass(timeSave, "queryOrder");
+        util.multipleValidate();
+        util.screenshot(caseScreen, caseScreenTx000267);
+        /* +Validaciones:
+               Comprobar que se hayan cargado los datos */
+        WebElement test = driver.findElement(tr000267.getTxtCrgbUser());
+        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(1), test.getAttribute("value"));
     }
 
 }
