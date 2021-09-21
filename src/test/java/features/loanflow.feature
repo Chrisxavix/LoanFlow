@@ -32,6 +32,9 @@ Feature: Inversiones
     Then Guardo la transacción
     And Genero el reporte de checklist
     And Genero la orden de operación
+    And Valido que la orden de operación se haya generado
+    And Consultar la operación
+
     Examples:
       | caso |
       | 1    |
