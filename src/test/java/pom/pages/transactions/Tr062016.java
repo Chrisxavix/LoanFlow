@@ -7,7 +7,7 @@ public class Tr062016 {
     /* VARIABLES */
 
     /* PESTAÑA IMPRIMIR DOCUMENTOS */
-    private final By tabMainPrintDocuments = By.xpath("//*[@id='container_1']/table/tbody/tr/td/ul/li[5]");
+    private final By tabMainPrintDocuments = By.xpath("//*[@id='container_0']/table/tbody/tr/td/ul/li[5]");
     /* CHECKLIST: Chkl */
     private final By btnChklReport = By.xpath("//*[@id='container_17']/table/tbody/tr/td[2]/button");
     /* IMPRESIÓN DE DOCUMENTOS */

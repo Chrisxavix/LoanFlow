@@ -129,87 +129,15 @@ public class TestMain {
         loanFlow.saveTransaction();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @And("^Luego de guardar el formulario, nos dirigimos a la pestana de garantias$")
+    public void tabWarranty() throws Throwable {
+        loanFlow.tabWarranty();
+    }
+
+    @And("^Ahora vamos a ingresar los datos de las garantias propuestas$")
+    public void warrantyProp() throws Throwable {
+        loanFlow.warrantyProp();
+    }
 
     @When("^Selecciono la pestaña de impresión de documentos$")
     public void selectPrintDocuments() throws Throwable {

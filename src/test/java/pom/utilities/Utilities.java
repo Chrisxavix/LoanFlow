@@ -35,7 +35,8 @@ public class Utilities {
         int cont = 1;
         while ((status.equalsIgnoreCase("PROCESANDO...")
                 || status.equalsIgnoreCase("POR FAVOR ESPERE A QUE EL PROCESO ACTUAL TERMINE.")
-                || status.equalsIgnoreCase("CARGANDO FORMULARIO..."))
+                || status.equalsIgnoreCase("CARGANDO FORMULARIO...")
+                || status.equalsIgnoreCase("CANNOT READ PROPERTIES OF UNDEFINED (READING 'ITEMS')"))
                 && cont < timeFinal) {
             cont++;
             Thread.sleep(200);
@@ -69,10 +70,7 @@ public class Utilities {
                 if(print.equalsIgnoreCase("yes")) {
                     Thread.sleep(timeWindow);
                     this.downloadPDF();
-                    Robot robot = new Robot();
-                    robot.keyPress(KeyEvent.VK_ENTER);
-                    robot.setAutoDelay(600);
-                    robot.keyRelease(KeyEvent.VK_ENTER);
+                    this.typeSavePdf();
                     driver.close();
                 }
                 driver.switchTo().window(mainOfWindow);
@@ -160,6 +158,14 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
+    }
+
+    /* Guardar archivos sin el método de switchPDF */
+    public void typeSavePdf() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.setAutoDelay(600);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
     public void multipleValidate() throws Throwable {

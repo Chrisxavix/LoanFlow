@@ -243,86 +243,34 @@ public class loanFlow extends StartPages {
         util.multipleValidate();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void tabWarranty() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr062000.getTabWarranty()).click();
+        util.waitPass(timeMedium, "Tab Warranty");
+        util.screenshot(caseScreen, caseScreenTx062008);
+    }
+
+    public void warrantyProp() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr062008.getWarrantyProp()).sendKeys(loanFlow.get(27) + Keys.ENTER);
+        util.waitPass(timeBase, "warrantyPro identificacion");
+        driver.findElement((tr062008.getTxtTypeWarranty())).sendKeys(loanFlow.get(28) + Keys.ENTER);
+        util.waitPass(timeBase, "Type Garantía");
+        driver.findElement((tr062008.getTxtTypeGoods())).sendKeys(loanFlow.get(29) + Keys.ENTER);
+        util.waitPass(timeBase, "Bien");
+        driver.findElement((tr062008.getTxtValueComercial())).sendKeys(loanFlow.get(30) + Keys.ENTER);
+        util.waitPass(timeBase, "Value Comercial");
+        driver.findElement((tr062008.getChkOpen())).click();
+        util.waitPass(timeBase, "Bien Adquirido");
+        driver.findElement((tr062008.getTxtDescription())).sendKeys(loanFlow.get(31) + Keys.ENTER);
+        util.waitPass(timeBase, "Description");
+        util.screenshot(caseScreen, caseScreenTx062008);
+    }
 
     public void selectPrintDocuments() throws Throwable {
         util.reactPage();
-        driver.findElement(tr062016.getTabMainPrintDocuments()).click();
+        WebElement test = driver.findElement(tr062016.getTabMainPrintDocuments());
+        test.click();
         util.waitPass(timeBase, "selectPrintDocuments");
         util.screenshot(caseScreen, caseScreenTx062016);
             /* +Validaciones:
