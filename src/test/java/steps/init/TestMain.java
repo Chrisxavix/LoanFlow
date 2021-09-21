@@ -173,4 +173,19 @@ public class TestMain {
     public void checkList() throws Throwable {
         loanFlow.checkList();
     }
+
+    @When("^Ingresamos al formulario 06-3040$")
+    public void typeTransaction3040() throws Throwable {
+        loanFlow.typeTransaction3040();
+    }
+
+    @Then("^Ingresamos el número de solicitud de análisis de crédito$")
+    public void typeRequestNumberAnalysis() throws Throwable {
+        loanFlow.typeRequestNumberAnalysis();
+    }
+
+    @And("^Agregamos un comentario$")
+    public void typeComment() throws Throwable {
+        loanFlow.typeComment();
+    }
 }

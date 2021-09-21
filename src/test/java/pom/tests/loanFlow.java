@@ -347,4 +347,33 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063071.getBtnSaveChkList()).click();
         util.screenshot(caseScreen, caseScreenTx063071);
     }
+
+    public void typeTransaction3040() throws Throwable {
+        util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(34) + Keys.ENTER);
+        util.waitPass(timeBase, "typeTransaction3040");
+        util.screenshot(caseScreen, caseScreenTx063040);
+        /* +Validaciones:
+               Comprobar que esté en el ventana de ANÁLISIS DE CRÉDITO - FitBank */
+        Assert.assertEquals(message.getErrorTx063040(), message.getTitleCreditAnalysis(), driver.getTitle());
+    }
+
+    public void typeRequestNumberAnalysis() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys(requestNumber + Keys.ENTER);
+        util.waitPass(timeMedium, "typeRequestNumberAnalysis");
+        util.screenshot(caseScreen, caseScreenTx063040);
+            /* +Validaciones:
+               Comprobar que los datos hayan sido cargados */
+        WebElement txtGpProductValue = driver.findElement(tr063040.getTxtGpProductValue());
+        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(9), txtGpProductValue.getAttribute("value"));
+    }
+
+    public void typeComment() throws Throwable {
+        driver.findElement(tr063040.getTxtDoComment()).sendKeys(loanFlow.get(35));
+        util.waitPass(timeBase, "typeComment");
+        util.screenshot(caseScreen, caseScreenTx063040);
+    }
+
 }
