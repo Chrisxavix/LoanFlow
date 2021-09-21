@@ -349,6 +349,7 @@ public class loanFlow extends StartPages {
     }
 
     public void typeTransaction3040() throws Throwable {
+        util.reactPage();
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(34) + Keys.ENTER);
         util.waitPass(timeBase, "typeTransaction3040");
