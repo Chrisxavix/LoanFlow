@@ -29,12 +29,14 @@ public class StartPages {
     protected static final String caseScreenTx062000 = "Tx2_06_2000";
     protected static final String caseScreenTx062016 = "Tx4_06_2016";
     protected static final String caseScreenTx062008 = "Tx3_06_2008";
+    protected static final String caseScreenTx063071 = "Tx6_06_3071";
     protected static final String caseScreenTx000267 = "Tx5_00_0267";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
     protected static final Tr062016 tr062016 = new Tr062016();
     protected static final Tr062008 tr062008 = new Tr062008();
+    protected static final Tr063071 tr063071 = new Tr063071();
     protected static final Tr000267 tr000267 = new Tr000267();
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();
