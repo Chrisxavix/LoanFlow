@@ -154,4 +154,39 @@ public class TestMain {
         loanFlow.generateOrder();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @And("^Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente$")
+    public void typeTr063071() throws Throwable {
+        loanFlow.typeTxt063071();
+    }
+
+    @And("^Procedemos a marcar los checklist habilitados para y guardamos la verificacion$")
+    public void checkList() throws Throwable {
+        loanFlow.checkList();
+    }
+
 }

@@ -1,11 +1,13 @@
 package pom.tests;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import pom.pages.StartPages;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class loanFlow extends StartPages {
@@ -285,7 +287,7 @@ public class loanFlow extends StartPages {
         util.reactPage();
         WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
         btnChklReport.click();
-        util.switchPages(4000, "yes");
+        util.switchPages(10000, "yes");
     }
 
     public void generateOrder() throws Throwable {
@@ -294,6 +296,32 @@ public class loanFlow extends StartPages {
         btnOperationOrder.click();
         util.switchPages(4000, "yes");
         util.screenshot(caseScreen, caseScreenTx062016);
+    }
+
+    public void typeTxt063071() throws Throwable {
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(32) + Keys.ENTER);
+        util.waitPass(timeSave, "typeTx063071");util.reactStartTransaction();
+        driver.findElement(tr063071.getTxtNumSoli()).sendKeys(requestNumber);
+        util.screenshot(caseScreen, caseScreenTx063071);
+        driver.findElement(tr063071.getTxtNumSoli()).sendKeys(Keys.ENTER);
+        util.waitPass(timeMedium, "typeRequestNumber typeRequestNumber");
+    }
+
+    public void checkList() throws Throwable {
+        List<WebElement> tablePrint = driver.findElements(tr063071.getTbCheckList());
+        for(int i = 1; i <= tablePrint.size(); i++) {
+            String checkLists = tr063071.getChkPart1() + i + tr063071.getChkPart2();
+            WebElement columnChecks = driver.findElement(By.xpath(checkLists));
+            if(columnChecks.isEnabled()) {
+                columnChecks.click();
+            } else {
+                break;
+            }
+        }
+        util.waitPass(timeBase, "Checks List");
+        driver.findElement(tr063071.getBtnSaveChkList()).click();
+        util.screenshot(caseScreen, caseScreenTx063071);
     }
 
 }
