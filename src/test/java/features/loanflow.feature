@@ -36,6 +36,10 @@ Feature: Inversiones
     And Consultar la operación
     And Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente
     And Procedemos a marcar los checklist habilitados para y guardamos la verificacion
+    When Ingresamos al formulario 06-3040
+    Then Ingresamos el número de solicitud de análisis de crédito
+    And Agregamos un comentario
+    Then Guardo la transacción
 
     Examples:
       | caso |
