@@ -16,6 +16,7 @@ public class Messages {
     public String getErrorDebitToAccount() { return "Error, valor no esperado en el débito de cuenta"; }
     public String getErrorMainView() { return "Error al volver a la vista principal"; }
     public String getErrorTx06_2016() { return "al formulario de la transacción 06-2016"; }
+    public String getErrorIdEjec() { return "Error, valor no esperado en la identificacion"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -31,5 +32,6 @@ public class Messages {
     public String getDebitToAccount() { return "IMPORAUSTRO CIA. LTDA."; }
     public String getErrorFixedTerm() { return "Error, valores no esperados"; }
     public String getTitlePrintDocuments() { return "IMPRESIÓN DE DOCUMENTOS - FitBank"; }
+    public String getIdEjec() { return "1790221806001"; }
 
 }

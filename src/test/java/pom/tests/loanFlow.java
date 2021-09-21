@@ -254,6 +254,8 @@ public class loanFlow extends StartPages {
         util.reactPage();
         driver.findElement(tr062008.getWarrantyProp()).sendKeys(loanFlow.get(27) + Keys.ENTER);
         util.waitPass(timeBase, "warrantyPro identificacion");
+        WebElement txtIdEjec = driver.findElement(tr062008.getWarrantyProp());
+        Assert.assertEquals(message.getErrorIdEjec(), message.getIdEjec(), txtIdEjec.getAttribute("value"));
         driver.findElement((tr062008.getTxtTypeWarranty())).sendKeys(loanFlow.get(28) + Keys.ENTER);
         util.waitPass(timeBase, "Type Garantía");
         driver.findElement((tr062008.getTxtTypeGoods())).sendKeys(loanFlow.get(29) + Keys.ENTER);
