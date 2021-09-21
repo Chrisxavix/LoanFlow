@@ -124,7 +124,7 @@ public class TestMain {
         loanFlow.generateReport();
     }
 
-    @And("^Guardo la transacción$")
+    @Then("^Guardo la transacción$")
     public void saveTransaction() throws Throwable {
         loanFlow.saveTransaction();
     }
@@ -137,6 +137,21 @@ public class TestMain {
     @And("^Ahora vamos a ingresar los datos de las garantias propuestas$")
     public void warrantyProp() throws Throwable {
         loanFlow.warrantyProp();
+    }
+
+    @When("^Selecciono la pestaña de impresión de documentos$")
+    public void selectPrintDocuments() throws Throwable {
+        loanFlow.selectPrintDocuments();
+    }
+
+    @When("^Genero el reporte de checklist$")
+    public void generateReportCheklist() throws Throwable {
+        loanFlow.generateReportCheklist();
+    }
+
+    @When("^Genero la orden de operación$")
+    public void generateOrder() throws Throwable {
+        loanFlow.generateOrder();
     }
 
 }
