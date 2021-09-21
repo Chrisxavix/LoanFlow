@@ -31,6 +31,7 @@ public class StartPages {
     protected static final String caseScreenTx062008 = "Tx3_06_2008";
     protected static final String caseScreenTx063071 = "Tx6_06_3071";
     protected static final String caseScreenTx000267 = "Tx5_00_0267";
+    protected static final String caseScreenTx063078 = "Tx7_06_3078";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
@@ -38,6 +39,7 @@ public class StartPages {
     protected static final Tr062008 tr062008 = new Tr062008();
     protected static final Tr063071 tr063071 = new Tr063071();
     protected static final Tr000267 tr000267 = new Tr000267();
+    protected static final Tr063078 tr063078 = new Tr063078();
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();
     protected final List<String> loanFlow = util.readExcel();

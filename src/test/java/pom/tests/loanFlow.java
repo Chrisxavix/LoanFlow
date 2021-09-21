@@ -347,4 +347,12 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063071.getBtnSaveChkList()).click();
         util.screenshot(caseScreen, caseScreenTx063071);
     }
+
+    public void creditAnalysis() throws Throwable {
+        driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(34));
+    }
+
+    public void activPasiv() throws Throwable {
+        driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(35));
+    }
 }
