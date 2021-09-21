@@ -144,40 +144,25 @@ public class TestMain {
         loanFlow.selectPrintDocuments();
     }
 
-    @When("^Genero el reporte de checklist$")
+    @And("^Genero el reporte de checklist$")
     public void generateReportCheklist() throws Throwable {
         loanFlow.generateReportCheklist();
     }
 
-    @When("^Genero la orden de operación$")
+    @And("^Genero la orden de operación$")
     public void generateOrder() throws Throwable {
         loanFlow.generateOrder();
     }
 
+    @And("^Valido que la orden de operación se haya generado$")
+    public void validateOrder() throws Throwable {
+        loanFlow.validateOrder();
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @And("^Consultar la operación$")
+    public void queryOrder() throws Throwable {
+        loanFlow.queryOrder();
+    }
 
     @And("^Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente$")
     public void typeTr063071() throws Throwable {
@@ -188,5 +173,4 @@ public class TestMain {
     public void checkList() throws Throwable {
         loanFlow.checkList();
     }
-
 }

@@ -32,16 +32,11 @@ Feature: Inversiones
     Then Guardo la transacción
     And Genero el reporte de checklist
     And Genero la orden de operación
-
-
-
-
-
-
-
-
+    And Valido que la orden de operación se haya generado
+    And Consultar la operación
     And Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente
     And Procedemos a marcar los checklist habilitados para y guardamos la verificacion
+
     Examples:
       | caso |
       | 1    |
