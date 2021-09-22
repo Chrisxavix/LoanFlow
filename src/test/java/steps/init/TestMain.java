@@ -188,4 +188,14 @@ public class TestMain {
     public void typeComment() throws Throwable {
         loanFlow.typeComment();
     }
+
+    @When("^Selecciono la pestaña de cumplimiento de políticas$")
+    public void selectPolicyCompliance() throws Throwable {
+        loanFlow.selectPolicyCompliance();
+    }
+
+    @When("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
+    public void completePolicyCompliance() throws Throwable {
+        loanFlow.completePolicyCompliance();
+    }
 }

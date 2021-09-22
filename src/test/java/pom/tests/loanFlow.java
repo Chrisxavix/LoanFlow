@@ -274,8 +274,8 @@ public class loanFlow extends StartPages {
 
     public void selectPrintDocuments() throws Throwable {
         util.reactPage();
-        WebElement test = driver.findElement(tr062016.getTabMainPrintDocuments());
-        test.click();
+        WebElement mainPrintDocuments = driver.findElement(tr062016.getTabMainPrintDocuments());
+        mainPrintDocuments.click();
         util.waitPass(timeBase, "selectPrintDocuments");
         util.screenshot(caseScreen, caseScreenTx062016);
             /* +Validaciones:
@@ -288,7 +288,7 @@ public class loanFlow extends StartPages {
         util.reactPage();
         WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
         btnChklReport.click();
-        util.switchPages(10000, "yes");
+        util.switchPages(4000, "yes");
     }
 
     public void generateOrder() throws Throwable {
@@ -364,7 +364,7 @@ public class loanFlow extends StartPages {
 
     public void typeRequestNumberAnalysis() throws Throwable {
         util.reactPage();
-        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys(requestNumber + Keys.ENTER);
+        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys("7655000313" + Keys.ENTER);
         util.waitPass(timeMedium, "typeRequestNumberAnalysis");
         util.screenshot(caseScreen, caseScreenTx063040);
             /* +Validaciones:
@@ -379,4 +379,93 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx063040);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void selectPolicyCompliance() throws Throwable {
+        util.reactPage();
+        WebElement tabPolicyCompliance = driver.findElement(tr063080.getTabPolicyCompliance());
+        tabPolicyCompliance.click();
+        util.waitPass(timeBase, "selectPolicyCompliance");
+        util.screenshot(caseScreen, caseScreenTx063080);
+            /* +Validaciones:
+               Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
+        WebElement lblCpTitle = driver.findElement(tr063080.getLblCpTitle());
+        Assert.assertEquals(message.getErrorTx063080(), message.getTitlePolicyCompliance(), lblCpTitle.getText());
+    }
+
+    public void completePolicyCompliance() throws Throwable {
+        Thread.sleep(10000);
+        /* Checks */
+        if (loanFlow.get(36).equalsIgnoreCase("Sí") || loanFlow.get(36).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpAntiquity()).click();
+        }
+        if (loanFlow.get(37).equalsIgnoreCase("Sí") || loanFlow.get(37).equalsIgnoreCase("Si")) {
+            driver.findElement(By.xpath("//*[@id=\"container_6\"]/table/tbody/tr/td[2]/table/tbody/tr[11]/td[3]/span/input[2]")).click();
+        }
+        if (loanFlow.get(38).equalsIgnoreCase("Sí") || loanFlow.get(38).equalsIgnoreCase("Si")) {
+            driver.findElement(By.xpath("//*[@id=\"container_6\"]/table/tbody/tr/td[2]/table/tbody/tr[13]/td[3]/span/input[2]")).click();
+        }
+        util.screenshot(caseScreen, caseScreenTx063080);
+        /* Comentario */
+        driver.findElement(By.xpath("//*[@id=\"container_17\"]/table/tbody/tr[3]/td[2]/input[1]")).sendKeys(loanFlow.get(39));
+        util.waitPass(timeBase, "completePolicyCompliance Comment");
+        util.screenshot(caseScreen, caseScreenTx063080);
+    }
 }
