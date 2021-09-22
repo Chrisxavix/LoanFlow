@@ -174,10 +174,26 @@ public class TestMain {
         loanFlow.checkList();
     }
 
+    @When("^Ingresamos al formulario 06-3040$")
+    public void typeTransaction3040() throws Throwable {
+        loanFlow.typeTransaction3040();
+    }
+
+    @Then("^Ingresamos el número de solicitud de análisis de crédito$")
+    public void typeRequestNumberAnalysis() throws Throwable {
+        loanFlow.typeRequestNumberAnalysis();
+    }
+
+    @And("^Agregamos un comentario$")
+    public void typeComment() throws Throwable {
+        loanFlow.typeComment();
+    }
+
     @And("^Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero$")
     public void creditAnalysis() throws Throwable {
         loanFlow.creditAnalysis();
     }
+
     @And("^Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente$")
     public void actPasiv() throws Throwable {
         loanFlow.activPasiv();

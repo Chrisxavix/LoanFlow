@@ -27,7 +27,7 @@ Feature: Inversiones
     Then Guardo la transacción
     And Luego de guardar el formulario, nos dirigimos a la pestana de garantias
     And Ahora vamos a ingresar los datos de las garantias propuestas
-    Then Guardo la transacción
+    And Guardo la transacción
     When Selecciono la pestaña de impresión de documentos
     Then Guardo la transacción
     And Genero el reporte de checklist
@@ -36,7 +36,11 @@ Feature: Inversiones
     And Consultar la operación
     And Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente
     And Procedemos a marcar los checklist habilitados y guardamos la verificacion
-#    And Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero
+    When Ingresamos al formulario 06-3040
+    Then Ingresamos el número de solicitud de análisis de crédito
+    And Agregamos un comentario
+    Then Guardo la transacción
+    And Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero
 #    And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
 
     Examples:

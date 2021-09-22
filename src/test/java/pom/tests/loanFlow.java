@@ -339,20 +339,58 @@ public class loanFlow extends StartPages {
             WebElement columnChecks = driver.findElement(By.xpath(checkLists));
             if (columnChecks.isEnabled()) {
                 columnChecks.click();
+                util.waitPass(timeBase, "Checks List");
             } else {
                 break;
             }
         }
-        util.waitPass(timeBase, "Checks List");
+
         driver.findElement(tr063071.getBtnSaveChkList()).click();
+        util.waitPass(timeSave, "Checks Save");
+        util.multipleValidate();
         util.screenshot(caseScreen, caseScreenTx063071);
     }
 
+    public void typeTransaction3040() throws Throwable {
+        util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(34) + Keys.ENTER);
+        util.waitPass(timeBase, "typeTransaction3040");
+        util.screenshot(caseScreen, caseScreenTx063040);
+        /* +Validaciones:
+               Comprobar que esté en el ventana de ANÁLISIS DE CRÉDITO - FitBank */
+        Assert.assertEquals(message.getErrorTx063040(), message.getTitleCreditAnalysis(), driver.getTitle());
+    }
+
+    public void typeRequestNumberAnalysis() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys(requestNumber + Keys.ENTER);
+        util.waitPass(timeMedium, "typeRequestNumberAnalysis");
+        util.screenshot(caseScreen, caseScreenTx063040);
+            /* +Validaciones:
+               Comprobar que los datos hayan sido cargados */
+        WebElement txtGpProductValue = driver.findElement(tr063040.getTxtGpProductValue());
+        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(9), txtGpProductValue.getAttribute("value"));
+    }
+
+    public void typeComment() throws Throwable {
+        driver.findElement(tr063040.getTxtDoComment()).sendKeys(loanFlow.get(35));
+        util.waitPass(timeBase, "typeComment");
+        util.screenshot(caseScreen, caseScreenTx063040);
+        util.multipleValidate();
+    }
+
     public void creditAnalysis() throws Throwable {
-        driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(34));
+        //util.reactPage();
+        driver.findElement(tr063078.getTabAnalysisCred()).click();
+        Thread.sleep(20000);
+        System.out.println("Riegos Indirectos: " + driver.findElement(tr063078.txtIndirectRisk).isEnabled());
+        //util.waitPass(timeMedium, "CreditAnalysis");
+        //Thread.sleep(2000);
+        //driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36));
     }
 
     public void activPasiv() throws Throwable {
-        driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(35));
+        driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
     }
 }
