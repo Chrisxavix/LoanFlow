@@ -250,24 +250,25 @@ public class loanFlow extends StartPages {
         driver.findElement(tr062000.getTabWarranty()).click();
         util.waitPass(timeMedium, "Tab Warranty");
         util.screenshot(caseScreen, caseScreenTx062008);
+        util.multipleValidate();
     }
 
     public void warrantyProp() throws Throwable {
-        util.reactPage();
+        util.reactTypeData();
         driver.findElement(tr062008.getWarrantyProp()).sendKeys(loanFlow.get(27) + Keys.ENTER);
-        util.waitPass(timeBase, "warrantyPro identificacion");
+        util.waitPass(timeMedium, "warrantyPro identificacion");
         WebElement txtIdEjec = driver.findElement(tr062008.getWarrantyProp());
         Assert.assertEquals(message.getErrorIdEjec(), message.getIdEjec(), txtIdEjec.getAttribute("value"));
         driver.findElement((tr062008.getTxtTypeWarranty())).sendKeys(loanFlow.get(28) + Keys.ENTER);
-        util.waitPass(timeBase, "Type Garantía");
+        util.waitPass(timeMedium, "Type Garantía");
         driver.findElement((tr062008.getTxtTypeGoods())).sendKeys(loanFlow.get(29) + Keys.ENTER);
-        util.waitPass(timeBase, "Bien");
+        util.waitPass(timeMedium, "Bien");
         driver.findElement((tr062008.getTxtValueComercial())).sendKeys(loanFlow.get(30) + Keys.ENTER);
-        util.waitPass(timeBase, "Value Comercial");
+        util.waitPass(timeMedium, "Value Comercial");
         driver.findElement((tr062008.getChkOpen())).click();
-        util.waitPass(timeBase, "Bien Adquirido");
+        util.waitPass(timeMedium, "Bien Adquirido");
         driver.findElement((tr062008.getTxtDescription())).sendKeys(loanFlow.get(31) + Keys.ENTER);
-        util.waitPass(timeBase, "Description");
+        util.waitPass(timeMedium, "Description");
         util.screenshot(caseScreen, caseScreenTx062008);
     }
 
@@ -339,12 +340,14 @@ public class loanFlow extends StartPages {
             WebElement columnChecks = driver.findElement(By.xpath(checkLists));
             if (columnChecks.isEnabled()) {
                 columnChecks.click();
+                util.waitPass(timeBase, "Checks List");
             } else {
                 break;
             }
         }
-        util.waitPass(timeBase, "Checks List");
         driver.findElement(tr063071.getBtnSaveChkList()).click();
+        util.waitPass(timeSave, "Checks Save");
+        util.multipleValidate();
         util.screenshot(caseScreen, caseScreenTx063071);
     }
 
