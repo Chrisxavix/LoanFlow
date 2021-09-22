@@ -363,8 +363,8 @@ public class loanFlow extends StartPages {
     }
 
     public void typeRequestNumberAnalysis() throws Throwable {
-        util.reactPage();
-        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys("7655000313" + Keys.ENTER);
+        util.reactTypeData();
+        driver.findElement(tr063040.getTxtRequestNumber()).sendKeys(requestNumber + Keys.ENTER);
         util.waitPass(timeMedium, "typeRequestNumberAnalysis");
         util.screenshot(caseScreen, caseScreenTx063040);
             /* +Validaciones:
@@ -377,66 +377,30 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063040.getTxtDoComment()).sendKeys(loanFlow.get(35));
         util.waitPass(timeBase, "typeComment");
         util.screenshot(caseScreen, caseScreenTx063040);
+        util.multipleValidate();
     }
 
+    public void creditAnalysis() throws Throwable {
+        driver.findElement(tr063078.getTabAnalysisCred()).click();
+        util.waitPass(timeBase, "Riego Indirecto");
+        WebElement indirectRisk = driver.findElement(tr063078.getTxtIndirectRisk());
+        util.multipleValidate();
+        if (indirectRisk.isEnabled()) {
+            driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36) + Keys.ENTER);
+            util.waitPass(timeBase, "SusbsCancel");
+        }
+        driver.findElement(tr063078.getTabActPasiv()).click();
+        util.waitPass(timeBase, "Pasar Activo Pasivo");
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void activPasiv() throws Throwable {
+        String patrimony = driver.findElement(tr063078.getTxtPatrimony()).getAttribute("value");
+        driver.findElement(tr063078.getTxtConfirmedPatr()).sendKeys(patrimony + Keys.ENTER);
+        util.waitPass(timeBase, "Activo Pasivo");
+        driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
+        util.waitPass(timeSave, "Check Update Balance");
+        driver.findElement(tr063078.getChkUpdtaBalance()).click();
+    }
 
     public void selectPolicyCompliance() throws Throwable {
         util.reactPage();
@@ -451,20 +415,20 @@ public class loanFlow extends StartPages {
     }
 
     public void completePolicyCompliance() throws Throwable {
-        Thread.sleep(10000);
+        util.multipleValidate();
         /* Checks */
-        if (loanFlow.get(36).equalsIgnoreCase("Sí") || loanFlow.get(36).equalsIgnoreCase("Si")) {
+        if (loanFlow.get(38).equalsIgnoreCase("Sí") || loanFlow.get(38).equalsIgnoreCase("Si")) {
             driver.findElement(tr063080.getTxtCpAntiquity()).click();
         }
-        if (loanFlow.get(37).equalsIgnoreCase("Sí") || loanFlow.get(37).equalsIgnoreCase("Si")) {
-            driver.findElement(By.xpath("//*[@id=\"container_6\"]/table/tbody/tr/td[2]/table/tbody/tr[11]/td[3]/span/input[2]")).click();
+        if (loanFlow.get(39).equalsIgnoreCase("Sí") || loanFlow.get(39).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpCreditHistory()).click();
         }
-        if (loanFlow.get(38).equalsIgnoreCase("Sí") || loanFlow.get(38).equalsIgnoreCase("Si")) {
-            driver.findElement(By.xpath("//*[@id=\"container_6\"]/table/tbody/tr/td[2]/table/tbody/tr[13]/td[3]/span/input[2]")).click();
+        if (loanFlow.get(40).equalsIgnoreCase("Sí") || loanFlow.get(40).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpValidationAnalysis()).click();
         }
         util.screenshot(caseScreen, caseScreenTx063080);
         /* Comentario */
-        driver.findElement(By.xpath("//*[@id=\"container_17\"]/table/tbody/tr[3]/td[2]/input[1]")).sendKeys(loanFlow.get(39));
+        driver.findElement(tr063080.getTxtCpComment()).sendKeys(loanFlow.get(41));
         util.waitPass(timeBase, "completePolicyCompliance Comment");
         util.screenshot(caseScreen, caseScreenTx063080);
     }
