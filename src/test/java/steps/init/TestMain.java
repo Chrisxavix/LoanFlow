@@ -124,7 +124,7 @@ public class TestMain {
         loanFlow.generateReport();
     }
 
-    @Then("^Guardo la transacción$")
+    @And("^Guardo la transacción$")
     public void saveTransaction() throws Throwable {
         loanFlow.saveTransaction();
     }
@@ -139,7 +139,7 @@ public class TestMain {
         loanFlow.warrantyProp();
     }
 
-    @When("^Selecciono la pestaña de impresión de documentos$")
+    @And("^Selecciono la pestaña de impresión de documentos$")
     public void selectPrintDocuments() throws Throwable {
         loanFlow.selectPrintDocuments();
     }
@@ -174,12 +174,12 @@ public class TestMain {
         loanFlow.checkList();
     }
 
-    @When("^Ingresamos al formulario 06-3040$")
+    @And("^Ingresamos al formulario 06-3040$")
     public void typeTransaction3040() throws Throwable {
         loanFlow.typeTransaction3040();
     }
 
-    @Then("^Ingresamos el número de solicitud de análisis de crédito$")
+    @And("^Ingresamos el numero de solicitud de análisis de crédito$")
     public void typeRequestNumberAnalysis() throws Throwable {
         loanFlow.typeRequestNumberAnalysis();
     }
@@ -199,12 +199,12 @@ public class TestMain {
         loanFlow.activPasiv();
     }
 
-    @When("^Selecciono la pestaña de cumplimiento de políticas$")
+    @And("^Selecciono la pestaña de cumplimiento de políticas$")
     public void selectPolicyCompliance() throws Throwable {
         loanFlow.selectPolicyCompliance();
     }
 
-    @When("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
+    @And("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
     public void completePolicyCompliance() throws Throwable {
         loanFlow.completePolicyCompliance();
     }

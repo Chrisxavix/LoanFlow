@@ -387,6 +387,7 @@ public class loanFlow extends StartPages {
         util.multipleValidate();
         if (indirectRisk.isEnabled()) {
             driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36) + Keys.ENTER);
+            util.screenshot(caseScreen, caseScreenTx063078);
             util.waitPass(timeBase, "SusbsCancel");
         }
         driver.findElement(tr063078.getTabActPasiv()).click();
@@ -400,6 +401,7 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
         util.waitPass(timeSave, "Check Update Balance");
         driver.findElement(tr063078.getChkUpdtaBalance()).click();
+        util.screenshot(caseScreen, caseScreenTx063078);
     }
 
     public void selectPolicyCompliance() throws Throwable {
