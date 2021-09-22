@@ -169,7 +169,7 @@ public class TestMain {
         loanFlow.typeTxt063071();
     }
 
-    @And("^Procedemos a marcar los checklist habilitados para y guardamos la verificacion$")
+    @And("^Procedemos a marcar los checklist habilitados y guardamos la verificacion$")
     public void checkList() throws Throwable {
         loanFlow.checkList();
     }
@@ -187,5 +187,15 @@ public class TestMain {
     @And("^Agregamos un comentario$")
     public void typeComment() throws Throwable {
         loanFlow.typeComment();
+    }
+
+    @And("^Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero$")
+    public void creditAnalysis() throws Throwable {
+        loanFlow.creditAnalysis();
+    }
+
+    @And("^Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente$")
+    public void actPasiv() throws Throwable {
+        loanFlow.activPasiv();
     }
 }

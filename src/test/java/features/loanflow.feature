@@ -35,12 +35,14 @@ Feature: Inversiones
     And Valido que la orden de operación se haya generado
     And Consultar la operación
     And Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente
-    And Procedemos a marcar los checklist habilitados para y guardamos la verificacion
+    And Procedemos a marcar los checklist habilitados y guardamos la verificacion
     When Ingresamos al formulario 06-3040
     Then Ingresamos el número de solicitud de análisis de crédito
     And Agregamos un comentario
     Then Guardo la transacción
-
+    And Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero
+    And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
+    Then Guardo la transacción
     Examples:
       | caso |
       | 1    |

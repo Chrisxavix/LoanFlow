@@ -363,7 +363,7 @@ public class loanFlow extends StartPages {
     }
 
     public void typeRequestNumberAnalysis() throws Throwable {
-        util.reactPage();
+        util.reactTypeData();
         driver.findElement(tr063040.getTxtRequestNumber()).sendKeys(requestNumber + Keys.ENTER);
         util.waitPass(timeMedium, "typeRequestNumberAnalysis");
         util.screenshot(caseScreen, caseScreenTx063040);
@@ -377,6 +377,29 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063040.getTxtDoComment()).sendKeys(loanFlow.get(35));
         util.waitPass(timeBase, "typeComment");
         util.screenshot(caseScreen, caseScreenTx063040);
+        util.multipleValidate();
     }
 
+    public void creditAnalysis() throws Throwable {
+        driver.findElement(tr063078.getTabAnalysisCred()).click();
+        util.waitPass(timeBase, "Riego Indirecto");
+        WebElement indirectRisk = driver.findElement(tr063078.getTxtIndirectRisk());
+        util.multipleValidate();
+        if (indirectRisk.isEnabled()) {
+            driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36) + Keys.ENTER);
+            util.waitPass(timeBase, "SusbsCancel");
+        }
+        driver.findElement(tr063078.getTabActPasiv()).click();
+        util.waitPass(timeBase, "Pasar Activo Pasivo");
+
+    }
+
+    public void activPasiv() throws Throwable {
+        String patrimony = driver.findElement(tr063078.getTxtPatrimony()).getAttribute("value");
+        driver.findElement(tr063078.getTxtConfirmedPatr()).sendKeys(patrimony + Keys.ENTER);
+        util.waitPass(timeBase, "Activo Pasivo");
+        driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
+        util.waitPass(timeSave, "Check Update Balance");
+        driver.findElement(tr063078.getChkUpdtaBalance()).click();
+    }
 }
