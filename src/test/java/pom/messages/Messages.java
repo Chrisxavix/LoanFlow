@@ -19,6 +19,7 @@ public class Messages {
     public String getErrorIdEjec() { return "Error, valor no esperado en la identificacion"; }
     public String getErrorTx000267() { return "Error al ingresar al formulario de la transacción 00-0267"; }
     public String getErrorGeneral() { return "Error, valor no encontrados o incorrectos"; }
+    public String getErrorTx063040() { return "Error al ingresar al formulario de la transacción 06-3040"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -35,5 +36,6 @@ public class Messages {
     public String getTitlePrintDocuments() { return "IMPRESIÓN DE DOCUMENTOS - FitBank"; }
     public String getIdEjec() { return "1790221806001"; }
     public String getTitleQueryReport() { return "Consulta de Reportes Generados en Batch - FitBank"; }
+    public String getTitleCreditAnalysis() { return "ANÁLISIS DE CRÉDITO - FitBank"; }
 
 }
