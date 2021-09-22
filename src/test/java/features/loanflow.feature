@@ -41,8 +41,8 @@ Feature: Inversiones
     And Agregamos un comentario
     Then Guardo la transacción
     And Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero
-#    And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
-
+    And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
+    Then Guardo la transacción
     Examples:
       | caso |
       | 1    |

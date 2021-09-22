@@ -132,6 +132,11 @@ public class Utilities {
         Thread.sleep(2200);
     }
 
+    /* Reacción de la página para el ingreso de datos */
+    public void reactTypeData() throws InterruptedException {
+        Thread.sleep(3000);
+    }
+
     /* Reacción al iniciar una transacción */
     public void reactStartTransaction() throws InterruptedException {
         Thread.sleep(2000);
