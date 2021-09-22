@@ -306,7 +306,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx000267);
         /* +Validaciones:
                Comprobar que esté en el ventana de Consulta de Reportes Generados en Batch - FitBank */
-        //Assert.assertEquals(message.getErrorTx000267(), message.getTitleQueryReport(), driver.getTitle());
+        Assert.assertEquals(message.getErrorTx000267(), message.getTitleQueryReport(), driver.getTitle());
     }
 
     public void queryOrder() throws Throwable {

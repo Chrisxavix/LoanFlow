@@ -27,7 +27,7 @@ Feature: Inversiones
     Then Guardo la transacción
     And Luego de guardar el formulario, nos dirigimos a la pestana de garantias
     And Ahora vamos a ingresar los datos de las garantias propuestas
-    And Guardo la transacción
+    Then Guardo la transacción
     When Selecciono la pestaña de impresión de documentos
     Then Guardo la transacción
     And Genero el reporte de checklist
