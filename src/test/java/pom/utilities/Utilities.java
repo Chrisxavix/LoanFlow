@@ -33,9 +33,9 @@ public class Utilities {
     private final int timeSave = 60;
 
     /* Espera Fluida */
-    public void waitPass(int time, String nameBox) throws Throwable {
+    public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
         int timeFinal = time * 5;
-        String status = driver.findElement(global.getTxtStatus()).getText();
+        String status = typeDriver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);
         int cont = 1;
         while ((status.equalsIgnoreCase("PROCESANDO...")
@@ -45,7 +45,7 @@ public class Utilities {
                 && cont < timeFinal) {
             cont++;
             Thread.sleep(200);
-            status = driver.findElement(global.getTxtStatus()).getText();
+            status = typeDriver.findElement(global.getTxtStatus()).getText();
             /*System.out.println("STATUS DEL WHILE: " + status);
             System.out.println("ENTRA AL WHILE: " + cont);*/
         }
@@ -178,14 +178,14 @@ public class Utilities {
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
-    public void multipleValidate() throws Throwable {
+    public void multipleValidate(WebDriver typeDriver) throws Throwable {
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 1");
+        this.waitPass(timeSave, "validate 1", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 2");
+        this.waitPass(timeSave, "validate 2", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 3");
+        this.waitPass(timeSave, "validate 3", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 4");
+        this.waitPass(timeSave, "validate 4", typeDriver);
     }
 }
