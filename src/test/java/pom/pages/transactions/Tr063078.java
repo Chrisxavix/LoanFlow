@@ -19,5 +19,5 @@ public class Tr063078 {
     public By getTxtPatrimony() { return this.txtPatrimony; }
     public By getTxtConfirmedPatr() { return this.txtConfirmedPatr; }
     public By getTxtIndirectRisk() { return this.txtIndirectRisk; }
-    public By getChkUpdtaBalance() { return chkUpdtaBalance; }-
+    public By getChkUpdtaBalance() { return chkUpdtaBalance; }
 }
