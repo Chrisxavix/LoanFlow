@@ -28,7 +28,7 @@ public class Utilities {
     private final int timeSave = 60;
 
     /* Espera Fluida */
-    public void waitPass(int time, String nameBox) throws Throwable {
+    public void waitPass(int time, String nameBox ) throws Throwable {
         int timeFinal = time * 5;
         String status = driver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);

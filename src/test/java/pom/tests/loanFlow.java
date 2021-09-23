@@ -452,7 +452,18 @@ public class loanFlow extends StartPages {
         /* Ingreso de usuario y contraseña */
         driverIncognito.findElement(loginPage.getTxtUser()).sendKeys("BA01003274");
         driverIncognito.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(2));
+        driverIncognito.findElement(loginPage.getBtnSubmit()).submit();
         /* Se cierra después de terminar el proceso en modo incógnito */
         driverIncognito.close();
+    }
+
+    public void authMailBox() throws Throwable {
+        driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
+        Thread.sleep(2000);
+        driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys("3080" + Keys.TAB);
+        List<WebElement> tablePrint = driverIncognito.findElements(tr002008.getTblTransaction());
+        for (int i = 1; i <= tablePrint.size(); i++) {
+            System.out.println("Size table: " + i);
+        }
     }
 }
