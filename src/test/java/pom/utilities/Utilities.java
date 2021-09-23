@@ -5,6 +5,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import steps.hook.Hook;
 import pom.pages.global.Global;
 import java.awt.*;
@@ -20,6 +22,9 @@ import java.util.Set;
 
 public class Utilities {
     protected WebDriver driver = Hook.getDriver();
+    /* Navegador Incógnito */
+    public ChromeOptions chromeOptions = new ChromeOptions();
+    public WebDriver driverIncognito = new ChromeDriver(chromeOptions);
     protected Global global = new Global();
     private int step = 1;
     private static int countScenario = 0;
@@ -28,9 +33,9 @@ public class Utilities {
     private final int timeSave = 60;
 
     /* Espera Fluida */
-    public void waitPass(int time, String nameBox ) throws Throwable {
+    public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
         int timeFinal = time * 5;
-        String status = driver.findElement(global.getTxtStatus()).getText();
+        String status = typeDriver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);
         int cont = 1;
         while ((status.equalsIgnoreCase("PROCESANDO...")
@@ -40,7 +45,7 @@ public class Utilities {
                 && cont < timeFinal) {
             cont++;
             Thread.sleep(200);
-            status = driver.findElement(global.getTxtStatus()).getText();
+            status = typeDriver.findElement(global.getTxtStatus()).getText();
             /*System.out.println("STATUS DEL WHILE: " + status);
             System.out.println("ENTRA AL WHILE: " + cont);*/
         }
@@ -81,11 +86,11 @@ public class Utilities {
     }
 
     /* Capturas de pantalla */
-    public void screenshot(int screenshot, String transaction) throws IOException {
+    public void screenshot(int screenshot, String transaction, WebDriver typeDriver) throws IOException {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
         String time = dateFormat.format(now);
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) typeDriver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("./src/test/assets/screenshots/loanflow/scenario" + screenshot + "/" + transaction + "/" + "step" + step++ + "-" + time + ".png"));
     }
 
@@ -173,14 +178,14 @@ public class Utilities {
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
-    public void multipleValidate() throws Throwable {
+    public void multipleValidate(WebDriver typeDriver) throws Throwable {
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 1");
+        this.waitPass(timeSave, "validate 1", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 2");
+        this.waitPass(timeSave, "validate 2", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 3");
+        this.waitPass(timeSave, "validate 3", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 4");
+        this.waitPass(timeSave, "validate 4", typeDriver);
     }
 }
