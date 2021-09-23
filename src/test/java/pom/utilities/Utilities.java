@@ -35,7 +35,8 @@ public class Utilities {
         int cont = 1;
         while ((status.equalsIgnoreCase("PROCESANDO...")
                 || status.equalsIgnoreCase("POR FAVOR ESPERE A QUE EL PROCESO ACTUAL TERMINE.")
-                || status.equalsIgnoreCase("CARGANDO FORMULARIO..."))
+                || status.equalsIgnoreCase("CARGANDO FORMULARIO...")
+                || status.equalsIgnoreCase("CANNOT READ PROPERTIES OF UNDEFINED (READING 'ITEMS')"))
                 && cont < timeFinal) {
             cont++;
             Thread.sleep(200);
@@ -49,7 +50,7 @@ public class Utilities {
     }
 
     /* Jugar con las pestañas del navegador */
-    public void switchPages(int timeWindow) throws Throwable {
+    public void switchPages(int timeWindow, String print) throws Throwable {
         /* Todas las ventanas abiertas en prueba */
         Set<String> windows = driver.getWindowHandles();
         /* Ventana principal */
@@ -66,10 +67,15 @@ public class Utilities {
                 Thread.sleep(3000);
                 driver.switchTo().window(mainWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
-                Thread.sleep(timeWindow);
-                driver.switchTo().window(mainWindow);
+                if(print.equalsIgnoreCase("yes")) {
+                    Thread.sleep(timeWindow);
+                    this.downloadPDF();
+                    this.typeSavePdf();
+                    driver.close();
+                }
+                driver.switchTo().window(mainOfWindow);
             } else {
-                driver.switchTo().window(mainWindow);
+                driver.switchTo().window(mainOfWindow);
             }
         }
     }
@@ -126,6 +132,11 @@ public class Utilities {
         Thread.sleep(2200);
     }
 
+    /* Reacción de la página para el ingreso de datos */
+    public void reactTypeData() throws InterruptedException {
+        Thread.sleep(3000);
+    }
+
     /* Reacción al iniciar una transacción */
     public void reactStartTransaction() throws InterruptedException {
         Thread.sleep(2000);
@@ -152,6 +163,14 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
+    }
+
+    /* Guardar archivos sin el método de switchPDF */
+    public void typeSavePdf() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.setAutoDelay(600);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
     public void multipleValidate() throws Throwable {

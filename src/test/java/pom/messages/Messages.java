@@ -15,6 +15,12 @@ public class Messages {
     public String getErrorComment() { return "Error, valor no esperado en el comentario"; }
     public String getErrorDebitToAccount() { return "Error, valor no esperado en el débito de cuenta"; }
     public String getErrorMainView() { return "Error al volver a la vista principal"; }
+    public String getErrorTx062016() { return "al formulario de la transacción 06-2016"; }
+    public String getErrorIdEjec() { return "Error, valor no esperado en la identificacion"; }
+    public String getErrorTx000267() { return "Error al ingresar al formulario de la transacción 00-0267"; }
+    public String getErrorGeneral() { return "Error, valor no encontrados o incorrectos"; }
+    public String getErrorTx063040() { return "Error al ingresar al formulario de la transacción 06-3040"; }
+    public String getErrorTx063080() { return "Error al ingresar al formulario de la transacción 06-3080"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -28,6 +34,10 @@ public class Messages {
     public String getParish() { return "EL BATAN"; }
     public String getWayToPay() { return "DEBITO CTA"; }
     public String getDebitToAccount() { return "IMPORAUSTRO CIA. LTDA."; }
-    public String getErrorFixedTerm() { return "Error, valores no esperados"; }
+    public String getTitlePrintDocuments() { return "IMPRESIÓN DE DOCUMENTOS - FitBank"; }
+    public String getIdEjec() { return "1790221806001"; }
+    public String getTitleQueryReport() { return "Consulta de Reportes Generados en Batch - FitBank"; }
+    public String getTitleCreditAnalysis() { return "ANÁLISIS DE CRÉDITO - FitBank"; }
+    public String getTitlePolicyCompliance() { return "CUMPLIMIENTO DE POLITICAS"; }
 
 }
