@@ -35,7 +35,8 @@ Feature: Flujo de Préstamos
     Then Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario
     And Completo las políticas adicionales
     And Guardo la transacción
-    And Abrimos el navegador en modo incognito
+    And Abrimos el navegador en modo incógnito
+    And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
 
     Examples:
       | caso |
