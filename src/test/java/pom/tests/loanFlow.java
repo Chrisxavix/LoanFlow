@@ -42,60 +42,44 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
         util.waitPass(timeBase, "typeTransaction");
         util.screenshot(caseScreen, caseScreenTx062100);
-    }
-
-    public void idDeudor() throws Throwable {
+        /* Deudor */
         driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(4) + Keys.ENTER);
         util.waitPass(timeBase, "idDeudor");
         WebElement relation = driver.findElement(tr062100.getTxtRelationsText());
         Assert.assertEquals("Error", "DEUDOR", relation.getAttribute("value"));
-    }
-
-    public void idCod() throws Throwable {
+        /* Codeudor */
         driver.findElement(tr062100.getTxtIdCod()).sendKeys(loanFlow.get(5) + Keys.ENTER);
         util.waitPass(timeBase, "idCodeudor Id");
         driver.findElement(tr062100.getTxtRelationsCod()).sendKeys(loanFlow.get(6) + Keys.ENTER);
         util.waitPass(timeBase, "idCodeudor Cod");
-        WebElement relation = driver.findElement(tr062100.getTxtRelationsCodText());
-        Assert.assertEquals("Error", "CODEUDOR", relation.getAttribute("value"));
-    }
-
-    public void idGarante() throws Throwable {
+        WebElement relation1 = driver.findElement(tr062100.getTxtRelationsCodText());
+        Assert.assertEquals("Error", "CODEUDOR", relation1.getAttribute("value"));
+        /* Garante */
         driver.findElement(tr062100.getTxtIdGar()).sendKeys(loanFlow.get(7) + Keys.ENTER);
         util.waitPass(timeBase, "idGarante Id");
         driver.findElement(tr062100.getTxtRelationsGar()).sendKeys(loanFlow.get(8) + Keys.ENTER);
         util.waitPass(timeBase, "idGarante Cod");
         util.screenshot(caseScreen, caseScreenTx062100);
-        WebElement relation = driver.findElement(tr062100.getTxtRelationsGarText());
-        Assert.assertEquals("Error", "GARANTE", relation.getAttribute("value"));
+        WebElement relation2 = driver.findElement(tr062100.getTxtRelationsGarText());
+        Assert.assertEquals("Error", "GARANTE", relation2.getAttribute("value"));
     }
 
     public void productGroup() throws Throwable {
         driver.findElement(tr062100.getTxtProductGroup()).sendKeys(loanFlow.get(9) + Keys.ENTER);
         util.waitPass(timeBase, "productGroup");
-    }
-
-    public void product() throws Throwable {
+        /* Producto */
         driver.findElement(tr062100.getTxtProduct()).sendKeys(loanFlow.get(10) + Keys.ENTER);
         util.waitPass(timeBase, "product");
-    }
-
-    public void idExecutive() throws Throwable {
+        /* Identificacion Ejecutivo */
         driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(11) + Keys.ENTER);
         util.waitPass(timeBase, "idExecutive");
-    }
-
-    public void origin() throws Throwable {
+        /* Origen */
         driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(12) + Keys.ENTER);
         util.waitPass(timeBase, "Origin");
-    }
-
-    public void destFunds() throws Throwable {
+        /* Fondos de destino */
         driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(loanFlow.get(13) + Keys.ENTER);
         util.waitPass(timeBase, "destFunds");
-    }
-
-    public void recpActivity() throws Throwable {
+        /* Actividad Receptora*/
         driver.findElement(tr062100.getTxtReceptorActivity()).sendKeys(loanFlow.get(14) + Keys.ENTER);
         util.waitPass(timeBase, "recpActivity");
     }
@@ -103,20 +87,14 @@ public class loanFlow extends StartPages {
     public void amountCred() throws Throwable {
         driver.findElement(tr062100.getTxtAmountCredit()).sendKeys(loanFlow.get(15) + Keys.ENTER);
         util.waitPass(timeBase, "amountCred");
-    }
-
-    public void capFrecuency() throws Throwable {
+        /* Frecuencia Capital */
         driver.findElement(tr062100.getTxtCapitalFrequency()).sendKeys(loanFlow.get(16) + Keys.ENTER);
         util.waitPass(timeBase, "capFrecuency");
-    }
-
-    public void numberQuotas() throws Throwable {
+        /* Numero de Cuotas */
         driver.findElement(tr062100.getTxtNumberQuotas()).sendKeys(loanFlow.get(17) + Keys.ENTER);
         util.waitPass(timeBase, "numberQuotas");
         util.screenshot(caseScreen, caseScreenTx062100);
-    }
-
-    public void interestRate() throws Throwable {
+        /* Tasa de Interes */
         driver.findElement(tr062100.getBtnInterestRate()).click();
         util.waitPass(timeBase, "interestRate open");
         util.screenshot(caseScreen, caseScreenTx062100);
@@ -274,8 +252,8 @@ public class loanFlow extends StartPages {
 
     public void selectPrintDocuments() throws Throwable {
         util.reactPage();
-        WebElement test = driver.findElement(tr062016.getTabMainPrintDocuments());
-        test.click();
+        WebElement mainPrintDocuments = driver.findElement(tr062016.getTabMainPrintDocuments());
+        mainPrintDocuments.click();
         util.waitPass(timeBase, "selectPrintDocuments");
         util.screenshot(caseScreen, caseScreenTx062016);
             /* +Validaciones:
@@ -288,7 +266,7 @@ public class loanFlow extends StartPages {
         util.reactPage();
         WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
         btnChklReport.click();
-        util.switchPages(10000, "yes");
+        util.switchPages(4000, "yes");
     }
 
     public void generateOrder() throws Throwable {
@@ -387,11 +365,11 @@ public class loanFlow extends StartPages {
         util.multipleValidate();
         if (indirectRisk.isEnabled()) {
             driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36) + Keys.ENTER);
+            util.screenshot(caseScreen, caseScreenTx063078);
             util.waitPass(timeBase, "SusbsCancel");
         }
         driver.findElement(tr063078.getTabActPasiv()).click();
         util.waitPass(timeBase, "Pasar Activo Pasivo");
-
     }
 
     public void activPasiv() throws Throwable {
@@ -401,5 +379,37 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
         util.waitPass(timeSave, "Check Update Balance");
         driver.findElement(tr063078.getChkUpdtaBalance()).click();
+        util.screenshot(caseScreen, caseScreenTx063078);
+    }
+
+    public void selectPolicyCompliance() throws Throwable {
+        util.reactPage();
+        WebElement tabPolicyCompliance = driver.findElement(tr063080.getTabPolicyCompliance());
+        tabPolicyCompliance.click();
+        util.waitPass(timeBase, "selectPolicyCompliance");
+        util.screenshot(caseScreen, caseScreenTx063080);
+            /* +Validaciones:
+               Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
+        WebElement lblCpTitle = driver.findElement(tr063080.getLblCpTitle());
+        Assert.assertEquals(message.getErrorTx063080(), message.getTitlePolicyCompliance(), lblCpTitle.getText());
+    }
+
+    public void completePolicyCompliance() throws Throwable {
+        util.multipleValidate();
+        /* Checks */
+        if (loanFlow.get(38).equalsIgnoreCase("Sí") || loanFlow.get(38).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpAntiquity()).click();
+        }
+        if (loanFlow.get(39).equalsIgnoreCase("Sí") || loanFlow.get(39).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpCreditHistory()).click();
+        }
+        if (loanFlow.get(40).equalsIgnoreCase("Sí") || loanFlow.get(40).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpValidationAnalysis()).click();
+        }
+        util.screenshot(caseScreen, caseScreenTx063080);
+        /* Comentario */
+        driver.findElement(tr063080.getTxtCpComment()).sendKeys(loanFlow.get(41));
+        util.waitPass(timeBase, "completePolicyCompliance Comment");
+        util.screenshot(caseScreen, caseScreenTx063080);
     }
 }
