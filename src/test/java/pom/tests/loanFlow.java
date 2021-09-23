@@ -435,9 +435,24 @@ public class loanFlow extends StartPages {
             driver.findElement(tr063080.getChkCpSubmitApproval()).click();
         }
         util.screenshot(caseScreen, caseScreenTx063080);
+        userIncognit = "BA01003274";
     }
 
     public void openNewBrowserIncognito() throws Throwable {
-        util.screenshot(caseScreen, caseScreenTx063080);
+        chromeOptions.addArguments("--incognito");
+        driverIncognito.manage().window().maximize();
+        driverIncognito.get("http://" + loanFlow.get(0) + ":8380/WEB3/ingreso.html");
+    }
+
+    public void incognitoCloseSessionAndTypeUserPassword() throws Throwable {
+        util.reactPage();
+        /* Forzar cierre de sesiones */
+        driverIncognito.findElement(loginPage.getLinkMoreOptions()).click();
+        driverIncognito.findElement(loginPage.getBtnForceClose()).click();
+        /* Ingreso de usuario y contraseña */
+        driverIncognito.findElement(loginPage.getTxtUser()).sendKeys("BA01003274");
+        driverIncognito.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(2));
+        /* Se cierra después de terminar el proceso en modo incógnito */
+        driverIncognito.close();
     }
 }

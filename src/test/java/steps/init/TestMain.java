@@ -155,8 +155,13 @@ public class TestMain {
         loanFlow.completeAdditionalPolicies();
     }
 
-    @And("^Abrimos el navegador en modo incognito$")
+    @And("^Abrimos el navegador en modo incógnito$")
     public void openNewBrowserIncognito() throws Throwable {
         loanFlow.openNewBrowserIncognito();
+    }
+
+    @And("^Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito$")
+    public void incognitoCloseSessionAndTypeUserPassword() throws Throwable {
+        loanFlow.incognitoCloseSessionAndTypeUserPassword();
     }
 }

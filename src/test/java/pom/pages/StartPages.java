@@ -1,6 +1,8 @@
 package pom.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pom.pages.transactions.*;
 import steps.hook.Hook;
 import pom.messages.Messages;
@@ -14,6 +16,10 @@ public class StartPages {
     /* Constructor con excepciones dadas por el excel */
     public StartPages() throws IOException { }
     protected WebDriver driver = Hook.getDriver();
+    /* Navegador Incógnito */
+    protected ChromeOptions chromeOptions = new ChromeOptions();
+    protected WebDriver driverIncognito = new ChromeDriver(chromeOptions);
+    protected String userIncognit;
     /* Tiempos de espera */
     protected static final int timeBase = 15;
     protected static final int timeMedium = 30;
@@ -24,16 +30,17 @@ public class StartPages {
     protected Global global = new Global();
     /* Capturador de pantallas por transacción */
     protected static int caseScreen = 0;
-    protected static final String caseScreenLogin = "login";
-    protected static final String caseScreenTx062100 = "Tx1_06_2100";
-    protected static final String caseScreenTx062000 = "Tx2_06_2000";
-    protected static final String caseScreenTx062016 = "Tx4_06_2016";
-    protected static final String caseScreenTx062008 = "Tx3_06_2008";
-    protected static final String caseScreenTx063071 = "Tx6_06_3071";
-    protected static final String caseScreenTx000267 = "Tx5_00_0267";
-    protected static final String caseScreenTx063040 = "Tx7_06_3040";
-    protected static final String caseScreenTx063080 = "Tx9_06_3080";
-    protected static final String caseScreenTx063078 = "Tx8_06_3078";
+    protected static final String caseScreenLogin = "Tx00_login";
+    protected static final String caseScreenTx062100 = "Tx01_06_2100";
+    protected static final String caseScreenTx062000 = "Tx02_06_2000";
+    protected static final String caseScreenTx062008 = "Tx03_06_2008";
+    protected static final String caseScreenTx062016 = "Tx04_06_2016";
+    protected static final String caseScreenTx000267 = "Tx05_00_0267";
+    protected static final String caseScreenTx063071 = "Tx06_06_3071";
+    protected static final String caseScreenTx063040 = "Tx07_06_3040";
+    protected static final String caseScreenTx063078 = "Tx08_06_3078";
+    protected static final String caseScreenTx063080 = "Tx09_06_3080";
+    protected static final String caseScreenIncognitoLogin = "Tx10_Login";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
