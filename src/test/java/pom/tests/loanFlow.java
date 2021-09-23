@@ -418,18 +418,44 @@ public class loanFlow extends StartPages {
         util.multipleValidate();
         /* Checks */
         if (loanFlow.get(38).equalsIgnoreCase("Sí") || loanFlow.get(38).equalsIgnoreCase("Si")) {
-            driver.findElement(tr063080.getTxtCpAntiquity()).click();
+            driver.findElement(tr063080.getChkCpAntiquity()).click();
         }
         if (loanFlow.get(39).equalsIgnoreCase("Sí") || loanFlow.get(39).equalsIgnoreCase("Si")) {
-            driver.findElement(tr063080.getTxtCpCreditHistory()).click();
+            driver.findElement(tr063080.getChkCpCreditHistory()).click();
         }
         if (loanFlow.get(40).equalsIgnoreCase("Sí") || loanFlow.get(40).equalsIgnoreCase("Si")) {
-            driver.findElement(tr063080.getTxtCpValidationAnalysis()).click();
+            driver.findElement(tr063080.getChkCpValidationAnalysis()).click();
         }
         util.screenshot(caseScreen, caseScreenTx063080);
         /* Comentario */
         driver.findElement(tr063080.getTxtCpComment()).sendKeys(loanFlow.get(41));
         util.waitPass(timeBase, "completePolicyCompliance Comment");
         util.screenshot(caseScreen, caseScreenTx063080);
+    }
+
+    public void completeAdditionalPolicies() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr063080.getTabCpAditionalPolicies()).click();
+        util.waitPass(timeSave, "completeAdditionalPolicies");
+        util.screenshot(caseScreen, caseScreenTx063080);
+        /* Cumple Política De Garantías */
+        if (loanFlow.get(42).equalsIgnoreCase("Sí") || loanFlow.get(42).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getChkCpGuaranteePolicy()).click();
+        }
+        if (loanFlow.get(43).equalsIgnoreCase("Sí") || loanFlow.get(43).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getTxtCpCoverage()).click();
+        }
+        if (loanFlow.get(44).equalsIgnoreCase("Sí") || loanFlow.get(44).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getChkCpDocumentaryRequirements()).click();
+        }
+        if (loanFlow.get(45).equalsIgnoreCase("Sí") || loanFlow.get(45).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getChkCpPaymentCapacity()).click();
+        }
+        if (loanFlow.get(46).equalsIgnoreCase("Sí") || loanFlow.get(46).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getChkCpBorrowingLimit()).click();
+        }
+        if (loanFlow.get(47).equalsIgnoreCase("Sí") || loanFlow.get(47).equalsIgnoreCase("Si")) {
+            driver.findElement(tr063080.getChkCpSubmitApproval()).click();
+        }
     }
 }

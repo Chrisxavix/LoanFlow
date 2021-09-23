@@ -45,6 +45,8 @@ Feature: Flujo de Préstamos
     Then Guardo la transacción
     When Selecciono la pestaña de cumplimiento de políticas
     Then Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario
+    And Completo las políticas adicionales
+    Then Guardo la transacción
     Examples:
       | caso |
       | 1    |

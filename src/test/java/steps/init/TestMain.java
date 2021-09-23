@@ -204,8 +204,13 @@ public class TestMain {
         loanFlow.selectPolicyCompliance();
     }
 
-    @When("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
+    @Then("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
     public void completePolicyCompliance() throws Throwable {
         loanFlow.completePolicyCompliance();
+    }
+
+    @And("^Completo las políticas adicionales$")
+    public void completeAdditionalPolicies() throws Throwable {
+        loanFlow.completeAdditionalPolicies();
     }
 }
