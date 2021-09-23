@@ -1,8 +1,6 @@
 package pom.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pom.pages.transactions.*;
 import steps.hook.Hook;
 import pom.messages.Messages;
