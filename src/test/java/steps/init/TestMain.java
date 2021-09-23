@@ -25,12 +25,12 @@ public class TestMain {
         loanFlow.closeSessionAndTypeUserPassword();
     }
 
-    @And("^Ingreso a la transaccion e ingresamos los datos del Deudor-Codeudor y Garantes$")
+    @And("^Ingreso a la transacción 06-2100 e ingreso los datos del Deudor, Codeudor y Garantes$")
     public void typeTransaction() throws Throwable {
         loanFlow.typeTransaction();
     }
 
-    @And("^Ahora me dirigo a Datos Producto e ingreso los datos respectivos$")
+    @And("^Ahora me dirijo a Datos Producto e ingreso los datos respectivos$")
     public void productGroup() throws Throwable {
         loanFlow.productGroup();
     }
@@ -40,19 +40,14 @@ public class TestMain {
         loanFlow.amountCred();
     }
 
-    @And("^Guardamos el formulario para crear el numero de solicitud$")
+    @And("^Guardamos el formulario para crear el número de solicitud$")
     public void saveForm() throws Throwable {
         loanFlow.saveForm();
     }
 
-    @And("^Ingreso la transacción 06-2000$")
+    @And("^Ingreso la transacción 06-2000 e ingreso el número de solicitud$")
     public void typeTx062000() throws Throwable {
         loanFlow.typeTx062000();
-    }
-
-    @And("^Ingreso el número de solicitud$")
-    public void typeRequestNumber() throws Throwable {
-        loanFlow.typeRequestNumber();
     }
 
     @And("^Ingreso los datos geográficos$")
@@ -75,17 +70,17 @@ public class TestMain {
         loanFlow.saveTransaction();
     }
 
-    @And("^Luego de guardar el formulario, nos dirigimos a la pestana de garantias$")
+    @And("^Nos dirigimos a la pestaña de garantias 06-2008$")
     public void tabWarranty() throws Throwable {
         loanFlow.tabWarranty();
     }
 
-    @And("^Ahora vamos a ingresar los datos de las garantias propuestas$")
+    @And("^Ingreso los datos de las garantias propuestas$")
     public void warrantyProp() throws Throwable {
         loanFlow.warrantyProp();
     }
 
-    @And("^Selecciono la pestaña de impresión de documentos$")
+    @And("^Nos dirigimos a la pestaña pestaña de impresión de documentos 06-2016$")
     public void selectPrintDocuments() throws Throwable {
         loanFlow.selectPrintDocuments();
     }
@@ -105,17 +100,17 @@ public class TestMain {
         loanFlow.validateOrder();
     }
 
-    @And("^Consultar la operación$")
+    @And("^Consultar la operación 00-0267$")
     public void queryOrder() throws Throwable {
         loanFlow.queryOrder();
     }
 
-    @And("^Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente$")
+    @And("^Ahora nos dirigimos a la transaccion 06-3071 e ingresamos el número de solicitud generado anteriormente$")
     public void typeTr063071() throws Throwable {
         loanFlow.typeTxt063071();
     }
 
-    @And("^Procedemos a marcar los checklist habilitados y guardamos la verificacion$")
+    @And("^Marco los checklist habilitados y guardamos la verificacion$")
     public void checkList() throws Throwable {
         loanFlow.checkList();
     }
@@ -135,7 +130,7 @@ public class TestMain {
         loanFlow.typeComment();
     }
 
-    @And("^Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero$")
+    @And("^Nos dirigimos a la pestaña de analisis de credito 06-3078, en riesgos ingresamos el valor de cero$")
     public void creditAnalysis() throws Throwable {
         loanFlow.creditAnalysis();
     }
@@ -145,13 +140,23 @@ public class TestMain {
         loanFlow.activPasiv();
     }
 
-    @And("^Selecciono la pestaña de cumplimiento de políticas$")
+    @And("^Selecciono la pestaña de cumplimiento de políticas 06-3080$")
     public void selectPolicyCompliance() throws Throwable {
         loanFlow.selectPolicyCompliance();
     }
 
-    @And("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
+    @Then("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
     public void completePolicyCompliance() throws Throwable {
         loanFlow.completePolicyCompliance();
+    }
+
+    @And("^Completo las políticas adicionales$")
+    public void completeAdditionalPolicies() throws Throwable {
+        loanFlow.completeAdditionalPolicies();
+    }
+
+    @And("^Abrimos el navegador en modo incognito$")
+    public void openNewBrowserIncognito() throws Throwable {
+        loanFlow.openNewBrowserIncognito();
     }
 }
