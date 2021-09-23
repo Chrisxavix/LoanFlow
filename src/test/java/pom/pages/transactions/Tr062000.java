@@ -32,7 +32,7 @@ public class Tr062000 {
     /* VALIDAR LISTAS DE CONTROL: Vlc */
     private final By btnVlcGenerateReport = By.xpath("//*[@id='container_33']/table/tbody/tr/td/button");
     /* Cambio de pestaña garantías propuestas*/
-    private final By tabWarranty = By.xpath("//*[@id=\'container_1\']/table/tbody/tr/td/ul/li[2]/a");
+    private final By tabWarranty = By.xpath("//*[@id='container_1']/table/tbody/tr/td/ul/li[2]/a");
 
     /* GETTERS */
 

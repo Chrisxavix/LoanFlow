@@ -4,49 +4,39 @@ Feature: Flujo de Préstamos
   Scenario Outline: Creación de una solicitud de préstamos
     Given Abre el web browser Chrome y direcciona a la aplicación
     When Cierro sesiones activas, ingreso el usuario y contraseña
-    And Ingreso la transaccion
-    And Ingreso la identificacion del deudor
-    And Ingreso la identificacion del codeudor y la descripcion
-    And Por ultimo ingreso la indentificacion del garante y su descripcion
-    And Ahora me dirigo a Datos Producto e ingreso el grupo del producto
-    And Luego ingreso el producto
-    And Despues ingresamos el id del ejecutivo
-    And Escojemos el origen
-    And Elegimos el destino de fondos
-    And Nos dirigimos a la actividad recepetora e ingresamos la actividad
-    And Procedemos a ingresar el monto del credito
-    And Ingresamos la frecuecnia del capital
-    And Ahora el numero de cuotas
-    And Por ultimo calculamos la tasa de interes
-    And Guardamos el formulario para crear el numero de solicitud
-    And Ingreso la transacción 06-2000
-    And Ingreso el número de solicitud
+    And Ingreso a la transacción 06-2100 e ingreso los datos del Deudor, Codeudor y Garantes
+    And Ahora me dirijo a Datos Producto e ingreso los datos respectivos
+    And Procedemos a ingresar los datos del prestamo
+    And Guardamos el formulario para crear el número de solicitud
+    And Ingreso la transacción 06-2000 e ingreso el número de solicitud
     And Ingreso los datos geográficos
     And Ingreso los datos del préstamo y comentarios
     And Genero el reporte
-    Then Guardo la transacción
-    And Luego de guardar el formulario, nos dirigimos a la pestana de garantias
-    And Ahora vamos a ingresar los datos de las garantias propuestas
-    Then Guardo la transacción
-    When Selecciono la pestaña de impresión de documentos
-    Then Guardo la transacción
+    And Guardo la transacción
+    And Nos dirigimos a la pestaña de garantias 06-2008
+    And Ingreso los datos de las garantias propuestas
+    And Guardo la transacción
+    And Nos dirigimos a la pestaña pestaña de impresión de documentos 06-2016
+    And Guardo la transacción
     And Genero el reporte de checklist
     And Genero la orden de operación
     And Valido que la orden de operación se haya generado
-    And Consultar la operación
-    And Ahora nos dirigimos a la transaccion 063071 e ingresamos el numero de solicitud generado anteriormente
-    And Procedemos a marcar los checklist habilitados y guardamos la verificacion
-    When Ingresamos al formulario 06-3040
-    Then Ingresamos el número de solicitud de análisis de crédito
+    And Consultar la operación 00-0267
+    And Ahora nos dirigimos a la transaccion 06-3071 e ingresamos el número de solicitud generado anteriormente
+    And Marco los checklist habilitados y guardamos la verificacion
+    And Ingresamos al formulario 06-3040
+    And Ingresamos el numero de solicitud de análisis de crédito
     And Agregamos un comentario
-    Then Guardo la transacción
-    And Nos dirigimos a la pestaña de analisis de credito, en riesgos ingresamos el valor de cero
+    And Guardo la transacción
+    And Nos dirigimos a la pestaña de analisis de credito 06-3078, en riesgos ingresamos el valor de cero
     And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
     Then Guardo la transacción
-    When Selecciono la pestaña de cumplimiento de políticas
+    When Selecciono la pestaña de cumplimiento de políticas 06-3080
     Then Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario
     And Completo las políticas adicionales
-    Then Guardo la transacción
+    And Guardo la transacción
+    And Abrimos el navegador en modo incognito
+
     Examples:
       | caso |
       | 1    |
