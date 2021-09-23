@@ -5,6 +5,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import steps.hook.Hook;
 import pom.pages.global.Global;
 import java.awt.*;
@@ -20,6 +22,9 @@ import java.util.Set;
 
 public class Utilities {
     protected WebDriver driver = Hook.getDriver();
+    /* Navegador Incógnito */
+    public ChromeOptions chromeOptions = new ChromeOptions();
+    public WebDriver driverIncognito = new ChromeDriver(chromeOptions);
     protected Global global = new Global();
     private int step = 1;
     private static int countScenario = 0;
@@ -81,11 +86,11 @@ public class Utilities {
     }
 
     /* Capturas de pantalla */
-    public void screenshot(int screenshot, String transaction) throws IOException {
+    public void screenshot(int screenshot, String transaction, WebDriver typeDriver) throws IOException {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
         String time = dateFormat.format(now);
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) typeDriver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("./src/test/assets/screenshots/loanflow/scenario" + screenshot + "/" + transaction + "/" + "step" + step++ + "-" + time + ".png"));
     }
 

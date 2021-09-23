@@ -17,8 +17,6 @@ public class StartPages {
     public StartPages() throws IOException { }
     protected WebDriver driver = Hook.getDriver();
     /* Navegador Incógnito */
-    protected ChromeOptions chromeOptions = new ChromeOptions();
-    protected WebDriver driverIncognito = new ChromeDriver(chromeOptions);
     protected String userIncognit;
     /* Tiempos de espera */
     protected static final int timeBase = 15;
