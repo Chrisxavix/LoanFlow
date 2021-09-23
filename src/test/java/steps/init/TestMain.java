@@ -28,27 +28,16 @@ public class TestMain {
     @And("^Ingreso a la transaccion e ingresamos los datos del Deudor-Codeudor y Garantes$")
     public void typeTransaction() throws Throwable {
         loanFlow.typeTransaction();
-        loanFlow.idDeudor();;
-        loanFlow.idCod();
-        loanFlow.idGarante();
     }
 
     @And("^Ahora me dirigo a Datos Producto e ingreso los datos respectivos$")
     public void productGroup() throws Throwable {
         loanFlow.productGroup();
-        loanFlow.product();
-        loanFlow.idExecutive();
-        loanFlow.origin();
-        loanFlow.destFunds();
-        loanFlow.recpActivity();
     }
 
     @And("^Procedemos a ingresar los datos del prestamo$")
     public void amountCred() throws Throwable {
         loanFlow.amountCred();
-        loanFlow.capFrecuency();
-        loanFlow.numberQuotas();
-        loanFlow.interestRate();
     }
 
     @And("^Guardamos el formulario para crear el numero de solicitud$")
