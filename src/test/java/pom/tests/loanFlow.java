@@ -36,8 +36,27 @@ public class loanFlow extends StartPages {
     public void typeTransaction() throws Throwable {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
         util.waitPass(timeBase, "typeTransaction");
-
-
+        util.screenshot(caseScreen, caseScreenTx062100, driver);
+        /* Deudor */
+        driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(4) + Keys.ENTER);
+        util.waitPass(timeBase, "idDeudor");
+        WebElement relation = driver.findElement(tr062100.getTxtRelationsText());
+        Assert.assertEquals("Error", "DEUDOR", relation.getAttribute("value"));
+        /* Codeudor */
+        driver.findElement(tr062100.getTxtIdCod()).sendKeys(loanFlow.get(5) + Keys.ENTER);
+        util.waitPass(timeBase, "idCodeudor Id");
+        driver.findElement(tr062100.getTxtRelationsCod()).sendKeys(loanFlow.get(6) + Keys.ENTER);
+        util.waitPass(timeBase, "idCodeudor Cod");
+        WebElement relation1 = driver.findElement(tr062100.getTxtRelationsCodText());
+        Assert.assertEquals("Error", "CODEUDOR", relation1.getAttribute("value"));
+        /* Garante */
+        driver.findElement(tr062100.getTxtIdGar()).sendKeys(loanFlow.get(7) + Keys.ENTER);
+        util.waitPass(timeBase, "idGarante Id");
+        driver.findElement(tr062100.getTxtRelationsGar()).sendKeys(loanFlow.get(8) + Keys.ENTER);
+        util.waitPass(timeBase, "idGarante Cod");
+        util.screenshot(caseScreen, caseScreenTx062100, driver);
+        WebElement relation2 = driver.findElement(tr062100.getTxtRelationsGarText());
+        Assert.assertEquals("Error", "GARANTE", relation2.getAttribute("value"));
     }
 
     public void productGroup() throws Throwable {
