@@ -25,73 +25,19 @@ public class TestMain {
         loanFlow.closeSessionAndTypeUserPassword();
     }
 
-    @And("^Ingreso la transaccion$")
+    @And("^Ingreso a la transaccion e ingresamos los datos del Deudor-Codeudor y Garantes$")
     public void typeTransaction() throws Throwable {
         loanFlow.typeTransaction();
     }
 
-    @And("^Ingreso la identificacion del deudor$")
-    public void id() throws Throwable {
-        loanFlow.idDeudor();;
-    }
-
-    @And("^Ingreso la identificacion del codeudor y la descripcion$")
-    public void idCod() throws Throwable {
-        loanFlow.idCod();
-    }
-    @And("^Por ultimo ingreso la indentificacion del garante y su descripcion$")
-    public void idGar() throws Throwable {
-        loanFlow.idGarante();
-    }
-
-    @And("^Ahora me dirigo a Datos Producto e ingreso el grupo del producto$")
+    @And("^Ahora me dirigo a Datos Producto e ingreso los datos respectivos$")
     public void productGroup() throws Throwable {
         loanFlow.productGroup();
     }
 
-    @And("^Luego ingreso el producto$")
-    public void product() throws Throwable {
-        loanFlow.product();
-    }
-
-    @And("^Despues ingresamos el id del ejecutivo$")
-    public void idExecutive() throws Throwable {
-        loanFlow.idExecutive();
-    }
-
-    @And("^Escojemos el origen$")
-    public void origin() throws Throwable {
-        loanFlow.origin();
-    }
-
-    @And("^Elegimos el destino de fondos$")
-    public void destFunds() throws Throwable {
-        loanFlow.destFunds();
-    }
-
-    @And("^Nos dirigimos a la actividad recepetora e ingresamos la actividad$")
-    public void recpActivity() throws Throwable {
-        loanFlow.recpActivity();
-    }
-
-    @And("^Procedemos a ingresar el monto del credito$")
+    @And("^Procedemos a ingresar los datos del prestamo$")
     public void amountCred() throws Throwable {
         loanFlow.amountCred();
-    }
-
-    @And("^Ingresamos la frecuecnia del capital$")
-    public void capFrecuency() throws Throwable {
-        loanFlow.capFrecuency();
-    }
-
-    @And("^Ahora el numero de cuotas$")
-    public void numberQuotas() throws Throwable {
-        loanFlow.numberQuotas();
-    }
-
-    @And("^Por ultimo calculamos la tasa de interes$")
-    public void interestRate() throws Throwable {
-        loanFlow.interestRate();
     }
 
     @And("^Guardamos el formulario para crear el numero de solicitud$")
@@ -124,7 +70,7 @@ public class TestMain {
         loanFlow.generateReport();
     }
 
-    @Then("^Guardo la transacción$")
+    @And("^Guardo la transacción$")
     public void saveTransaction() throws Throwable {
         loanFlow.saveTransaction();
     }
@@ -139,7 +85,7 @@ public class TestMain {
         loanFlow.warrantyProp();
     }
 
-    @When("^Selecciono la pestaña de impresión de documentos$")
+    @And("^Selecciono la pestaña de impresión de documentos$")
     public void selectPrintDocuments() throws Throwable {
         loanFlow.selectPrintDocuments();
     }
@@ -174,12 +120,12 @@ public class TestMain {
         loanFlow.checkList();
     }
 
-    @When("^Ingresamos al formulario 06-3040$")
+    @And("^Ingresamos al formulario 06-3040$")
     public void typeTransaction3040() throws Throwable {
         loanFlow.typeTransaction3040();
     }
 
-    @Then("^Ingresamos el número de solicitud de análisis de crédito$")
+    @And("^Ingresamos el numero de solicitud de análisis de crédito$")
     public void typeRequestNumberAnalysis() throws Throwable {
         loanFlow.typeRequestNumberAnalysis();
     }
@@ -197,5 +143,15 @@ public class TestMain {
     @And("^Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente$")
     public void actPasiv() throws Throwable {
         loanFlow.activPasiv();
+    }
+
+    @And("^Selecciono la pestaña de cumplimiento de políticas$")
+    public void selectPolicyCompliance() throws Throwable {
+        loanFlow.selectPolicyCompliance();
+    }
+
+    @And("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
+    public void completePolicyCompliance() throws Throwable {
+        loanFlow.completePolicyCompliance();
     }
 }

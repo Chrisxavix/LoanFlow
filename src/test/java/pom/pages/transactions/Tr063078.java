@@ -3,14 +3,14 @@ package pom.pages.transactions;
 import org.openqa.selenium.By;
 
 public class Tr063078 {
-    public final By tabAnalysisCred = By.xpath("//*[@id=\'container_0\']/table/tbody/tr/td/ul/li[2]/a");
-    public final By txtSubsCancel = By.id("c_F3AbonoCancelacion_0");
-    public final By tabActPasiv = By.xpath("//*[@id=\'container_5\']/table/tbody/tr/td/ul/li[2]/a");
-    public final By txtPatrimony = By.id("c_F6patrimonio2_0");
-    public final By txtConfirmedPatr = By.id("c_F6patrimonio_0");
-    public final By atxtComment = By.id("c_F5Obsop_0");
-    public final By txtIndirectRisk = By.id("c_F3Rindirectos_0");
-    public final By chkUpdtaBalance = By.xpath("//*[@id=\'container_26\']/table/tbody/tr/td/span[2]/input[2]");
+    private final By tabAnalysisCred = By.xpath("//*[@id='container_0']/table/tbody/tr/td/ul/li[2]/a");
+    private final By txtSubsCancel = By.id("c_F3AbonoCancelacion_0");
+    private final By tabActPasiv = By.xpath("//*[@id='container_5']/table/tbody/tr/td/ul/li[2]/a");
+    private final By txtPatrimony = By.id("c_F6patrimonio2_0");
+    private final By txtConfirmedPatr = By.id("c_F6patrimonio_0");
+    private final By atxtComment = By.id("c_F5Obsop_0");
+    private final By txtIndirectRisk = By.id("c_F3Rindirectos_0");
+    private final By chkUpdtaBalance = By.xpath("//*[@id='container_26']/table/tbody/tr/td/span[2]/input[2]");
 
     public By getTabAnalysisCred() { return this.tabAnalysisCred; }
     public By getTxtSubsCancel() { return this.txtSubsCancel; }
