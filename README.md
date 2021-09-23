@@ -16,12 +16,12 @@
 ## Ejecución:
 * Clonar el repositorio.
 * Ejecutar `npm install` para descargar las dependecias del reporte.
-* El archivo de Excel debe agregar su usuario y clave.
-* Tener en cuenta que en el archivo `investments.feature` contiene el número de repeticiones que hará de acuerdo a las filas del documento de Excel que contiene la clase `Utilities`, en el método `readExcel`.
+* El archivo de Excel debe agregar su ip, usuario y clave.
+* Tener en cuenta que en el archivo `loanflow.feature` contiene el número de repeticiones que hará de acuerdo a las filas del documento de Excel que contiene la clase `Utilities`, en el método `readExcel`.
 
 Ejemplo:
 
-`File file = new File("./src/test/assets/exceldocuments/testRead.xlsx")` tiene una fila de datos en el Excel, por lo que en el archivo `investments.feature`debe tener un caso.
+`File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx")` tiene una fila de datos en el Excel, por lo que en el archivo `loanflow.feature`debe tener un caso.
 
     Examples:
       | caso |
