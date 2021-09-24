@@ -537,7 +537,7 @@ public class loanFlow extends StartPages {
         util.waitPass(timeBase, "generateCreditNumber", driver);
         /* +Validaciones:
                Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
-        Assert.assertEquals(message.getErrorTx062001(), message.getTitleRiskRequestApproval(), util.driverIncognito.getTitle());
+        Assert.assertEquals(message.getErrorTx062001(), message.getTitleRiskRequestApproval(), driver.getTitle());
         /* Número de Solicitud */
         driver.findElement(tr062001.getTxtRequestNumber()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx062001, driver);
