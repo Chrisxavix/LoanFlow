@@ -471,6 +471,7 @@ public class loanFlow extends StartPages {
         //requestNumber = "7655000343";
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
         util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
         util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);

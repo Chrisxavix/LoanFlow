@@ -38,7 +38,7 @@ Feature: Flujo de Préstamos
     And Abrimos el navegador en modo incógnito
     And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
     And Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente
-    And Luego nos dirigimos a la autorizacion de transaccion, ingresamos observaciones y aprobamos
+    And Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos
 
     Examples:
       | caso |

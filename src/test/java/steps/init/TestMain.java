@@ -170,7 +170,7 @@ public class TestMain {
         loanFlow.authMailBox();
     }
 
-    @And("^Luego nos dirigimos a la autorizacion de transaccion, ingresamos observaciones y aprobamos$")
+    @And("^Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos$")
     public void authTransatation() throws Throwable {
         loanFlow.authTransation();
     }
