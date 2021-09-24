@@ -440,7 +440,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx063080, driver);
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
         String txtStatus = statustNotification.getText();
-        //userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
+        userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
         util.options.addArguments("-incognito");
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability(ChromeOptions.CAPABILITY, util.options);
@@ -458,7 +458,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
         /* Ingreso de usuario y contraseña */
         //Quemar BA01003274 y comentar la linea 424
-        util.driverIncognito.findElement(loginPage.getTxtUser()).sendKeys("BA01003274");
+        util.driverIncognito.findElement(loginPage.getTxtUser()).sendKeys(userIncognit);
         util.driverIncognito.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(2));
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
         util.driverIncognito.findElement(loginPage.getBtnSubmit()).submit();
@@ -468,7 +468,7 @@ public class loanFlow extends StartPages {
     }
 
     public void authMailBox() throws Throwable {
-        requestNumber = "7655000343";
+        //requestNumber = "7655000343";
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
@@ -497,8 +497,8 @@ public class loanFlow extends StartPages {
         util.waitPass(timeBase, "Observacion", util.driverIncognito);
         util.driverIncognito.findElement(tr002009.getBtnAprobar()).click();
         util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
-        util.waitPass(timeBase, "Boton Aprobar", util.driverIncognito);
+        util.waitPass(timeMedium, "Boton Aprobar", util.driverIncognito);
         util.driverIncognito.findElement(tr002009.getModalBtnAprobar()).click();
-
+        util.waitPass(timeMedium, "Click Aprobar", util.driverIncognito);
     }
 }
