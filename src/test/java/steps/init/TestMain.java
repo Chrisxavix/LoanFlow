@@ -165,8 +165,13 @@ public class TestMain {
         loanFlow.incognitoCloseSessionAndTypeUserPassword();
     }
 
-    @And("^Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción$")
+    @And("^Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente$")
     public void authMailBox() throws Throwable {
         loanFlow.authMailBox();
+    }
+
+    @And("^Luego nos dirigimos a la autorizacion de transaccion, ingresamos observaciones y aprobamos$")
+    public void authTransatation() throws Throwable {
+        loanFlow.authTransation();
     }
 }

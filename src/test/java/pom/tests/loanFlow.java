@@ -440,7 +440,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx063080, driver);
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
         String txtStatus = statustNotification.getText();
-        userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
+        //userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
         util.options.addArguments("-incognito");
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         capabilities.setCapability(ChromeOptions.CAPABILITY, util.options);
@@ -458,7 +458,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
         /* Ingreso de usuario y contraseña */
         //Quemar BA01003274 y comentar la linea 424
-        util.driverIncognito.findElement(loginPage.getTxtUser()).sendKeys(userIncognit);
+        util.driverIncognito.findElement(loginPage.getTxtUser()).sendKeys("BA01003274");
         util.driverIncognito.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(2));
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
         util.driverIncognito.findElement(loginPage.getBtnSubmit()).submit();
@@ -468,28 +468,37 @@ public class loanFlow extends StartPages {
     }
 
     public void authMailBox() throws Throwable {
+        requestNumber = "7655000343";
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
         util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
         util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
-        /*Genero una lista de elementos para poder sacar el tamaño total de la tabla*/
-        List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
-        /* Capturo el ultimo valor de la tabla */
-        int numColu = tablePrint.size()-1;
-        String numColTrans = tr002008.columTransaction() + ( numColu + 1 ) + tr002008.columTransaction2();
-        WebElement transation = util.driverIncognito.findElement(By.xpath(numColTrans));
-        transation.click();
-        util.waitPass(timeSave, "Open Link", util.driverIncognito);
-        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
-        /* Se cierra después de terminar el proceso en modo incógnito */
-        Thread.sleep(3000);
-        util.driverIncognito.close();
+    }
 
-        /* Vuelve a la página principal */
-        util.reactPage();
-        driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys("06-2100" + Keys.ENTER);
-        util.waitPass(timeBase, "typeTransaction", driver);
+    public void authTransation() throws Throwable {
+        List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
+        for(int i = 1; i <= tablePrint.size(); i++) {
+            /*Está mapeado la columna de solicitud*/
+            String joinC1 = "//*[@id='container_3']/div/table/tbody/tr[" + i + "]/td[8]/input";
+            WebElement column1Documents = util.driverIncognito.findElement(By.xpath(joinC1));
+            String base = column1Documents.getAttribute("value");
+            if (base.equals(requestNumber) ) {
+                String joinC3 = "//*[@id='container_3']/div/table/tbody/tr[" + i + "]/td[10]/span/a";
+                WebElement column3Print = util.driverIncognito.findElement(By.xpath(joinC3));
+                column3Print.click();
+                util.waitPass(timeMedium, "authMailBox click", util.driverIncognito);
+                util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+                break;
+            }
+        }
+        util.driverIncognito.findElement(tr002009.getTxtObservation()).sendKeys(loanFlow.get(50) + Keys.TAB);
+        util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+        util.waitPass(timeBase, "Observacion", util.driverIncognito);
+        util.driverIncognito.findElement(tr002009.getBtnAprobar()).click();
+        util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+        util.waitPass(timeBase, "Boton Aprobar", util.driverIncognito);
+        util.driverIncognito.findElement(tr002009.getModalBtnAprobar()).click();
+
     }
 }
