@@ -2,6 +2,9 @@ package pom.tests;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pom.pages.StartPages;
 import java.io.IOException;
 import java.util.List;
@@ -438,7 +441,10 @@ public class loanFlow extends StartPages {
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
         String txtStatus = statustNotification.getText();
         userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
-        util.chromeOptions.addArguments("--incognito");
+        util.options.addArguments("-incognito");
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, util.options);
+        util.driverIncognito = new ChromeDriver(capabilities);
         util.driverIncognito.manage().window().maximize();
         util.driverIncognito.get("http://" + loanFlow.get(0) + ":8380/WEB3/ingreso.html");
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
@@ -451,6 +457,7 @@ public class loanFlow extends StartPages {
         util.driverIncognito.findElement(loginPage.getBtnForceClose()).click();
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
         /* Ingreso de usuario y contraseña */
+        //Quemar BA01003274 y comentar la linea 424
         util.driverIncognito.findElement(loginPage.getTxtUser()).sendKeys(userIncognit);
         util.driverIncognito.findElement(loginPage.getTxtPassword()).sendKeys(loanFlow.get(2));
         util.screenshot(caseScreen, caseScreenIncognitoLogin, util.driverIncognito);
@@ -463,13 +470,26 @@ public class loanFlow extends StartPages {
     public void authMailBox() throws Throwable {
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
-        util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys("3080" + Keys.TAB);
+        util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
+        util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
+        /*Genero una lista de elementos para poder sacar el tamaño total de la tabla*/
         List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
-        for (int i = 1; i <= tablePrint.size(); i++) {
-            System.out.println("Size table: " + i);
-        }
+        /* Capturo el ultimo valor de la tabla */
+        int numColu = tablePrint.size()-1;
+        String numColTrans = tr002008.columTransaction() + ( numColu + 1 ) + tr002008.columTransaction2();
+        WebElement transation = util.driverIncognito.findElement(By.xpath(numColTrans));
+        transation.click();
+        util.waitPass(timeSave, "Open Link", util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
         /* Se cierra después de terminar el proceso en modo incógnito */
         Thread.sleep(3000);
         util.driverIncognito.close();
+
+        /* Vuelve a la página principal */
+        util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys("06-2100" + Keys.ENTER);
+        util.waitPass(timeBase, "typeTransaction", driver);
     }
 }

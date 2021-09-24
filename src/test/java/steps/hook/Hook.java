@@ -7,22 +7,19 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import runner.browsermanager.DriverManager;
-import runner.browsermanager.DriverType;
-import runner.browsermanager.drivermanagerfactory.DriverManagerFactory;
+import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.io.IOException;
 
 public class Hook {
 
-    private DriverManager driverManager;
     private static WebDriver driver;
     private static int countScenario = 0;
 
     @Before
     public void setUp() throws IOException {
-        driverManager = DriverManagerFactory.getManager(DriverType.CHROME);
-        driver = driverManager.getDriver();
+        System.setProperty("webdriver.chrome.driver", "./src/test/assets/driver/chromedriver");
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         countScenario++;
         if (countScenario == 1) {
@@ -32,9 +29,9 @@ public class Hook {
 
     @After
     public void tearDown(Scenario scenario) {
-        byte[] screenshot = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         scenario.embed(screenshot, "image/png");
-        driverManager.quitDriver();
+        driver.quit();
     }
 
     public static WebDriver getDriver() {

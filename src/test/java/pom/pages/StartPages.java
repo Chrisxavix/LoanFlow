@@ -36,8 +36,8 @@ public class StartPages {
     protected static final String caseScreenTx063040 = "Tx07_06_3040";
     protected static final String caseScreenTx063078 = "Tx08_06_3078";
     protected static final String caseScreenTx063080 = "Tx09_06_3080";
-    protected static final String caseScreenTx002008 = "Tx010_00_2008";
     protected static final String caseScreenIncognitoLogin = "Tx10_Login";
+    protected static final String caseScreenTx002008 = "Tx11_00_2008";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();

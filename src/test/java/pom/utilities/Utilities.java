@@ -5,7 +5,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import steps.hook.Hook;
 import pom.pages.global.Global;
@@ -22,15 +21,14 @@ import java.util.Set;
 
 public class Utilities {
     protected WebDriver driver = Hook.getDriver();
-    /* Navegador Incógnito */
-    public ChromeOptions chromeOptions = new ChromeOptions();
-    public WebDriver driverIncognito = new ChromeDriver(chromeOptions);
     protected Global global = new Global();
     private int step = 1;
     private static int countScenario = 0;
     private String mainOfWindow;
     private String secondOfWindow;
-    private final int timeSave = 60;
+    /* Navegador Incógnito */
+    public WebDriver driverIncognito;
+    public ChromeOptions options = new ChromeOptions();
 
     /* Espera Fluida */
     public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
@@ -180,6 +178,7 @@ public class Utilities {
 
     public void multipleValidate(WebDriver typeDriver) throws Throwable {
         Thread.sleep(200);
+        int timeSave = 60;
         this.waitPass(timeSave, "validate 1", typeDriver);
         Thread.sleep(200);
         this.waitPass(timeSave, "validate 2", typeDriver);

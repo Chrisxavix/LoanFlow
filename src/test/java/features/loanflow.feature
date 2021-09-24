@@ -37,7 +37,7 @@ Feature: Flujo de Préstamos
     And Guardo la transacción
     And Abrimos el navegador en modo incógnito
     And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
-    And Ingresamos al buzon de autorizaciones y seleccionamos la trasaccion
+    And Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción
 
     Examples:
       | caso |
