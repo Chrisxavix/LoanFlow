@@ -9,7 +9,4 @@ public class Tr002008 {
 
     public By getTxtTransaction() { return this.txtTransaction; }
     public By getTblTransaction() { return this.tblTransaction; }
-    public String columTransaction () { return "//*[@id=\'container_3\']/div/table/tbody/tr[";}
-    public String columTransaction2 () { return "]/td[10]/span/a";}
-
 }

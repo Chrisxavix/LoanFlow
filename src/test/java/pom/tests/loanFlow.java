@@ -468,57 +468,45 @@ public class loanFlow extends StartPages {
     }
 
     public void authMailBox() throws Throwable {
+        //requestNumber = "7655000343";
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
         util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
         util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
-        /*Genero una lista de elementos para poder sacar el tamaño total de la tabla*/
-        List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
-        /* Capturo el ultimo valor de la tabla */
-        int numColu = tablePrint.size()-1;
-        String numColTrans = tr002008.columTransaction() + ( numColu + 1 ) + tr002008.columTransaction2();
-        WebElement transation = util.driverIncognito.findElement(By.xpath(numColTrans));
-        transation.click();
-        util.waitPass(timeSave, "Open Link", util.driverIncognito);
-        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
-        /* Se cierra después de terminar el proceso en modo incógnito */
-        Thread.sleep(3000);
-        util.driverIncognito.close();
-
-        /* Vuelve a la página principal */
-        util.reactPage();
-        driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys("06-2100" + Keys.ENTER);
-        util.waitPass(timeBase, "typeTransaction", driver);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void authTransation() throws Throwable {
+        List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
+        for(int i = 1; i <= tablePrint.size(); i++) {
+            /*Está mapeado la columna de solicitud*/
+            String joinC1 = "//*[@id='container_3']/div/table/tbody/tr[" + i + "]/td[8]/input";
+            WebElement column1Documents = util.driverIncognito.findElement(By.xpath(joinC1));
+            String base = column1Documents.getAttribute("value");
+            if (base.equals(requestNumber) ) {
+                String joinC3 = "//*[@id='container_3']/div/table/tbody/tr[" + i + "]/td[10]/span/a";
+                WebElement column3Print = util.driverIncognito.findElement(By.xpath(joinC3));
+                column3Print.click();
+                util.waitPass(timeMedium, "authMailBox click", util.driverIncognito);
+                util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+                break;
+            }
+        }
+        util.driverIncognito.findElement(tr002009.getTxtObservation()).sendKeys(loanFlow.get(50) + Keys.TAB);
+        util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+        util.waitPass(timeBase, "Observacion", util.driverIncognito);
+        util.driverIncognito.findElement(tr002009.getBtnAprobar()).click();
+        util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
+        util.waitPass(timeMedium, "Boton Aprobar", util.driverIncognito);
+        util.driverIncognito.findElement(tr002009.getModalBtnAprobar()).click();
+        util.waitPass(timeMedium, "Click Aprobar", util.driverIncognito);
+    }
 
     public void typeRiskAnalysisApproval() throws Throwable {
         util.reactPage();
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).clear();
-        util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(50) + Keys.ENTER);
+        util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(51) + Keys.ENTER);
         util.waitPass(timeBase, "typeRiskAnalysisApproval", util.driverIncognito);
         /* +Validaciones:
                Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
@@ -531,7 +519,7 @@ public class loanFlow extends StartPages {
         util.multipleValidate(util.driverIncognito);
         util.screenshot(caseScreen, caseScreenTx062033, util.driverIncognito);
         /* Comentario */
-        util.driverIncognito.findElement(tr062033.getTxtAarComment()).sendKeys(loanFlow.get(51));
+        util.driverIncognito.findElement(tr062033.getTxtAarComment()).sendKeys(loanFlow.get(52));
         /* Aprobar */
         util.driverIncognito.findElement(tr062033.getBtnAarRiskAnalysisApproval()).click();
         util.waitPass(timeSave, "typeRiskAnalysisApproval Aprobar", util.driverIncognito);
@@ -545,7 +533,7 @@ public class loanFlow extends StartPages {
         /* Vuelve a la página principal */
         util.reactPage();
         driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(52) + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(53) + Keys.ENTER);
         util.waitPass(timeBase, "generateCreditNumber", driver);
         /* +Validaciones:
                Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */

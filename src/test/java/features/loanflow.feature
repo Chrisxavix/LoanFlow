@@ -37,18 +37,8 @@ Feature: Flujo de Préstamos
     And Guardo la transacción
     And Abrimos el navegador en modo incógnito
     And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
-    And Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción
-
-
-
-
-
-
-
-
-
-
-
+    And Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente
+    And Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos
     And Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033
     And Generamos el número de crédito en la transacción 06-2001
 
