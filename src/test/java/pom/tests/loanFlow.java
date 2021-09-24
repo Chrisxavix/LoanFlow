@@ -502,4 +502,48 @@ public class loanFlow extends StartPages {
         util.driverIncognito.findElement(tr002009.getModalBtnAprobar()).click();
         util.waitPass(timeMedium, "Click Aprobar", util.driverIncognito);
     }
+
+    public void typeRiskAnalysisApproval() throws Throwable {
+        util.reactPage();
+        util.driverIncognito.findElement(global.getBoxCodeTransaction()).clear();
+        util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(51) + Keys.ENTER);
+        util.waitPass(timeBase, "typeRiskAnalysisApproval", util.driverIncognito);
+        /* +Validaciones:
+               Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
+        Assert.assertEquals(message.getErrorTx062033(), message.getTitleRiskAnalysisApproval(), util.driverIncognito.getTitle());
+        /* Número de Solicitud */
+        util.driverIncognito.findElement(tr062033.getTxtRequestNumber()).sendKeys(requestNumber);
+        util.screenshot(caseScreen, caseScreenTx062033, util.driverIncognito);
+        util.driverIncognito.findElement(tr062033.getTxtRequestNumber()).sendKeys(Keys.ENTER);
+        util.waitPass(timeMedium, "typeRiskAnalysisApproval Número de solicitud", util.driverIncognito);
+        util.multipleValidate(util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx062033, util.driverIncognito);
+        /* Comentario */
+        util.driverIncognito.findElement(tr062033.getTxtAarComment()).sendKeys(loanFlow.get(52));
+        /* Aprobar */
+        util.driverIncognito.findElement(tr062033.getBtnAarRiskAnalysisApproval()).click();
+        util.waitPass(timeSave, "typeRiskAnalysisApproval Aprobar", util.driverIncognito);
+        util.multipleValidate(util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx062033, util.driverIncognito);
+        /* Se cierra después de terminar el proceso en modo incógnito */
+        util.driverIncognito.close();
+    }
+
+    public void generateCreditNumber() throws Throwable {
+        /* Vuelve a la página principal */
+        util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(53) + Keys.ENTER);
+        util.waitPass(timeBase, "generateCreditNumber", driver);
+        /* +Validaciones:
+               Comprobar que esté en el ventana de CUMPLIMIENTO DE POLITICAS */
+        Assert.assertEquals(message.getErrorTx062001(), message.getTitleRiskRequestApproval(), util.driverIncognito.getTitle());
+        /* Número de Solicitud */
+        driver.findElement(tr062001.getTxtRequestNumber()).sendKeys(requestNumber);
+        util.screenshot(caseScreen, caseScreenTx062001, driver);
+        driver.findElement(tr062001.getTxtRequestNumber()).sendKeys(Keys.ENTER);
+        util.waitPass(timeMedium, "generateCreditNumber Número de solicitud", driver);
+        util.multipleValidate(driver);
+        util.screenshot(caseScreen, caseScreenTx062001, driver);
+    }
 }

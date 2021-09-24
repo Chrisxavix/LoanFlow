@@ -165,7 +165,7 @@ public class TestMain {
         loanFlow.incognitoCloseSessionAndTypeUserPassword();
     }
 
-    @And("^Ingresamos al buzon de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente$")
+    @And("^Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente$")
     public void authMailBox() throws Throwable {
         loanFlow.authMailBox();
     }
@@ -173,5 +173,15 @@ public class TestMain {
     @And("^Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos$")
     public void authTransatation() throws Throwable {
         loanFlow.authTransation();
+    }
+
+    @And("^Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033$")
+    public void typeRiskAnalysisApproval() throws Throwable {
+        loanFlow.typeRiskAnalysisApproval();
+    }
+
+    @And("^Generamos el número de crédito en la transacción 06-2001$")
+    public void generateCreditNumber() throws Throwable {
+        loanFlow.generateCreditNumber();
     }
 }
