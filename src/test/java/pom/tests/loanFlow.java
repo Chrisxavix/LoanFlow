@@ -463,13 +463,17 @@ public class loanFlow extends StartPages {
     public void authMailBox() throws Throwable {
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
-        util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys("3080" + Keys.TAB);
+        util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
+        util.waitPass(timeMedium, "", util.driverIncognito);
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
+        /*Genero una lista de elementos para poder sacar el tamaño total de la tabla*/
         List<WebElement> tablePrint = util.driverIncognito.findElements(tr002008.getTblTransaction());
-        for (int i = 1; i <= tablePrint.size(); i++) {
-            System.out.println("Size table: " + i);
-        }
-        /* Se cierra después de terminar el proceso en modo incógnito */
-        Thread.sleep(3000);
-        util.driverIncognito.close();
+        /* Capturo el ultimo valor de la tabla */
+        int numColu = tablePrint.size()-1;
+        String numColTrans = tr002008.columTransaction() + ( numColu + 1 ) + tr002008.columTransaction2();
+        WebElement trans = util.driverIncognito.findElement(By.xpath(numColTrans));
+        trans.click();
+        util.reactStartTransaction();
+        util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
     }
 }

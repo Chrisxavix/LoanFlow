@@ -7,6 +7,9 @@ public class Tr002008 {
     private final By txtTransaction = By.id("c_ctransaccionc_0");
     private final By tblTransaction = By.xpath("//*[@id=\'container_3\']/div/table/tbody/tr");
 
-    public By getTxtTransaction() { return txtTransaction; }
-    public By getTblTransaction() { return tblTransaction; }
+    public By getTxtTransaction() { return this.txtTransaction; }
+    public By getTblTransaction() { return this.tblTransaction; }
+    public String columTransaction () { return "//*[@id=\'container_3\']/div/table/tbody/tr[";}
+    public String columTransaction2 () { return "]/td[10]/span/a";}
+
 }
