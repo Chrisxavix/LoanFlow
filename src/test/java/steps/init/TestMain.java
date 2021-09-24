@@ -169,4 +169,60 @@ public class TestMain {
     public void authMailBox() throws Throwable {
         loanFlow.authMailBox();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @And("^Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033$")
+    public void typeRiskAnalysisApproval() throws Throwable {
+        loanFlow.typeRiskAnalysisApproval();
+    }
+
+    @And("^Generamos el número de crédito en la transacción 06-2001$")
+    public void generateCreditNumber() throws Throwable {
+        loanFlow.generateCreditNumber();
+    }
 }
