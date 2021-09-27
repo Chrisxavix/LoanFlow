@@ -23,6 +23,8 @@ public class Messages {
     public String getErrorTx063080() { return "Error al ingresar al formulario de la transacción 06-3080"; }
     public String getErrorTx062033() { return "Error al ingresar al formulario de la transacción 06-2033"; }
     public String getErrorTx062001() { return "Error al ingresar al formulario de la transacción 06-2001"; }
+    public String getErrorTx062000() { return "Error al ingresar al formulario de la transacción 06-2000"; }
+    public String getErrorWarranty() { return "Error, título no esperado en la pestaña"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -43,5 +45,7 @@ public class Messages {
     public String getTitlePolicyCompliance() { return "CUMPLIMIENTO DE POLITICAS"; }
     public String getTitleRiskAnalysisApproval() { return "APROBACIÓN DE ANÁLISIS DE RIESGOS - FitBank"; }
     public String getTitleRiskRequestApproval() { return "APROBACIÓN DE SOLICITUDES PRÉSTAMOS - FitBank"; }
+    public String getTitleEntryAndMaintenance() { return "INGRESO Y MANTENIMIENTO DE SOLICITUDES PRÉSTAMOS - FitBank"; }
+    public String getTabWarranty() { return "GARANTÍAS EXISTENTES"; }
 
 }

@@ -114,6 +114,8 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
         util.waitPass(timeSave, "typeTx062000", driver);
         util.reactStartTransaction();
+        /* +Validaciones cambio pantalla */
+        Assert.assertEquals(message.getErrorTx062000(), message.getTitleEntryAndMaintenance(), driver.getTitle());
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx062000, driver);
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(Keys.ENTER);
@@ -221,6 +223,8 @@ public class loanFlow extends StartPages {
         util.reactPage();
         driver.findElement(tr062000.getTabWarranty()).click();
         util.waitPass(timeMedium, "Tab Warranty", driver);
+        WebElement titleWarranty = driver.findElement(tr062008.getTitleTransaction());
+        Assert.assertEquals(message.getErrorWarranty(), message.getTabWarranty(), titleWarranty.getText());
         util.screenshot(caseScreen, caseScreenTx062008, driver);
         util.multipleValidate(driver);
     }
@@ -546,5 +550,6 @@ public class loanFlow extends StartPages {
         util.waitPass(timeMedium, "generateCreditNumber Número de solicitud", driver);
         util.multipleValidate(driver);
         util.screenshot(caseScreen, caseScreenTx062001, driver);
+        System.out.println("Numero de solicitud: " + requestNumber);
     }
 }
