@@ -492,10 +492,12 @@ public class loanFlow extends StartPages {
                 break;
             }
         }
+        util.reactPage();
         util.driverIncognito.findElement(tr002009.getTxtObservation()).sendKeys(loanFlow.get(50) + Keys.TAB);
         util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
         util.waitPass(timeBase, "Observacion", util.driverIncognito);
         util.driverIncognito.findElement(tr002009.getBtnAprobar()).click();
+        Thread.sleep(400);
         util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
         util.waitPass(timeMedium, "Boton Aprobar", util.driverIncognito);
         util.driverIncognito.findElement(tr002009.getModalBtnAprobar()).click();
