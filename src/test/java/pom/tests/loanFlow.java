@@ -9,7 +9,6 @@ import pom.pages.StartPages;
 import java.io.IOException;
 import java.util.List;
 
-
 public class loanFlow extends StartPages {
 
     public loanFlow() throws IOException { }
@@ -519,7 +518,7 @@ public class loanFlow extends StartPages {
         util.multipleValidate(util.driverIncognito);
         util.screenshot(caseScreen, caseScreenTx062033, util.driverIncognito);
         /* Comentario */
-        util.driverIncognito.findElement(tr062033.getTxtAarComment()).sendKeys(loanFlow.get(52));
+        util.driverIncognito.findElement(tr062033.getTxtAarComment()).sendKeys(loanFlow.get(52) + Keys.TAB);
         /* Aprobar */
         util.driverIncognito.findElement(tr062033.getBtnAarRiskAnalysisApproval()).click();
         util.waitPass(timeSave, "typeRiskAnalysisApproval Aprobar", util.driverIncognito);
