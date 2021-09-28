@@ -49,5 +49,4 @@ public class Messages {
     public String getTitleEntryAndMaintenance() { return "INGRESO Y MANTENIMIENTO DE SOLICITUDES PRÉSTAMOS - FitBank"; }
     public String getTitleVerifyInformation() { return "VERIFICACIÓN DE INFORMACIÓN POR SOLICITUD - FitBank"; }
     public String getTabWarranty() { return "GARANTÍAS EXISTENTES"; }
-
 }

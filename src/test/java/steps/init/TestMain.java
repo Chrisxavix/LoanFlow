@@ -180,8 +180,43 @@ public class TestMain {
         loanFlow.typeRiskAnalysisApproval();
     }
 
-    @And("^Generamos el número de crédito en la transacción 06-2001$")
+    @And("^Iniciamos la aprobación de solicitud del préstamo 06-2001$")
+    public void approveCreditNumber() throws Throwable {
+        loanFlow.approveCreditNumber();
+    }
+
+    @And("^Ingresamos los datos para generar el número de crédito$")
     public void generateCreditNumber() throws Throwable {
         loanFlow.generateCreditNumber();
+    }
+
+    @And("^Abrimos el navegador en modo incógnito para aprobar el número de crédito$")
+    public void openBrowserIncognitToApprove() throws Throwable {
+        loanFlow.openBrowserIncognitToApprove();
+    }
+
+    @And("^Cierro sesiones activas, ingreso el usuario aprobador y contraseña en modo incógnito$")
+    public void incognitoTwoCloseSessionAndTypeUserPassword() throws Throwable {
+        loanFlow.incognitoTwoCloseSessionAndTypeUserPassword();
+    }
+
+    @And("^Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente en incógnito$")
+    public void selectTransactionIncognito() throws Throwable {
+        loanFlow.selectTransactionIncognito();
+    }
+
+    @And("^Ingresamos los datos para generar el número de crédito en incógnito$")
+    public void generateNumberCredit() throws Throwable {
+        loanFlow.generateNumberCredit();
+    }
+
+    @And("^Guardo la transacción en incógnito$")
+    public void saveIncognito() throws Throwable {
+        loanFlow.saveIncognito();
+    }
+
+    @And("^Capturar el número de crédito$")
+    public void getNumberCredit() throws Throwable {
+        loanFlow.getNumberCredit();
     }
 }

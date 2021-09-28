@@ -73,7 +73,6 @@ public class Utilities {
                 if(print.equalsIgnoreCase("yes")) {
                     Thread.sleep(timeWindow);
                     this.downloadPDF();
-                    this.typeSavePdf();
                     driver.close();
                 }
                 driver.switchTo().window(mainOfWindow);
@@ -166,13 +165,8 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
-    }
-
-    /* Guardar archivos sin el método de switchPDF */
-    public void typeSavePdf() throws AWTException {
-        Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ENTER);
-        robot.setAutoDelay(600);
+        robot.setAutoDelay(500);
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
