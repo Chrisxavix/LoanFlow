@@ -115,6 +115,8 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
         util.waitPass(timeSave, "typeTx062000", driver);
         util.reactStartTransaction();
+            /* +Validaciones cambio pantalla */
+        Assert.assertEquals(message.getErrorTx062000(), message.getTitleEntryAndMaintenance(), driver.getTitle());
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx062000, driver);
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(Keys.ENTER);
@@ -222,6 +224,9 @@ public class loanFlow extends StartPages {
         util.reactPage();
         driver.findElement(tr062000.getTabWarranty()).click();
         util.waitPass(timeMedium, "Tab Warranty", driver);
+            /* +Validaciones cambio pantalla */
+        WebElement titleWarranty = driver.findElement(tr062008.getTitleTransaction());
+        Assert.assertEquals(message.getErrorWarranty(), message.getTabWarranty(), titleWarranty.getText());
         util.screenshot(caseScreen, caseScreenTx062008, driver);
         util.multipleValidate(driver);
     }
@@ -299,6 +304,8 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(33) + Keys.ENTER);
         util.waitPass(timeSave, "typeTx063071", driver);
+            /* +Validaciones cambio pantalla */
+        Assert.assertEquals(message.getErrorTx063071(), message.getTitleVerifyInformation(), driver.getTitle());
         util.reactStartTransaction();
         driver.findElement(tr063071.getTxtNumSoli()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx063071, driver);
