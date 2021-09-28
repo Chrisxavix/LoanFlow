@@ -20,9 +20,12 @@ public class Messages {
     public String getErrorTx000267() { return "Error al ingresar al formulario de la transacción 00-0267"; }
     public String getErrorGeneral() { return "Error, valor no encontrados o incorrectos"; }
     public String getErrorTx063040() { return "Error al ingresar al formulario de la transacción 06-3040"; }
+    public String getErrorTx063071() { return "Error al ingresar al formulario de la transacción 06-3071"; }
     public String getErrorTx063080() { return "Error al ingresar al formulario de la transacción 06-3080"; }
     public String getErrorTx062033() { return "Error al ingresar al formulario de la transacción 06-2033"; }
     public String getErrorTx062001() { return "Error al ingresar al formulario de la transacción 06-2001"; }
+    public String getErrorTx062000() { return "Error al ingresar al formulario de la transacción 06-2000"; }
+    public String getErrorWarranty() { return "Error, título no esperado en la pestaña"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -43,5 +46,8 @@ public class Messages {
     public String getTitlePolicyCompliance() { return "CUMPLIMIENTO DE POLITICAS"; }
     public String getTitleRiskAnalysisApproval() { return "APROBACIÓN DE ANÁLISIS DE RIESGOS - FitBank"; }
     public String getTitleRiskRequestApproval() { return "APROBACIÓN DE SOLICITUDES PRÉSTAMOS - FitBank"; }
+    public String getTitleEntryAndMaintenance() { return "INGRESO Y MANTENIMIENTO DE SOLICITUDES PRÉSTAMOS - FitBank"; }
+    public String getTitleVerifyInformation() { return "VERIFICACIÓN DE INFORMACIÓN POR SOLICITUD - FitBank"; }
+    public String getTabWarranty() { return "GARANTÍAS EXISTENTES"; }
 
 }
