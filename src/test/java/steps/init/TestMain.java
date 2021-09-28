@@ -219,4 +219,9 @@ public class TestMain {
     public void getNumberCredit() throws Throwable {
         loanFlow.getNumberCredit();
     }
+
+    @And("^Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")
+    public void tr063002() throws Throwable {
+        loanFlow.tr063002();
+    }
 }

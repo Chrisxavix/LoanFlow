@@ -640,10 +640,18 @@ public class loanFlow extends StartPages {
     }
 
     public void getNumberCredit() throws Throwable {
+        util.reactPage();
         WebElement getNumberCredit = util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber());
         creditNumber = getNumberCredit.getAttribute("value");
         System.out.println("Número de crédito: " + creditNumber);
         util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber()).click();
         util.screenshot(caseScreen, caseScreenTx062001Incognito, util.driverIncognito);
+    }
+
+    public void tr063002() throws Throwable {
+        // Quemamos el número de préstamo
+        driver.findElement(tr063002.getTxtLoan()).sendKeys("60001294824" + Keys.ENTER);
+        util.waitPass(timeBase, "Número de Préstamo", driver);
+        driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(57) + Keys.ENTER);
     }
 }
