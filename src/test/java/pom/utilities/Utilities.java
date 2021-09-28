@@ -20,17 +20,25 @@ import java.util.List;
 import java.util.Set;
 
 public class Utilities {
+    /* Obtener el driver */
     protected WebDriver driver = Hook.getDriver();
+    /* Instancia para controlar la barra de status */
     protected Global global = new Global();
+    /* Darle numeración a las capturas */
     private int step = 1;
+    /* Darle numeración a los escenarios de pruebas */
     private static int countScenario = 0;
+    /* Control de pestañas en el navegador */
     private String mainOfWindow;
     private String secondOfWindow;
     /* Navegador Incógnito */
     public WebDriver driverIncognito;
     public ChromeOptions options = new ChromeOptions();
 
-    /* Espera Fluida */
+    /* Espera Fluida, cada 200 milisegundos va a obtener el estatus para determinar si continúa
+       o sigue en espera.
+       Tiene un contador para establecer el tiempo límite de espera antes de dar por terminado el
+       proceso con un resultado de Error, Time out*/
     public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
         int timeFinal = time * 5;
         String status = typeDriver.findElement(global.getTxtStatus()).getText();
@@ -44,15 +52,13 @@ public class Utilities {
             cont++;
             Thread.sleep(200);
             status = typeDriver.findElement(global.getTxtStatus()).getText();
-            /*System.out.println("STATUS DEL WHILE: " + status);
-            System.out.println("ENTRA AL WHILE: " + cont);*/
         }
         System.out.println("FINAL STATUS: " + status);
         System.out.println(".........................................");
         System.out.println("");
     }
 
-    /* Jugar con las pestañas del navegador */
+    /* Jugar con las pestañas del navegador entre principal y secundarias */
     public void switchPages(int timeWindow, String print) throws Throwable {
         /* Todas las ventanas abiertas en prueba */
         Set<String> windows = driver.getWindowHandles();
@@ -66,9 +72,9 @@ public class Utilities {
                 secondOfWindow = handle;
             }
             if (pageTitle.equalsIgnoreCase("Error")) {
-                /* Se cierra con el botón de la página de error */
                 Thread.sleep(3000);
-                driver.switchTo().window(mainWindow);
+                driver.close();
+                driver.switchTo().window(mainOfWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
                 if(print.equalsIgnoreCase("yes")) {
                     Thread.sleep(timeWindow);
@@ -129,21 +135,6 @@ public class Utilities {
         return dataExcel;
     }
 
-    /* Reacción de la página al cambiar de pestaña */
-    public void reactPage() throws InterruptedException {
-        Thread.sleep(2200);
-    }
-
-    /* Reacción de la página para el ingreso de datos */
-    public void reactTypeData() throws InterruptedException {
-        Thread.sleep(3000);
-    }
-
-    /* Reacción al iniciar una transacción */
-    public void reactStartTransaction() throws InterruptedException {
-        Thread.sleep(2000);
-    }
-
     /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
     public void switchPDF() throws AWTException {
         driver.switchTo().window(secondOfWindow);
@@ -170,6 +161,7 @@ public class Utilities {
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
+    /* La barra de estatus en ocasiones realiza varias validaciones */
     public void multipleValidate(WebDriver typeDriver) throws Throwable {
         Thread.sleep(200);
         int timeSave = 60;
@@ -180,5 +172,25 @@ public class Utilities {
         this.waitPass(timeSave, "validate 3", typeDriver);
         Thread.sleep(200);
         this.waitPass(timeSave, "validate 4", typeDriver);
+    }
+
+    /* Tiempos de Espera */
+    /* Abrir modales */
+    public void openModal() throws InterruptedException {
+        Thread.sleep(400);
+    }
+
+    /* Reacción de la página al cambiar de pestaña */
+    public void reactPage() throws InterruptedException {
+        Thread.sleep(2200);
+    }
+
+    public void reactPageOp2() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
+    /* Reacción de la página para el ingreso de datos */
+    public void reactTypeData() throws InterruptedException {
+        Thread.sleep(3000);
     }
 }
