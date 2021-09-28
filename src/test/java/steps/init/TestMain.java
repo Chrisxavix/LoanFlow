@@ -224,4 +224,14 @@ public class TestMain {
     public void tr063002() throws Throwable {
         loanFlow.tr063002();
     }
+
+    @And("^Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes$")
+    public void loanWarranty() throws Throwable {
+        loanFlow.loanWarranty();
+    }
+
+    @And("^Ingresamos a la transacción 06-3005 y llenamos la información del préstamo$")
+    public void enablingDocuments() throws Throwable {
+        loanFlow.enablingDocuments();
+    }
 }
