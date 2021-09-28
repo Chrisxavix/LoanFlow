@@ -440,9 +440,17 @@ public class loanFlow extends StartPages {
         util.waitPass(timeSave, "completeAdditionalPolicies", util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(49) + Keys.TAB);
         util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
+        /* Buscar el número de solicitud */
+        util.driverIncognito.findElement(tr002008.getTxtBaSearchRequest()).sendKeys(requestNumber);
+        util.waitPass(timeMedium, "authMailBox buscar solicitud", util.driverIncognito);
+        util.driverIncognito.findElement(global.getBtnF7()).click();
+        util.waitPass(timeMedium, "authMailBox buscando", util.driverIncognito);
+        util.reactPageOp2();
         util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
-        this.selectRequestNumber(util.driverIncognito);
+        util.driverIncognito.findElement(tr002008.getLinkBaRequest()).click();
+        util.waitPass(timeMedium, "authMailBox enlace", util.driverIncognito);
         util.reactPage();
+        /* Comentario de aprobar */
         util.driverIncognito.findElement(tr002009.getTxtObservation()).sendKeys(loanFlow.get(50) + Keys.TAB);
         util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
         util.waitPass(timeBase, "Observacion", util.driverIncognito);
@@ -519,8 +527,15 @@ public class loanFlow extends StartPages {
         util.waitPass(timeSave, "approveNumberRequest", util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getTxtTransaction()).sendKeys(loanFlow.get(55) + Keys.TAB);
         util.waitPass(timeMedium, "authMailBox", util.driverIncognito);
+        /* Buscar el número de solicitud */
+        util.driverIncognito.findElement(tr002008.getTxtBaSearchRequest()).sendKeys(requestNumber);
+        util.waitPass(timeMedium, "authMailBox buscar solicitud", util.driverIncognito);
+        util.driverIncognito.findElement(global.getBtnF7()).click();
+        util.waitPass(timeMedium, "authMailBox buscando", util.driverIncognito);
+        util.reactPageOp2();
         util.screenshot(caseScreen, caseScreenTx002008Incognito, util.driverIncognito);
-        this.selectRequestNumber(util.driverIncognito);
+        util.driverIncognito.findElement(tr002008.getLinkBaRequest()).click();
+        util.waitPass(timeMedium, "authMailBox enlace", util.driverIncognito);
     }
 
     public void generateNumberCredit() throws Throwable {
@@ -535,7 +550,7 @@ public class loanFlow extends StartPages {
         WebElement getNumberCredit = util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber());
         creditNumber = getNumberCredit.getAttribute("value");
         System.out.println("Número de crédito: " + creditNumber);
-        util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber()).click();
+        util.driverIncognito.findElement(tr062001.getTxtRequestNumber()).click();
         util.screenshot(caseScreen, caseScreenTx062001Incognito, util.driverIncognito);
     }
 
@@ -579,22 +594,5 @@ public class loanFlow extends StartPages {
         save.click();
         util.waitPass(timeSave, "saveTransaction saveTransaction", typeDriver);
         util.multipleValidate(typeDriver);
-    }
-
-    public void selectRequestNumber(WebDriver typeDriver) throws Throwable {
-        List<WebElement> tablePrint = typeDriver.findElements(tr002008.getTblTransaction());
-        for(int i = 1; i <= tablePrint.size(); i++) {
-            /*Está mapeado la columna de solicitud*/
-            String joinC7 = tr002008.getTxtBaRequestPart1() + i + tr002008.getTxtBaRequestPart2();
-            WebElement column1Documents = typeDriver.findElement(By.xpath(joinC7));
-            String base = column1Documents.getAttribute("value");
-            if (base.equals(requestNumber) ) {
-                String joinC9 = tr002008.getTxtBaGoPart1() + i + tr002008.getTxtBaGoPart2();
-                WebElement column3Print = typeDriver.findElement(By.xpath(joinC9));
-                column3Print.click();
-                util.waitPass(timeMedium, "authMailBox click", typeDriver);
-                break;
-            }
-        }
     }
 }
