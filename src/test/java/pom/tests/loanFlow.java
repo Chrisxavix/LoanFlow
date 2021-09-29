@@ -448,7 +448,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx002008, util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getLinkBaRequest()).click();
         util.waitPass(timeMedium, "authMailBox enlace", util.driverIncognito);
-        util.reactPage();
+        util.reactTypeData();
         /* Comentario de aprobar */
         util.driverIncognito.findElement(tr002009.getTxtObservation()).sendKeys(loanFlow.get(50) + Keys.TAB);
         util.screenshot(caseScreen, caseScreenTx002009, util.driverIncognito);
