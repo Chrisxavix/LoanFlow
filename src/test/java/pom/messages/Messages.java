@@ -5,7 +5,6 @@ public class Messages {
     /* Mensajes de error */
     public String getErrorBrowser() { return "Error al abrir el navegador"; }
     public String getErrorDataLogin() { return "Datos erroneos en el Login"; }
-    public String getErrorTx06_2000() { return "Error al ingresar al formulario de la transacción 06-2000"; }
     public String getErrorUser() { return "Error, el usuario no ha sido extraido completamente de la transacción 06-2100"; }
     public String getErrorCountry() { return "Error, valor no esperado en país"; }
     public String getErrorState() { return "Error, valor no esperado en provincia"; }
@@ -25,7 +24,10 @@ public class Messages {
     public String getErrorTx062033() { return "Error al ingresar al formulario de la transacción 06-2033"; }
     public String getErrorTx062001() { return "Error al ingresar al formulario de la transacción 06-2001"; }
     public String getErrorTx062000() { return "Error al ingresar al formulario de la transacción 06-2000"; }
-    public String getErrorWarranty() { return "Error, título no esperado en la pestaña"; }
+    public String getErrorWarranty() { return "Error al ingresar a la pestaña de la transacción 06-2008"; }
+    public String getErrorTx062100() { return "Error al ingresar al formulario de la transacción 06-2100"; }
+    public String getErrorTx063078() { return "Error al ingresar al formulario de la transacción 06-3078"; }
+    public String getErrorTx002008() { return "Error al ingresar al formulario de la transacción 00-2008"; }
 
     /* Comparación de textos */
     public String getTitlePageLogin() { return "Ingreso"; }
@@ -49,4 +51,9 @@ public class Messages {
     public String getTitleEntryAndMaintenance() { return "INGRESO Y MANTENIMIENTO DE SOLICITUDES PRÉSTAMOS - FitBank"; }
     public String getTitleVerifyInformation() { return "VERIFICACIÓN DE INFORMACIÓN POR SOLICITUD - FitBank"; }
     public String getTabWarranty() { return "GARANTÍAS EXISTENTES"; }
+    public String getDebtor() { return "DEUDOR"; }
+    public String getTitleLoanSimulation() { return "SIMULACIÓN DE PRÉSTAMOS - FitBank"; }
+    public String getTitleIncomeAndMaintenanceGuarantees() { return "INGRESO Y MANTENIMIENTO DE GARANTIAS - FitBank"; }
+    public String getTabRiskBehavior() { return "COMPORTAMIENTO DE RIESGOS"; }
+    public String getTitleAuthorizationBox() { return "BUZON DE AUTORIZACIONES - FitBank"; }
 }

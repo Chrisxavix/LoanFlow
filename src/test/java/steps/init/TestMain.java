@@ -15,49 +15,24 @@ public class TestMain {
     public TestMain() throws IOException {
     }
 
-    @Given("^Abre el web browser Chrome y direcciona a la aplicación$")
+    @Given("^Abrimos el navegador Chrome con la web de Fitbank$")
     public void openBrowser() throws Throwable {
         loanFlow.openBrowser();
     }
 
-    @When("^Cierro sesiones activas, ingreso el usuario y contraseña$")
+    @And("^Cerramos sesiones activas, ingresamos el usuario y contraseña$")
     public void closeSessionAndTypeUserPassword() throws Throwable {
         loanFlow.closeSessionAndTypeUserPassword();
     }
 
-    @And("^Ingreso a la transacción 06-2100 e ingreso los datos del Deudor, Codeudor y Garantes$")
-    public void typeTransaction() throws Throwable {
-        loanFlow.typeTransaction();
+    @When("^Ingresamos a la transacción 06-2100 e ingresamos los datos del deudor, codeudor y garantes, datos del producto y los datos del préstamo$")
+    public void typeDebtorDataProductDataLoan() throws Throwable {
+        loanFlow.typeDebtorDataProductDataLoan();
     }
 
-    @And("^Ahora me dirijo a Datos Producto e ingreso los datos respectivos$")
-    public void productGroup() throws Throwable {
-        loanFlow.productGroup();
-    }
-
-    @And("^Procedemos a ingresar los datos del prestamo$")
-    public void amountCred() throws Throwable {
-        loanFlow.amountCred();
-    }
-
-    @And("^Guardamos el formulario para crear el número de solicitud$")
-    public void saveForm() throws Throwable {
-        loanFlow.saveForm();
-    }
-
-    @And("^Ingreso la transacción 06-2000 e ingreso el número de solicitud$")
-    public void typeTx062000() throws Throwable {
-        loanFlow.typeTx062000();
-    }
-
-    @And("^Ingreso los datos geográficos$")
-    public void typeGeographicalData() throws Throwable {
-        loanFlow.typeGeographicalData();
-    }
-
-    @And("^Ingreso los datos del préstamo y comentarios$")
-    public void typeLoanDataAndComments() throws Throwable {
-        loanFlow.typeLoanDataAndComments();
+    @When("^Ingresamos a la transacción 06-2000 e ingreso los datos geográficos, datos del préstamo y comentarios$")
+    public void typeDataGeographicalDataLoanComment() throws Throwable {
+        loanFlow.typeDataGeographicalDataLoanComment();
     }
 
     @And("^Genero el reporte$")
@@ -65,92 +40,52 @@ public class TestMain {
         loanFlow.generateReport();
     }
 
-    @And("^Guardo la transacción$")
+    @Then("^Guardo la transacción$")
     public void saveTransaction() throws Throwable {
         loanFlow.saveTransaction();
     }
 
-    @And("^Nos dirigimos a la pestaña de garantias 06-2008$")
-    public void tabWarranty() throws Throwable {
-        loanFlow.tabWarranty();
+    @When("^Nos dirigimos a la pestaña de garantias 06-2008, ingresamos los datos de las garantias propuestas$")
+    public void tabWarrantyProposed() throws Throwable {
+        loanFlow.tabWarrantyProposed();
     }
 
-    @And("^Ingreso los datos de las garantias propuestas$")
-    public void warrantyProp() throws Throwable {
-        loanFlow.warrantyProp();
+    @When("^Nos dirigimos a la pestaña pestaña de impresión de documentos 06-2016$")
+    public void tabPrintDocuments() throws Throwable {
+        loanFlow.tabPrintDocuments();
     }
 
-    @And("^Nos dirigimos a la pestaña pestaña de impresión de documentos 06-2016$")
-    public void selectPrintDocuments() throws Throwable {
-        loanFlow.selectPrintDocuments();
+    @And("^Genero el reporte de checklist y la orden de operación$")
+    public void generateReportCheklistReportOperation() throws Throwable {
+        loanFlow.generateReportCheklistReportOperation();
     }
 
-    @And("^Genero el reporte de checklist$")
-    public void generateReportCheklist() throws Throwable {
-        loanFlow.generateReportCheklist();
-    }
-
-    @And("^Genero la orden de operación$")
-    public void generateOrder() throws Throwable {
-        loanFlow.generateOrder();
-    }
-
-    @And("^Valido que la orden de operación se haya generado$")
+    @And("^Valido que la orden de operación se haya generado en la transacción 00-0267$")
     public void validateOrder() throws Throwable {
         loanFlow.validateOrder();
     }
 
-    @And("^Consultar la operación 00-0267$")
-    public void queryOrder() throws Throwable {
-        loanFlow.queryOrder();
+    @And("^Ingresamos a la transacción 06-3071, marcamos los checklist habilitados y guardamos la verificacion$")
+    public void pressChecksAndSave() throws Throwable {
+        loanFlow.pressChecksAndSave();
     }
 
-    @And("^Ahora nos dirigimos a la transaccion 06-3071 e ingresamos el número de solicitud generado anteriormente$")
-    public void typeTr063071() throws Throwable {
-        loanFlow.typeTxt063071();
+    @And("^Ingresamos al formulario 06-3040 y agregamos un comentario$")
+    public void typeComment() throws Throwable {
+        loanFlow.typeComment();
     }
 
-    @And("^Marco los checklist habilitados y guardamos la verificacion$")
-    public void checkList() throws Throwable {
-        loanFlow.checkList();
+    @And("^Nos dirigimos a la pestaña de análisis de crédito 06-3078, ingresamos valores en riesgos y en activos y pasivos$")
+    public void typeValuesRiskActivesPasives() throws Throwable {
+        loanFlow.typeValuesRiskActivesPasives();
     }
 
-    @And("^Ingresamos al formulario 06-3040$")
-    public void typeTransaction3040() throws Throwable {
-        loanFlow.typeTransaction3040();
+    @And("^Nos dirigimos a la pestaña de cumplimiento de políticas 06-3080, completo las casillas de políticas del sujeto de crédito, agrego un comentario y completo las políticas adicionales$")
+    public void pressChecksPoliticsComment() throws Throwable {
+        loanFlow.pressChecksPoliticsComment();
     }
 
-    @And("^Ingresamos el numero de solicitud de análisis de crédito y agregamos un comentario$")
-    public void typeRequestNumberAnalysis() throws Throwable {
-        loanFlow.typeRequestNumberAnalysis();
-    }
-
-    @And("^Nos dirigimos a la pestaña de analisis de credito 06-3078, en riesgos ingresamos el valor de cero$")
-    public void creditAnalysis() throws Throwable {
-        loanFlow.creditAnalysis();
-    }
-
-    @And("^Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente$")
-    public void actPasiv() throws Throwable {
-        loanFlow.activPasiv();
-    }
-
-    @And("^Selecciono la pestaña de cumplimiento de políticas 06-3080$")
-    public void selectPolicyCompliance() throws Throwable {
-        loanFlow.selectPolicyCompliance();
-    }
-
-    @Then("^Completo las casillas de Politícas del Sujeto de Crédito y agrego un comentario$")
-    public void completePolicyCompliance() throws Throwable {
-        loanFlow.completePolicyCompliance();
-    }
-
-    @And("^Completo las políticas adicionales$")
-    public void completeAdditionalPolicies() throws Throwable {
-        loanFlow.completeAdditionalPolicies();
-    }
-
-    @And("^Abrimos el navegador en modo incógnito$")
+    @Given("^Abrimos el navegador en modo incógnito$")
     public void openNewBrowserIncognito() throws Throwable {
         loanFlow.openNewBrowserIncognito();
     }
@@ -160,12 +95,12 @@ public class TestMain {
         loanFlow.incognitoCloseSessionAndTypeUserPassword();
     }
 
-    @And("^Ingresamos al buzón de autorizaciones 00-2008 y aprobamos la solicitud 00-2009$")
-    public void authMailBox() throws Throwable {
-        loanFlow.authMailBox();
+    @When("^Ingresamos al buzón de autorizaciones 00-2008 y aprobamos la solicitud 00-2009$")
+    public void approveNumberRequest() throws Throwable {
+        loanFlow.approveNumberRequest();
     }
 
-    @And("^Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033$")
+    @And("^Aprobamos el número de solicitud en aprobación de análisis 06-3033$")
     public void typeRiskAnalysisApproval() throws Throwable {
         loanFlow.typeRiskAnalysisApproval();
     }
