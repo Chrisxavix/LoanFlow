@@ -49,11 +49,11 @@ Feature: Flujo de Préstamos
 #    And Ingresamos los datos para generar el número de crédito en incógnito
 #    And Guardo la transacción en incógnito
 #    And Capturar el número de crédito
-#    And Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
+    And Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
 #    And Guardo la transacción
-#    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
-#    And Guardo la transacción
-    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
+##    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
+##    And Guardo la transacción
+#    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
     Examples:
       | caso |
       | 1    |

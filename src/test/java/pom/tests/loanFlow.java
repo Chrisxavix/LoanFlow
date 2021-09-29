@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import pom.pages.StartPages;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 public class loanFlow extends StartPages {
@@ -38,7 +39,7 @@ public class loanFlow extends StartPages {
 
     public void typeTransaction() throws Throwable {
         //driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys("063005" + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys("062006" + Keys.ENTER);
         util.waitPass(timeBase, "typeTransaction", driver);
         util.screenshot(caseScreen, caseScreenTx062100, driver);
 //        /* Deudor */
@@ -656,6 +657,7 @@ public class loanFlow extends StartPages {
         driver.findElement(tr063002.getTxtLoan()).sendKeys("60001295008" + Keys.ENTER);
         util.waitPass(timeBase, "Número de Préstamo", driver);
         driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(57) + Keys.ENTER);
+        Calendar c = Calendar.getInstance();
     }
 
     public void loanWarranty() throws Throwable {
