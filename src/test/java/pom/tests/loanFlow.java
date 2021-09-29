@@ -3,8 +3,6 @@ package pom.tests;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
 import pom.pages.StartPages;
 import java.io.IOException;
@@ -12,7 +10,8 @@ import java.util.List;
 
 public class loanFlow extends StartPages {
 
-    public loanFlow() throws IOException { }
+    public loanFlow() throws IOException {
+    }
 
     public void openBrowser() throws Throwable {
         caseScreen++;
@@ -103,7 +102,7 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
         util.waitPass(timeSave, "typeTx062000", driver);
         util.multipleValidate(driver);
-            /* +Validaciones cambio pantalla */
+        /* +Validaciones cambio pantalla */
         Assert.assertEquals(message.getErrorTx062000(), message.getTitleEntryAndMaintenance(), driver.getTitle());
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(requestNumber);
         driver.findElement(tr062000.getTxtNumberRequest()).sendKeys(Keys.ENTER);
@@ -208,7 +207,7 @@ public class loanFlow extends StartPages {
         driver.findElement(tr062000.getTabWarranty()).click();
         util.waitPass(timeMedium, "Tab Warranty", driver);
         util.multipleValidate(driver);
-            /* +Validaciones cambio pantalla */
+        /* +Validaciones cambio pantalla */
         WebElement titleWarranty = driver.findElement(tr062008.getTitleTransaction());
         Assert.assertEquals(message.getErrorWarranty(), message.getTabWarranty(), titleWarranty.getText());
     }
@@ -286,7 +285,7 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(33) + Keys.ENTER);
         util.waitPass(timeSave, "typeTx063071", driver);
         util.multipleValidate(driver);
-            /* +Validaciones cambio pantalla */
+        /* +Validaciones cambio pantalla */
         Assert.assertEquals(message.getErrorTx063071(), message.getTitleVerifyInformation(), driver.getTitle());
         driver.findElement(tr063071.getTxtNumSoli()).sendKeys(requestNumber);
         util.screenshot(caseScreen, caseScreenTx063071, driver);
@@ -536,6 +535,7 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx002008Incognito, util.driverIncognito);
         util.driverIncognito.findElement(tr002008.getLinkBaRequest()).click();
         util.waitPass(timeMedium, "authMailBox enlace", util.driverIncognito);
+        util.multipleValidate(util.driverIncognito);
     }
 
     public void generateNumberCredit() throws Throwable {
@@ -555,14 +555,12 @@ public class loanFlow extends StartPages {
     }
 
     /* Métodos que se usa en modo normal e incógnito */
-    public void openBrowserIncognito () throws IOException {
+    public void openBrowserIncognito() {
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
         String txtStatus = statustNotification.getText();
         userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
         util.options.addArguments("-incognito");
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, util.options);
-        util.driverIncognito = new ChromeDriver(capabilities);
+        util.driverIncognito = new ChromeDriver(util.options);
         util.driverIncognito.manage().window().maximize();
         util.driverIncognito.get("http://" + loanFlow.get(0) + ":8380/WEB3/ingreso.html");
     }
@@ -579,7 +577,7 @@ public class loanFlow extends StartPages {
     }
 
     public void typeDecision(WebDriver typeDriver) throws Throwable {//
-        util.reactPage();
+        util.reactTypeData();
         /* Decisión */
         Select selectDecision = new Select(typeDriver.findElement(tr062001.getTxtAspDecision()));
         selectDecision.selectByVisibleText(loanFlow.get(54));

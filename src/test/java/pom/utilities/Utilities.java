@@ -36,7 +36,7 @@ public class Utilities {
     public ChromeOptions options = new ChromeOptions();
 
     /* Espera Fluida, cada 200 milisegundos va a obtener el estatus para determinar si continúa
-       o sigue en espera.
+       o sigue en espera, por ello se multiplica por 5.
        Tiene un contador para establecer el tiempo límite de espera antes de dar por terminado el
        proceso con un resultado de Error, Time out*/
     public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
