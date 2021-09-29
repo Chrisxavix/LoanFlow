@@ -120,14 +120,9 @@ public class TestMain {
         loanFlow.typeTransaction3040();
     }
 
-    @And("^Ingresamos el numero de solicitud de análisis de crédito$")
+    @And("^Ingresamos el numero de solicitud de análisis de crédito y agregamos un comentario$")
     public void typeRequestNumberAnalysis() throws Throwable {
         loanFlow.typeRequestNumberAnalysis();
-    }
-
-    @And("^Agregamos un comentario$")
-    public void typeComment() throws Throwable {
-        loanFlow.typeComment();
     }
 
     @And("^Nos dirigimos a la pestaña de analisis de credito 06-3078, en riesgos ingresamos el valor de cero$")
@@ -165,14 +160,9 @@ public class TestMain {
         loanFlow.incognitoCloseSessionAndTypeUserPassword();
     }
 
-    @And("^Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente$")
+    @And("^Ingresamos al buzón de autorizaciones 00-2008 y aprobamos la solicitud 00-2009$")
     public void authMailBox() throws Throwable {
         loanFlow.authMailBox();
-    }
-
-    @And("^Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos$")
-    public void authTransatation() throws Throwable {
-        loanFlow.authTransation();
     }
 
     @And("^Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033$")

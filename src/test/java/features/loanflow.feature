@@ -25,8 +25,7 @@ Feature: Flujo de Préstamos
     And Ahora nos dirigimos a la transaccion 06-3071 e ingresamos el número de solicitud generado anteriormente
     And Marco los checklist habilitados y guardamos la verificacion
     And Ingresamos al formulario 06-3040
-    And Ingresamos el numero de solicitud de análisis de crédito
-    And Agregamos un comentario
+    And Ingresamos el numero de solicitud de análisis de crédito y agregamos un comentario
     And Guardo la transacción
     And Nos dirigimos a la pestaña de analisis de credito 06-3078, en riesgos ingresamos el valor de cero
     And Ahora nos dirigimos a la pestaña de activos y pasivos e ingresamos la informacion correspondiente
@@ -37,8 +36,7 @@ Feature: Flujo de Préstamos
     And Guardo la transacción
     And Abrimos el navegador en modo incógnito
     And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
-    And Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente
-    And Luego nos dirigimos a la autorizacion de transaccion 00-2009, ingresamos observaciones y aprobamos
+    And Ingresamos al buzón de autorizaciones 00-2008 y aprobamos la solicitud 00-2009
     And Ingresamos a la aprobación de análisis de riesgos para aprobar el número de solicitud 06-3033
     And Iniciamos la aprobación de solicitud del préstamo 06-2001
     And Ingresamos los datos para generar el número de crédito

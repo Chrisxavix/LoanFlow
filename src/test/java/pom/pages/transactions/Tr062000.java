@@ -62,5 +62,5 @@ public class Tr062000 {
     /* VALIDAR LISTAS DE CONTROL: Vlc */
     public By getBtnVlcGenerateReport() { return this.btnVlcGenerateReport; }
     /* Cambio pestaña garantías propuestas */
-    public By getTabWarranty() { return tabWarranty; }
+    public By getTabWarranty() { return this.tabWarranty; }
 }

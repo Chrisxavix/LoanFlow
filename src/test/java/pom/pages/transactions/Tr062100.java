@@ -53,5 +53,5 @@ public class Tr062100 {
     public By getBtnInterestRate() { return this.btnInterestRate; }
     public By getBtnCloseInterestRate() { return this.btnCloseInterestRate; }
     public By getSaveForm() { return this.saveForm; }
-    public By getNumberSoli() { return numberSoli; }
+    public By getNumberSoli() { return this.numberSoli; }
 }
