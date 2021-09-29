@@ -8,9 +8,9 @@ public class Tr062001 {
     /* APROBACIÓN DE SOLICITUDES PRÉSTAMOS: Asp */
     private final By txtRequestNumber = By.xpath("//*[@id='container_3']/table/tbody/tr[1]/td[2]/input");
     /* DECISIÓN */
-    private final By txtAspDecision = By.xpath("//*[@id=\"container_17\"]/table/tbody/tr[2]/td[1]/select");
-    private final By txtAspaccountingDate = By.xpath("//*[@id=\"entorno-informacion\"]/div/table/tbody/tr[2]/td[8]/input");
-    private final By txtAspaccountingDateValue = By.xpath("//*[@id=\"container_17\"]/table/tbody/tr[2]/td[6]/input[1]");
+    private final By txtAspDecision = By.xpath("//*[@id='container_17']/table/tbody/tr[2]/td[1]/select");
+    private final By txtAspaccountingDate = By.xpath("//*[@id='entorno-informacion']/div/table/tbody/tr[2]/td[8]/input");
+    private final By txtAspaccountingDateValue = By.xpath("//*[@id='container_17']/table/tbody/tr[2]/td[6]/input[1]");
     /* Caja de préstamo */
     private final By txtBaLoanNumber = By.xpath("//*[@id='container_3']/table/tbody/tr[2]/td[2]/input[1]");
 

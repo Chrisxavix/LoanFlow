@@ -13,6 +13,7 @@ import java.util.List;
 public class StartPages {
     /* Constructor con excepciones dadas por el excel */
     public StartPages() throws IOException { }
+    /* Obtiene el driver desde el Hook */
     protected WebDriver driver = Hook.getDriver();
     /* Navegador Incógnito */
     protected String userIncognit;
@@ -20,11 +21,11 @@ public class StartPages {
     protected static final int timeBase = 15;
     protected static final int timeMedium = 30;
     protected static final int timeSave = 60;
-    /* Inicializa las páginas */
+    /* Inicializa las páginas generales */
     protected Login loginPage = new Login();
     protected Messages message = new Messages();
     protected Global global = new Global();
-    /* Capturador de pantallas por transacción */
+    /* Capturador de pantallas por nombre de transacción */
     protected static int caseScreen = 0;
     protected static final String caseScreenLogin = "Tx00_login";
     protected static final String caseScreenTx062100 = "Tx01_06_2100";
@@ -37,13 +38,13 @@ public class StartPages {
     protected static final String caseScreenTx063078 = "Tx08_06_3078";
     protected static final String caseScreenTx063080 = "Tx09_06_3080";
     protected static final String caseScreenIncognitoLogin = "Tx10_LoginIncognito01";
-    protected static final String caseScreenTx002008 = "Tx11_00_2008";
-    protected static final String caseScreenTx002009 = "Tx12_00_2009";
-    protected static final String caseScreenTx062033 = "Tx13_06_2033";
+    protected static final String caseScreenTx002008 = "Tx11_00_2008Incognito01";
+    protected static final String caseScreenTx002009 = "Tx12_00_2009Incognito01";
+    protected static final String caseScreenTx062033 = "Tx13_06_2033Incognito01";
     protected static final String caseScreenTx062001 = "Tx14_06_2001";
     protected static final String caseScreenIncognitoLogin2 = "Tx15_LoginIncognito02";
-    protected static final String caseScreenTx002008Incognito = "Tx16_00_2008Incognito";
-    protected static final String caseScreenTx062001Incognito = "Tx17_06_2001Incognito";
+    protected static final String caseScreenTx002008Incognito = "Tx16_00_2008Incognito02";
+    protected static final String caseScreenTx062001Incognito = "Tx17_06_2001Incognito02";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();

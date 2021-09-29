@@ -5,17 +5,18 @@ import org.openqa.selenium.By;
 public class Tr002008 {
 
     /* VARIABLES */
+
     /* BUZON DE AUTORIZACIONES: Ba */
     private final By txtTransaction = By.id("c_ctransaccionc_0");
-    private final By tblTransaction = By.xpath("//*[@id='container_3']/div/table/tbody/tr");
-
+    /* Buscador de solicitud */
+    private final By txtBaSearchRequest = By.xpath("//*[@id='container_3']/div/table/thead/tr[1]/td[8]/input");
+    /* Enlace de la solicitud */
+    private final By linkBaRequest = By.xpath("//*[@id='container_3']/div/table/tbody/tr[1]/td[10]/span/a");
 
     /* GETTERS */
+
     /* BUZON DE AUTORIZACIONES: Ba */
     public By getTxtTransaction() { return this.txtTransaction; }
-    public By getTblTransaction() { return this.tblTransaction; }
-    public String getTxtBaRequestPart1() { return "//*[@id='container_3']/div/table/tbody/tr["; }
-    public String getTxtBaRequestPart2() { return "]/td[8]/input"; }
-    public String getTxtBaGoPart1() { return "//*[@id='container_3']/div/table/tbody/tr["; }
-    public String getTxtBaGoPart2() { return "]/td[10]/span/a"; }
+    public By getTxtBaSearchRequest() { return txtBaSearchRequest; }
+    public By getLinkBaRequest() { return this.linkBaRequest; }
 }
