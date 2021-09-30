@@ -9,8 +9,8 @@ public class Tr062006 {
     private final By txtValueWarranty = By.id("c_f4_vgarantizar_0");
     private final By txtValueToWarranty = By.id("c_F3ValorGarant_0");
 
-    public By getTxtWarranty() { return txtWarranty; }
-    public By getTxtNumberWarranty() { return txtNumberWarranty; }
-    public By getTxtValueWarranty() { return txtValueWarranty; }
-    public By getTxtValueToWarranty() { return txtValueToWarranty; }
+    public By getTxtWarranty() { return this.txtWarranty; }
+    public By getTxtNumberWarranty() { return this.txtNumberWarranty; }
+    public By getTxtValueWarranty() { return this.txtValueWarranty; }
+    public By getTxtValueToWarranty() { return this.txtValueToWarranty; }
 }
