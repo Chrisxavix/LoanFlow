@@ -144,4 +144,19 @@ public class TestMain {
     public void enablingDocuments() throws Throwable {
         loanFlow.enablingDocuments();
     }
+
+    @And("^Ahora imprimimos los reportes de los documentos habilitantes$")
+    public void printEnablingDocuments() throws Throwable {
+        loanFlow.printReportDocuments();
+    }
+
+    @And("^Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo$")
+    public void creditDocumentValidation() throws Throwable {
+        loanFlow.creditDocumentsValidation();
+    }
+
+    @And("^Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo$")
+    public void outlayLoan() throws Throwable {
+        loanFlow.outlayLoan();
+    }
 }

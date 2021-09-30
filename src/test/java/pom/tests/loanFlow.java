@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import pom.pages.StartPages;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.List;
 
 public class loanFlow extends StartPages {
@@ -506,29 +505,105 @@ public class loanFlow extends StartPages {
         // Quemamos el número de préstamo
 //        driver.findElement(global.getBoxCodeTransaction()).clear();
 //        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
-        driver.findElement(tr063002.getTxtLoan()).sendKeys("60001295008" + Keys.ENTER);
+        driver.findElement(tr063002.getTxtLoan()).sendKeys("60001295189" + Keys.ENTER);
         util.waitPass(timeMedium, "Número de Préstamo", driver);
         driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(57) + Keys.ENTER);
-        Calendar c = Calendar.getInstance();
+        util.screenshot(caseScreen, caseScreenTx063002, driver);
+
     }
 
     public void loanWarranty() throws Throwable {
         util.reactPage();
 //        driver.findElement(global.getBoxCodeTransaction()).clear();
 //        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
-        driver.findElement(tr062006.getTxtWarranty()).sendKeys("60001295008" + Keys.ENTER);
+
+        driver.findElement(tr062006.getTxtWarranty()).sendKeys("60001295189" + Keys.ENTER);
         util.waitPass(timeMedium, "Préstamo", driver);
         driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(59) + Keys.ENTER);
         util.waitPass(timeMedium, "Número de Préstamo", driver);
         WebElement txtValueWarranty = driver.findElement(tr062006.getTxtValueWarranty());
         driver.findElement(tr062006.getTxtValueToWarranty()).sendKeys(txtValueWarranty.getAttribute("value"));
+        util.screenshot(caseScreen, caseScreenTx062006, driver);
     }
 
     public void enablingDocuments() throws Throwable {
-        util.reactPage();
+        //util.reactPage();
 //        driver.findElement(global.getBoxCodeTransaction()).clear();
 //        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
-        driver.findElement(tr063005.getTxtWarranty()).sendKeys("60001295008" + Keys.ENTER);
+        driver.findElement(tr063005.getTxtWarranty()).sendKeys("60001295189" + Keys.ENTER);
+        util.waitPass(timeMedium, "Número de Préstamo", driver);
+        driver.findElement(tr063005.getTxtStarDatePay()).sendKeys(addMonth());
+        util.waitPass(timeMedium, "Add Month", driver);
+        driver.findElement(tr063005.getTxtFixedDayPay()).sendKeys(getDay());
+        util.waitPass(timeMedium, "Get Day", driver);
+        util.screenshot(caseScreen, caseScreenTx063005, driver);
+    }
+
+    public void printReportDocuments() throws Throwable {
+        util.reactPageOp2();
+        /* Imprimir Reportes */
+        List<WebElement> tablePrint = driver.findElements(tr063005.getTbPrintDocuments());
+        util.screenshot(caseScreen, caseScreenTx063005, driver);
+        for(int i = 1; i <= tablePrint.size(); i++) {
+            String code = tr063005.getTxtPrintDocCod1Part1() + i + tr063005.getTxtPrintDocCod1Part2();
+            String btnPrint = tr063005.getBtnPrintPart1() + i + tr063005.getBtnPrintPart2();
+            WebElement columnCode = driver.findElement(By.xpath(code));
+            WebElement columnBtnPrint = driver.findElement(By.xpath(btnPrint));
+            String base = columnCode.getAttribute("value");
+            if (base.length() > 0 ) {
+                columnBtnPrint.click();
+                util.switchPages(4000, "yes");
+                util.reactPageOp2();
+            } else {
+                break;
+            }
+        }
+    }
+
+    /* Método para sumar un mes, para la emision de documentos habilitantes*/
+    public String addMonth() {
+        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
+        //System.out.println("Fecha Apertura: " + openDate.getAttribute("value"));
+        String string = openDate.getAttribute("value");
+        String[] parts = string.split("-");
+        String dia = parts[0];
+        String mes = parts[1];
+        String anio = parts[2];
+        int integerMes = Integer.parseInt(mes);
+        if( integerMes > 12 ) {
+            integerMes = 01;
+        } else {
+            integerMes = integerMes+1;
+        }
+        String addMes = String.valueOf(integerMes);
+        addMes = dia+"-"+addMes+"-"+anio;
+        return addMes;
+    }
+
+    /* Método para sacar el día, para la emision de documentos habilitantes*/
+    public String getDay() {
+        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
+        //System.out.println("Fecha Apertura: " + openDate.getAttribute("value"));
+        String string = openDate.getAttribute("value");
+        String[] parts = string.split("-");
+        return parts[0];
+    }
+
+    public void creditDocumentsValidation() throws Throwable {
+        util.reactPage();
+        driver.findElement(tr063018.getTxtLoan()).sendKeys("60001295189" + Keys.ENTER);
+        util.multipleValidate(driver);
+        driver.findElement(tr063018.getTxtStatus()).sendKeys("DESEMBOLSO" + Keys.ENTER);
+        util.waitPass(timeMedium, "Status", driver);
+        driver.findElement(tr063018.getTxtObservations()).sendKeys("OK" + Keys.ENTER);
+        util.waitPass(timeMedium, "Observations", driver);
+        util.screenshot(caseScreen, caseScreenTx063018, driver);
+    }
+
+    public void outlayLoan() throws Throwable {
+        driver.findElement(tr066010.getTxtLoan()).sendKeys("60001295189" + Keys.ENTER);
+        util.waitPass(timeMedium, "Number Loan", driver);
+        util.screenshot(caseScreen, caseScreenTx066010, driver);
     }
 
     /* Métodos que se usa en modo normal e incógnito */

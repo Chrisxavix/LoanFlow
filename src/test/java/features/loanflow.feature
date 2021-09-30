@@ -37,6 +37,11 @@ Feature: Flujo de Préstamos
 #    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
 #    And Guardo la transacción
 #    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
+#    And Guardo la transacción
+#    And Ahora imprimimos los reportes de los documentos habilitantes
+#    And Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo
+#    And Guardo la transacción
+#    And Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo
     Examples:
       | caso |
       | 1    |
