@@ -37,10 +37,8 @@ public class Tr062100 {
     public By getTxtRelationsText() { return this.txtRelationsText; }
     public By getTxtIdCod() { return this.txtIdCod; }
     public By getTxtRelationsCod() { return this.txtRelationsCod; }
-    public By getTxtRelationsCodText() { return this.txtRelationsCodText; }
     public By getTxtIdGar() { return this.txtIdGar; }
     public By getTxtRelationsGar() { return this.txtRelationsGar; }
-    public By getTxtRelationsGarText() { return this.txtRelationsGarText; }
     public By getTxtProductGroup() { return this.txtProductGroup; }
     public By getTxtProduct() { return this.txtProduct; }
     public By getTxtIdExecutive() { return this.txtIdExecutive; }
@@ -52,6 +50,5 @@ public class Tr062100 {
     public By getTxtNumberQuotas() { return this.txtNumberQuotas; }
     public By getBtnInterestRate() { return this.btnInterestRate; }
     public By getBtnCloseInterestRate() { return this.btnCloseInterestRate; }
-    public By getSaveForm() { return this.saveForm; }
-    public By getNumberSoli() { return numberSoli; }
+    public By getNumberSoli() { return this.numberSoli; }
 }

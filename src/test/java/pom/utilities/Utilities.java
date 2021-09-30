@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeOptions;
 import steps.hook.Hook;
 import pom.pages.global.Global;
 import java.awt.*;
@@ -19,18 +20,28 @@ import java.util.List;
 import java.util.Set;
 
 public class Utilities {
+    /* Obtener el driver */
     protected WebDriver driver = Hook.getDriver();
+    /* Instancia para controlar la barra de status */
     protected Global global = new Global();
+    /* Darle numeración a las capturas */
     private int step = 1;
+    /* Darle numeración a los escenarios de pruebas */
     private static int countScenario = 0;
+    /* Control de pestañas en el navegador */
     private String mainOfWindow;
     private String secondOfWindow;
-    private final int timeSave = 60;
+    /* Navegador Incógnito */
+    public WebDriver driverIncognito;
+    public ChromeOptions options = new ChromeOptions();
 
-    /* Espera Fluida */
-    public void waitPass(int time, String nameBox) throws Throwable {
+    /* Espera Fluida, cada 200 milisegundos va a obtener el estatus para determinar si continúa
+       o sigue en espera, por ello se multiplica por 5.
+       Tiene un contador para establecer el tiempo límite de espera antes de dar por terminado el
+       proceso con un resultado de Error, Time out*/
+    public void waitPass(int time, String nameBox, WebDriver typeDriver) throws Throwable {
         int timeFinal = time * 5;
-        String status = driver.findElement(global.getTxtStatus()).getText();
+        String status = typeDriver.findElement(global.getTxtStatus()).getText();
         System.out.println("STATUS: " + status + "  NAME: " + nameBox);
         int cont = 1;
         while ((status.equalsIgnoreCase("PROCESANDO...")
@@ -40,16 +51,14 @@ public class Utilities {
                 && cont < timeFinal) {
             cont++;
             Thread.sleep(200);
-            status = driver.findElement(global.getTxtStatus()).getText();
-            /*System.out.println("STATUS DEL WHILE: " + status);
-            System.out.println("ENTRA AL WHILE: " + cont);*/
+            status = typeDriver.findElement(global.getTxtStatus()).getText();
         }
         System.out.println("FINAL STATUS: " + status);
         System.out.println(".........................................");
         System.out.println("");
     }
 
-    /* Jugar con las pestañas del navegador */
+    /* Jugar con las pestañas del navegador entre principal y secundarias */
     public void switchPages(int timeWindow, String print) throws Throwable {
         /* Todas las ventanas abiertas en prueba */
         Set<String> windows = driver.getWindowHandles();
@@ -63,14 +72,13 @@ public class Utilities {
                 secondOfWindow = handle;
             }
             if (pageTitle.equalsIgnoreCase("Error")) {
-                /* Se cierra con el botón de la página de error */
                 Thread.sleep(3000);
-                driver.switchTo().window(mainWindow);
+                driver.close();
+                driver.switchTo().window(mainOfWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
                 if(print.equalsIgnoreCase("yes")) {
                     Thread.sleep(timeWindow);
                     this.downloadPDF();
-                    this.typeSavePdf();
                     driver.close();
                 }
                 driver.switchTo().window(mainOfWindow);
@@ -81,21 +89,21 @@ public class Utilities {
     }
 
     /* Capturas de pantalla */
-    public void screenshot(int screenshot, String transaction) throws IOException {
+    public void screenshot(int screenshot, String transaction, WebDriver typeDriver) throws IOException {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
         String time = dateFormat.format(now);
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File scrFile = ((TakesScreenshot) typeDriver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("./src/test/assets/screenshots/loanflow/scenario" + screenshot + "/" + transaction + "/" + "step" + step++ + "-" + time + ".png"));
     }
 
     /* Excel */
     public List<String> readExcel() throws IOException {
         /* Datos del Excel */
-        String fileName = "testRead.xlsx";
+        String fileName = "ReadData.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
-        File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx");
+        File file = new File("./src/test/assets/exceldocuments/ReadData.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook testCasesDocument = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
@@ -127,21 +135,6 @@ public class Utilities {
         return dataExcel;
     }
 
-    /* Reacción de la página al cambiar de pestaña */
-    public void reactPage() throws InterruptedException {
-        Thread.sleep(2200);
-    }
-
-    /* Reacción de la página para el ingreso de datos */
-    public void reactTypeData() throws InterruptedException {
-        Thread.sleep(3000);
-    }
-
-    /* Reacción al iniciar una transacción */
-    public void reactStartTransaction() throws InterruptedException {
-        Thread.sleep(2000);
-    }
-
     /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
     public void switchPDF() throws AWTException {
         driver.switchTo().window(secondOfWindow);
@@ -163,24 +156,45 @@ public class Utilities {
         robot.setAutoDelay(200);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.setAutoDelay(200);
-    }
-
-    /* Guardar archivos sin el método de switchPDF */
-    public void typeSavePdf() throws AWTException {
-        Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_ENTER);
-        robot.setAutoDelay(600);
+        robot.setAutoDelay(500);
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
-    public void multipleValidate() throws Throwable {
+    /* La barra de estatus en ocasiones realiza varias validaciones */
+    public void multipleValidate(WebDriver typeDriver) throws Throwable {
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 1");
+        int timeSave = 60;
+        this.waitPass(timeSave, "validate 1", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 2");
+        this.waitPass(timeSave, "validate 2", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 3");
+        this.waitPass(timeSave, "validate 3", typeDriver);
         Thread.sleep(200);
-        this.waitPass(timeSave, "validate 4");
+        this.waitPass(timeSave, "validate 4", typeDriver);
+    }
+
+    /* Tiempos de Espera */
+    /* Abrir modales */
+    public void openModal() throws InterruptedException {
+        Thread.sleep(400);
+    }
+
+    /* Reacción de la página al cambiar de pestaña */
+    public void reactPage() throws InterruptedException {
+        Thread.sleep(2200);
+    }
+
+    public void reactPageOp2() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
+    /* Reacción de la página para el ingreso de datos */
+    public void reactTypeData() throws InterruptedException {
+        Thread.sleep(3000);
+    }
+
+    public void reactTypeDataOp2() throws InterruptedException {
+        Thread.sleep(3500);
     }
 }
