@@ -518,6 +518,7 @@ public class loanFlow extends StartPages {
         util.reactPage();
 //        driver.findElement(global.getBoxCodeTransaction()).clear();
 //        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
+
         driver.findElement(tr062006.getTxtWarranty()).sendKeys("60001295189" + Keys.ENTER);
         util.waitPass(timeMedium, "Préstamo", driver);
         driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(59) + Keys.ENTER);
