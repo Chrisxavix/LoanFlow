@@ -100,10 +100,10 @@ public class Utilities {
     /* Excel */
     public List<String> readExcel() throws IOException {
         /* Datos del Excel */
-        String fileName = "testRead.xlsx";
+        String fileName = "ReadData.xlsx";
         String sheetName = "Hoja1";
         List<String> dataExcel = new ArrayList<>();
-        File file = new File("./src/test/assets/exceldocuments/testRead02.xlsx");
+        File file = new File("./src/test/assets/exceldocuments/ReadData.xlsx");
         FileInputStream inputStream = new FileInputStream(file);
         Workbook testCasesDocument = null;
         String fileExtensionName = fileName.substring(fileName.indexOf("."));
