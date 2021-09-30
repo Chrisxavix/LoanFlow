@@ -105,17 +105,12 @@ public class TestMain {
         loanFlow.typeRiskAnalysisApproval();
     }
 
-    @And("^Iniciamos la aprobación de solicitud del préstamo 06-2001$")
-    public void approveCreditNumber() throws Throwable {
-        loanFlow.approveCreditNumber();
+    @And("^En el navegador normal ingresamos a aprobar la solicitud del préstamo 06-2001 e ingresamos los datos para generar el usuario a aprobar el número de solicitud$")
+    public void generateUserToApproveCreditNumber() throws Throwable {
+        loanFlow.generateUserToApproveCreditNumber();
     }
 
-    @And("^Ingresamos los datos para generar el número de crédito$")
-    public void generateCreditNumber() throws Throwable {
-        loanFlow.generateCreditNumber();
-    }
-
-    @And("^Abrimos el navegador en modo incógnito para aprobar el número de crédito$")
+    @Given("^Abrimos el navegador en modo incógnito para aprobar el número de crédito$")
     public void openBrowserIncognitToApprove() throws Throwable {
         loanFlow.openBrowserIncognitToApprove();
     }
@@ -125,24 +120,14 @@ public class TestMain {
         loanFlow.incognitoTwoCloseSessionAndTypeUserPassword();
     }
 
-    @And("^Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente en incógnito$")
-    public void selectTransactionIncognito() throws Throwable {
-        loanFlow.selectTransactionIncognito();
+    @When("^Ingresamos al buzón de autorizaciones 00-2008, seleccionamos la trasacción correspondiente e ingresamos los datos para generar el número de crédito$")
+    public void validateTransactionToGenerateCreditNumber() throws Throwable {
+        loanFlow.validateTransactionToGenerateCreditNumber();
     }
 
-    @And("^Ingresamos los datos para generar el número de crédito en incógnito$")
-    public void generateNumberCredit() throws Throwable {
-        loanFlow.generateNumberCredit();
-    }
-
-    @And("^Guardo la transacción en incógnito$")
-    public void saveIncognito() throws Throwable {
-        loanFlow.saveIncognito();
-    }
-
-    @And("^Capturar el número de crédito$")
-    public void getNumberCredit() throws Throwable {
-        loanFlow.getNumberCredit();
+    @Then("^Guardo la transacción en modo incógnito y capturo el número de crédito generado$")
+    public void saveIncognitoAndGetCreditNumber() throws Throwable {
+        loanFlow.saveIncognitoAndGetCreditNumber();
     }
 
     @And("^Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")

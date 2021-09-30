@@ -18,5 +18,4 @@ public class Tr062008 {
     public By getTxtValueComercial() { return this.txtValueComercial; }
     public By getChkOpen() { return this.chkOpen; }
     public By getTxtDescription() { return this.txtDescription; }
-    public By getTitleTransaction() { return this.titleTransaction; }
 }

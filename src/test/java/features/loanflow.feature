@@ -26,15 +26,12 @@ Feature: Flujo de Préstamos
     And Cierro sesiones activas, ingreso el usuario y contraseña en modo incógnito
     When Ingresamos al buzón de autorizaciones 00-2008 y aprobamos la solicitud 00-2009
     And Aprobamos el número de solicitud en aprobación de análisis 06-3033
-#    And Iniciamos la aprobación de solicitud del préstamo 06-2001
-#    And Ingresamos los datos para generar el número de crédito
-#    And Guardo la transacción
-#    And Abrimos el navegador en modo incógnito para aprobar el número de crédito
-#    And Cierro sesiones activas, ingreso el usuario aprobador y contraseña en modo incógnito
-#    And Ingresamos al buzón de autorizaciones 00-2008 y seleccionamos la trasacción correspondiente en incógnito
-#    And Ingresamos los datos para generar el número de crédito en incógnito
-#    And Guardo la transacción en incógnito
-#    And Capturar el número de crédito
+    And En el navegador normal ingresamos a aprobar la solicitud del préstamo 06-2001 e ingresamos los datos para generar el usuario a aprobar el número de solicitud
+    Then Guardo la transacción
+    Given Abrimos el navegador en modo incógnito para aprobar el número de crédito
+    And Cierro sesiones activas, ingreso el usuario aprobador y contraseña en modo incógnito
+    When Ingresamos al buzón de autorizaciones 00-2008, seleccionamos la trasacción correspondiente e ingresamos los datos para generar el número de crédito
+    Then Guardo la transacción en modo incógnito y capturo el número de crédito generado
 #    And Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
 #    And Guardo la transacción
 #    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes

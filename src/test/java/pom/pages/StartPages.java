@@ -19,7 +19,7 @@ public class StartPages {
     protected String userIncognit;
     /* Tiempos de espera */
     protected static final int timeMedium = 30;
-    protected static final int timeSave = 60;
+    protected static final int timeLong = 60;
     /* Inicializa las páginas generales */
     protected Login loginPage = new Login();
     protected Messages message = new Messages();
