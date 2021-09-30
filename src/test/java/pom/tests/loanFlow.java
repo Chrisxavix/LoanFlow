@@ -29,8 +29,6 @@ public class loanFlow extends StartPages {
     public void typeDebtorDataProductDataLoan() throws Throwable {
         /* Ingresar a la transacción 06-2100 */
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
-        util.waitPass(timeLong, "typeTransaction", driver);
-        /* Deudor */
         util.waitPass(timeLong, "typeDebtorDataProductDataLoan Transacción 06-2100", driver);
         /* Validación: Compruebo que la pantalla es SIMULACIÓN DE PRÉSTAMOS - FitBank */
         Assert.assertEquals(message.getErrorTx062100(), message.getTitleLoanSimulation(), driver.getTitle());
@@ -500,7 +498,7 @@ public class loanFlow extends StartPages {
         System.out.println("Número de crédito: " + creditNumber);
         util.driverIncognito.findElement(tr062001.getTxtRequestNumber()).click();
         util.screenshot(caseScreen, caseScreenTx062001Incognito, util.driverIncognito);
-        //util.driverIncognito.close();
+        util.driverIncognito.close();
     }
 
     public void tr063002() throws Throwable {
