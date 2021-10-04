@@ -32,71 +32,70 @@ public class loanFlow extends StartPages {
 
     public void typeDebtorDataProductDataLoan() throws Throwable {
         /* Ingresar a la transacción 06-2100 */
-       // driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys("06-3005" + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
         util.waitPass(timeLong, "typeDebtorDataProductDataLoan Transacción 06-2100", driver);
-//        /* Validación: Compruebo que la pantalla es SIMULACIÓN DE PRÉSTAMOS - FitBank */
-//        Assert.assertEquals(message.getErrorTx062100(), message.getTitleLoanSimulation(), driver.getTitle());
-//        /* DEUDOR-CODEUDOR Y GARANTES */
-//        /* Deudor, siempre será el primero de la fila */
-//        driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(4) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Deudor id", driver);
-//        /* Opcionales: Codeudor y Garante */
-//        if (loanFlow.get(5).length() > 0) {
-//            /* Fila 2 */
-//            driver.findElement(tr062100.getTxtIdCod()).sendKeys(loanFlow.get(5) + Keys.ENTER);
-//            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Codeudor Id", driver);
-//            driver.findElement(tr062100.getTxtRelationsCod()).sendKeys(loanFlow.get(6) + Keys.ENTER);
-//            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Codeudor Relación", driver);
-//        }
-//        if (loanFlow.get(7).length() > 0) {
-//            /* Fila 3 */
-//            driver.findElement(tr062100.getTxtIdGar()).sendKeys(loanFlow.get(7) + Keys.ENTER);
-//            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Garante Id", driver);
-//            driver.findElement(tr062100.getTxtRelationsGar()).sendKeys(loanFlow.get(8) + Keys.ENTER);
-//            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Garante Relación", driver);
-//        }
-//        util.screenshot(caseScreen, caseScreenTx062100, driver);
-//        /* Validación: Que se haya cargado el deudor */
-//        WebElement relationDebtor = driver.findElement(tr062100.getTxtRelationsText());
-//        Assert.assertEquals(message.getErrorGeneral(), message.getDebtor(), relationDebtor.getAttribute("value"));
-//        /* DATOS DEL PRODUCTO */
-//        /* Grupo de Producto */
-//        driver.findElement(tr062100.getTxtProductGroup()).sendKeys(loanFlow.get(9) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Grupo de producto", driver);
-//        /* Producto */
-//        driver.findElement(tr062100.getTxtProduct()).sendKeys(loanFlow.get(10) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Producto", driver);
-//        /* Identificacion Ejecutivo */
-//        driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(11) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Ejecutivo", driver);
-//        /* Origen */
-//        driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(12) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Origen", driver);
-//        /* Fondos de destino */
-//        driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(loanFlow.get(13) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Fondos de destino", driver);
-//        /* Actividad Receptora */
-//        driver.findElement(tr062100.getTxtReceptorActivity()).sendKeys(loanFlow.get(14) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Actividad Receptora", driver);
-//        /* DATOS DEL PRÉSTAMO */
-//        /* Monto del Crédito */
-//        driver.findElement(tr062100.getTxtAmountCredit()).sendKeys(loanFlow.get(15) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Monto del Crédito", driver);
-//        /* Frecuencia Capital */
-//        driver.findElement(tr062100.getTxtCapitalFrequency()).sendKeys(loanFlow.get(16) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Frecuencia Capital", driver);
-//        /* Número de Cuotas */
-//        driver.findElement(tr062100.getTxtNumberQuotas()).sendKeys(loanFlow.get(17) + Keys.ENTER);
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Número de Cuotas", driver);
-//        util.screenshot(caseScreen, caseScreenTx062100, driver);
-//        /* Tasa de Interés */
-//        driver.findElement(tr062100.getBtnInterestRate()).click();
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Abrir modal", driver);
-//        util.screenshot(caseScreen, caseScreenTx062100, driver);
-//        util.openModal();
-//        driver.findElement(tr062100.getBtnCloseInterestRate()).click();
-//        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Cerrar modal", driver);
+        /* Validación: Compruebo que la pantalla es SIMULACIÓN DE PRÉSTAMOS - FitBank */
+        Assert.assertEquals(message.getErrorTx062100(), message.getTitleLoanSimulation(), driver.getTitle());
+        /* DEUDOR-CODEUDOR Y GARANTES */
+        /* Deudor, siempre será el primero de la fila */
+        driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(4) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Deudor id", driver);
+        /* Opcionales: Codeudor y Garante */
+        if (loanFlow.get(5).length() > 0) {
+            /* Fila 2 */
+            driver.findElement(tr062100.getTxtIdCod()).sendKeys(loanFlow.get(5) + Keys.ENTER);
+            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Codeudor Id", driver);
+            driver.findElement(tr062100.getTxtRelationsCod()).sendKeys(loanFlow.get(6) + Keys.ENTER);
+            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Codeudor Relación", driver);
+        }
+        if (loanFlow.get(7).length() > 0) {
+            /* Fila 3 */
+            driver.findElement(tr062100.getTxtIdGar()).sendKeys(loanFlow.get(7) + Keys.ENTER);
+            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Garante Id", driver);
+            driver.findElement(tr062100.getTxtRelationsGar()).sendKeys(loanFlow.get(8) + Keys.ENTER);
+            util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Garante Relación", driver);
+        }
+        util.screenshot(caseScreen, caseScreenTx062100, driver);
+        /* Validación: Que se haya cargado el deudor */
+        WebElement relationDebtor = driver.findElement(tr062100.getTxtRelationsText());
+        Assert.assertEquals(message.getErrorGeneral(), message.getDebtor(), relationDebtor.getAttribute("value"));
+        /* DATOS DEL PRODUCTO */
+        /* Grupo de Producto */
+        driver.findElement(tr062100.getTxtProductGroup()).sendKeys(loanFlow.get(9) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Grupo de producto", driver);
+        /* Producto */
+        driver.findElement(tr062100.getTxtProduct()).sendKeys(loanFlow.get(10) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Producto", driver);
+        /* Identificacion Ejecutivo */
+        driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(11) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Ejecutivo", driver);
+        /* Origen */
+        driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(12) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Origen", driver);
+        /* Fondos de destino */
+        driver.findElement(tr062100.getTxtDestinationFunds()).sendKeys(loanFlow.get(13) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Fondos de destino", driver);
+        /* Actividad Receptora */
+        driver.findElement(tr062100.getTxtReceptorActivity()).sendKeys(loanFlow.get(14) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Actividad Receptora", driver);
+        /* DATOS DEL PRÉSTAMO */
+        /* Monto del Crédito */
+        driver.findElement(tr062100.getTxtAmountCredit()).sendKeys(loanFlow.get(15) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Monto del Crédito", driver);
+        /* Frecuencia Capital */
+        driver.findElement(tr062100.getTxtCapitalFrequency()).sendKeys(loanFlow.get(16) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Frecuencia Capital", driver);
+        /* Número de Cuotas */
+        driver.findElement(tr062100.getTxtNumberQuotas()).sendKeys(loanFlow.get(17) + Keys.ENTER);
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Número de Cuotas", driver);
+        util.screenshot(caseScreen, caseScreenTx062100, driver);
+        /* Tasa de Interés */
+        driver.findElement(tr062100.getBtnInterestRate()).click();
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Abrir modal", driver);
+        util.screenshot(caseScreen, caseScreenTx062100, driver);
+        util.openModal();
+        driver.findElement(tr062100.getBtnCloseInterestRate()).click();
+        util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Cerrar modal", driver);
     }
 
     public void typeDataGeographicalDataLoanComment() throws Throwable {
@@ -538,12 +537,12 @@ public class loanFlow extends StartPages {
     /* EMISION DE DOCUMENTOS HABILITANTES */
     public void enablingDocuments() throws Throwable {
         util.reactPage();
-//        driver.findElement(global.getBoxCodeTransaction()).clear();
-//        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
-//        util.waitPass(timeLong, "Code Transactions", driver);
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
+        util.waitPass(timeLong, "Code Transactions", driver);
         util.multipleValidate(driver);
         Thread.sleep(3000);
-        driver.findElement(tr063005.getTxtLoan()).sendKeys("60001295616");
+        driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber);
         util.waitPass(timeMedium, "Número de Préstamo", driver);
         driver.findElement(tr063005.getTxtStarDatePay()).sendKeys(addMonth());
         util.waitPass(timeMedium, "Add Month", driver);
