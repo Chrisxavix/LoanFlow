@@ -542,14 +542,16 @@ public class loanFlow extends StartPages {
 //        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
 //        util.waitPass(timeLong, "Code Transactions", driver);
         util.multipleValidate(driver);
+        Thread.sleep(3000);
         driver.findElement(tr063005.getTxtLoan()).sendKeys("60001295616");
-        Thread.sleep(5000);
-        util.waitPass(timeLong, "Número de Préstamo", driver);
-        System.out.println("Date: " + addMonth());
-        driver.findElement(tr063005.getTxtStarDatePay()).sendKeys("04-10-2021");
-        util.waitPass(timeLong, "Add Month", driver);
+        util.waitPass(timeMedium, "Número de Préstamo", driver);
+        driver.findElement(tr063005.getTxtStarDatePay()).sendKeys(addMonth());
+        util.waitPass(timeMedium, "Add Month", driver);
         driver.findElement(tr063005.getTxtFixedDayPay()).sendKeys(getDay());
         util.waitPass(timeMedium, "Get Day", driver);
+        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
+        String dateOpen = openDate.getAttribute("value");
+        System.out.println("Mes: " + dateOpen);
         util.screenshot(caseScreen, caseScreenTx063005, driver);
     }
 
