@@ -371,7 +371,10 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx063080, driver);
     }
 
-    public void openNewBrowserIncognito() {
+    public void openNewBrowserIncognito() throws Throwable {
+        util.screenshot(caseScreen, caseScreenTx063080, driver);
+        this.mailValidationAndGetUser(caseScreenTx063080, caseScreenWithoutMail01, caseScreenWithoutMail02 );
+        this.getUser();
         this.openBrowserIncognito();
     }
 
@@ -462,6 +465,8 @@ public class loanFlow extends StartPages {
 
     public void openBrowserIncognitToApprove() throws Throwable {
         util.screenshot(caseScreen, caseScreenTx062001, driver);
+        this.mailValidationAndGetUser(caseScreenTx062001, caseScreenWithoutMail03, "");
+        this.getUser();
         this.openBrowserIncognito();
     }
 
@@ -647,9 +652,6 @@ public class loanFlow extends StartPages {
 
     /* Métodos que se usa en modo normal e incógnito */
     public void openBrowserIncognito() {
-        WebElement statustNotification = driver.findElement(global.getTxtStatus());
-        String txtStatus = statustNotification.getText();
-        userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
         util.options.addArguments("-incognito");
         util.driverIncognito = new ChromeDriver(util.options);
         util.driverIncognito.manage().window().maximize();
@@ -684,5 +686,118 @@ public class loanFlow extends StartPages {
         save.click();
         util.waitPass(timeLong, "saveTransaction saveTransaction", typeDriver);
         util.multipleValidate(typeDriver);
+    }
+
+    /* Extraer usuario para aprobaciones */
+    public void getUser() {
+        WebElement statustNotification = driver.findElement(global.getTxtStatus());
+        String txtStatus = statustNotification.getText();
+        userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
+    }
+
+    /* VALIDACIÓN DE CORREO: Validar si el usuario que va a guardar las transacciones posee mail  */
+    public void mailValidationAndGetUser(String screenshotBase, String screenshotWindowTwo, String screenshotWindowThree) throws Throwable {
+        this.validateMail(screenshotBase, screenshotWindowTwo);
+        WebElement statustNotification = driver.findElement(global.getTxtStatus());
+        String txtStatusOp2 = statustNotification.getText().substring(0, 10);
+        /* En caso de que los dos usuarios no poseen email, el que crea la solicitud y aprueba */
+        if (txtStatusOp2.equalsIgnoreCase("SIN E-MAIL")) {
+            this.validateMail(screenshotBase, screenshotWindowThree);
+        }
+        statustNotification = driver.findElement(global.getTxtStatus());
+        userIncognit = statustNotification.getText().substring(statustNotification.getText().indexOf(":") + 1, statustNotification.getText().indexOf("NOMBRE")).trim();
+    }
+
+    /* Validar el tipo de usuario que puede tener */
+    public void typeUser(String typeUser) throws Throwable {
+        util.driverIncognito.findElement(tr010117.getTxtImuUserType()).clear();
+        /* Ingresa el tipo usuario */
+        util.driverIncognito.findElement(tr010117.getTxtImuUserType()).sendKeys(typeUser + Keys.ENTER);
+        util.waitPass(timeLong, "typeUser Ingresa el tipo usuario", util.driverIncognito);
+        util.driverIncognito.findElement(global.getBtnF7()).click();
+        util.waitPass(timeLong, "typeUser click F7", util.driverIncognito);
+        util.multipleValidate(util.driverIncognito);
+    }
+
+    /* Mail por defecto a ser agregado con código javascript */
+    public void mailDefault() {
+        JavascriptExecutor addValueJs = (JavascriptExecutor) util.driverIncognito;
+        addValueJs.executeScript("document.getElementById('c_F2Direccion_0').removeAttribute('type')");
+        addValueJs.executeScript("document.getElementById('c_F2Direccion_0').removeAttribute('value')");
+        addValueJs.executeScript("document.getElementById('c_F2Direccion_0').setAttribute('type', 'email')");
+        addValueJs.executeScript("document.getElementById('c_F2Direccion_0').setAttribute('value', 'ADMINS@BAUSTRO.FIN.EC')");
+    }
+
+    /* Agrega el mail al usuario que no posee */
+    public void validateMail(String screenshotBase, String screenshotWindow) throws Throwable {
+        WebElement statustNotification = driver.findElement(global.getTxtStatus());
+        String txtStatus = statustNotification.getText().substring(0, 10);
+        if (txtStatus.equalsIgnoreCase("SIN E-MAIL")) {
+            String getUserWithoutEmail = statustNotification.getText().substring(48, statustNotification.getText().length());
+            this.openBrowserIncognito();
+            this.login(util.driverIncognito, "admin", screenshotWindow);
+            util.reactPageOp2();
+            /* Ingresar a la transacción 01-0117 */
+            util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
+            util.waitPass(timeLong, "openNewBrowserIncognito Ingresar a la transacción 01-0117", driver);
+            util.multipleValidate(util.driverIncognito);
+            /* Validación: Comprobar que esté en la ventana de INGRESO Y MODIFICACION DE USUARIOS */
+            Assert.assertEquals(message.getErrorTx010117(), message.getTitleLoginAndModificationUsers(), util.driverIncognito.getTitle());
+            util.reactPageOp2();
+            /* Ingreso el usuario a buscar para agregar el mail */
+            util.driverIncognito.findElement(tr010117.getTxtImuUser()).sendKeys(getUserWithoutEmail);
+            util.waitPass(timeLong, "openNewBrowserIncognito Ingresar a la transacción 01-0117", util.driverIncognito);
+            /* Buscar el Usuario por cada sección */
+            this.typeUser("ATM");
+            String getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+            if (getUser.length() > 0) {
+                this.mailDefault();
+            } else {
+                this.typeUser("ECG");
+                getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                if (getUser.length() > 0) {
+                    this.mailDefault();
+                } else {
+                    this.typeUser("HBA");
+                    getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                    if (getUser.length() > 0) {
+                        this.mailDefault();
+                    } else {
+                        this.typeUser("OBA");
+                        getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                        if (getUser.length() > 0) {
+                            this.mailDefault();
+                        } else {
+                            this.typeUser("OTH");
+                            getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                            if (getUser.length() > 0) {
+                                this.mailDefault();
+                            } else {
+                                this.typeUser("PRO");
+                                getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                                if (getUser.length() > 0) {
+                                    this.mailDefault();
+                                } else {
+                                    this.typeUser("UEG");
+                                    getUser = util.driverIncognito.findElement(tr010117.getTxtImuF1UserType()).getAttribute("value");
+                                    if (getUser.length() > 0) {
+                                        this.mailDefault();
+                                    } else {
+                                        System.out.println("NO EXISTE EL USUARIO A AGREGAR EL EMAIL");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            this.saveFormGeneral(util.driverIncognito);
+            util.screenshot(caseScreen, screenshotWindow, util.driverIncognito);
+            util.driverIncognito.close();
+            this.saveFormGeneral(driver);
+            util.screenshot(caseScreen, screenshotBase, driver);
+        } else {
+            System.out.println("Con email");
+        }
     }
 }
