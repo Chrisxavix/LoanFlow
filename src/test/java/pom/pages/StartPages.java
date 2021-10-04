@@ -49,6 +49,7 @@ public class StartPages {
     protected static final String caseScreenTx063005 = "Tx20_06_3005";
     protected static final String caseScreenTx063018 = "Tx21_06_3018";
     protected static final String caseScreenTx066010 = "Tx22_06_6010";
+    protected static final String caseScreenTx064022 = "Tx23_06_4022";
     /* Clases de Mapeo */
     protected static final Tr062100 tr062100 = new Tr062100();
     protected static final Tr062000 tr062000 = new Tr062000();
@@ -68,6 +69,7 @@ public class StartPages {
     protected static final Tr063005 tr063005 = new Tr063005();
     protected static final Tr063018 tr063018 = new Tr063018();
     protected static final Tr066010 tr066010 = new Tr066010();
+    protected static final Tr064022 tr064022 = new Tr064022();
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();
     protected final List<String> loanFlow = util.readExcel();
@@ -75,6 +77,4 @@ public class StartPages {
     protected String requestNumber;
     /* Número de Crédito */
     protected String creditNumber;
-    /* Variable suma mes */
-    protected String addMes;
 }

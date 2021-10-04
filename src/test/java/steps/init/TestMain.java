@@ -130,7 +130,7 @@ public class TestMain {
         loanFlow.saveIncognitoAndGetCreditNumber();
     }
 
-    @And("^Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")
+    @When("^Ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")
     public void tr063002() throws Throwable {
         loanFlow.tr063002();
     }
@@ -158,5 +158,10 @@ public class TestMain {
     @And("^Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo$")
     public void outlayLoan() throws Throwable {
         loanFlow.outlayLoan();
+    }
+
+    @Then("^Se muestra la transacción 06-4020 y nos da la consulta de datos generales del préstamo$")
+    public void generalLoanData() throws Throwable {
+        loanFlow.generalLoanData();
     }
 }

@@ -27,12 +27,12 @@ public class Hook {
         }
     }
 
-    @After
-    public void tearDown(Scenario scenario) {
-        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-        scenario.embed(screenshot, "image/png");
-        driver.quit();
-    }
+//    @After
+//    public void tearDown(Scenario scenario) {
+//        byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//        scenario.embed(screenshot, "image/png");
+//        driver.quit();
+//    }
 
     public static WebDriver getDriver() {
         return driver;
