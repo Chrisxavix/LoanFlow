@@ -514,12 +514,12 @@ public class loanFlow extends StartPages {
     public void tr063002() throws Throwable {
         /* Ingresar a la transacción 06-3002 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(56) + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(57) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
         /* Ingresamos el número del préstamo */
         driver.findElement(tr063002.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeLong, "Number Loan", driver);
-        driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(57) + Keys.ENTER);
+        driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(58) + Keys.ENTER);
         util.screenshot(caseScreen, caseScreenTx063002, driver);
     }
 
@@ -528,12 +528,12 @@ public class loanFlow extends StartPages {
         util.reactPage();
         /* Ingresamos a la transacción 06-2006 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(58) + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(59) + Keys.ENTER);
         util.waitPass(timeMedium, "Code Transaction", driver);
         /* Ingresamos el número del préstamo */
         driver.findElement(tr062006.getTxtWarranty()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Warranty", driver);
-        driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(59) + Keys.ENTER);
+        driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(60) + Keys.ENTER);
         util.waitPass(timeMedium, "Number Warranty", driver);
         WebElement txtValueWarranty = driver.findElement(tr062006.getTxtValueWarranty());
         driver.findElement(tr062006.getTxtValueToWarranty()).sendKeys(txtValueWarranty.getAttribute("value"));
@@ -546,7 +546,7 @@ public class loanFlow extends StartPages {
         util.reactPage();
         /* Ingresamos a la transacción 06-3005 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
-        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(61) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
         util.multipleValidate(driver);
         driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
@@ -557,7 +557,6 @@ public class loanFlow extends StartPages {
         /* Ingresamos el día fijo de pagos mediante el método getDay */
         driver.findElement(tr063005.getTxtFixedDayPay()).sendKeys(getDay());
         util.waitPass(timeMedium, "Get Day", driver);
-        util.screenshot(caseScreen, caseScreenTx063005, driver);
     }
 
     public void printReportDocuments() throws Throwable {
@@ -586,19 +585,23 @@ public class loanFlow extends StartPages {
     public void creditDocumentsValidation() throws Throwable {
         util.reactPage();
         driver.findElement(tr063018.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
+        util.waitPass(timeMedium, "Number Credit", driver);
         util.multipleValidate(driver);
-        driver.findElement(tr063018.getTxtStatus()).sendKeys( loanFlow.get(61) + Keys.ENTER);
+        Thread.sleep(5000);
+        driver.findElement(tr063018.getTxtStatus()).sendKeys( loanFlow.get(62) + Keys.ENTER);
         util.waitPass(timeMedium, "Status", driver);
-        driver.findElement(tr063018.getTxtObservations()).sendKeys(loanFlow.get(62) + Keys.ENTER);
+        driver.findElement(tr063018.getTxtObservations()).sendKeys(loanFlow.get(63) + Keys.ENTER);
         util.waitPass(timeMedium, "Observations", driver);
         util.screenshot(caseScreen, caseScreenTx063018, driver);
     }
 
     /* FORMA DE DESEMBOLSO DEL PRÉSTAMO */
     public void outlayLoan() throws Throwable {
+        util.reactPage();
         driver.findElement(tr066010.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Number Loan", driver);
-        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(63) + Keys.TAB);
+        util.multipleValidate(driver);
+        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(64) + Keys.TAB);
         util.waitPass(timeMedium, "Credit Accounts", driver);
         WebElement valueAmount = driver.findElement(tr066010.getTxtPayOutValue());
         driver.findElement(tr066010.getTxtValue()).sendKeys(valueAmount.getAttribute("value") + Keys.ENTER);
@@ -634,7 +637,7 @@ public class loanFlow extends StartPages {
         typeDriver.findElement(loginPage.getBtnSubmit()).submit();
     }
 
-    public void typeDecision(WebDriver typeDriver) throws Throwable {//
+    public void typeDecision(WebDriver typeDriver) throws Throwable {
         util.reactTypeDataOp2();
         /* Decisión */
         Select selectDecision = new Select(typeDriver.findElement(tr062001.getTxtAspDecision()));
@@ -702,8 +705,8 @@ public class loanFlow extends StartPages {
             this.login(util.driverIncognito, "admin", screenshotWindow);
             util.reactPageOp2();
             /* Ingresar a la transacción 01-0117 */
-            util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
-            util.waitPass(timeLong, "openNewBrowserIncognito Ingresar a la transacción 01-0117", driver);
+            util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(56) + Keys.ENTER);
+            util.waitPass(timeLong, "openNewBrowserIncognito Ingresar a la transacción 01-0117", util.driverIncognito);
             util.multipleValidate(util.driverIncognito);
             /* Validación: Comprobar que esté en la ventana de INGRESO Y MODIFICACION DE USUARIOS */
             Assert.assertEquals(message.getErrorTx010117(), message.getTitleLoginAndModificationUsers(), util.driverIncognito.getTitle());
