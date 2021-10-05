@@ -32,18 +32,18 @@ Feature: Flujo de Préstamos
     And Cierro sesiones activas, ingreso el usuario aprobador y contraseña en modo incógnito
     When Ingresamos al buzón de autorizaciones 00-2008, seleccionamos la trasacción correspondiente e ingresamos los datos para generar el número de crédito
     Then Guardo la transacción en modo incógnito y capturo el número de crédito generado
-#    When Ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
-#    And Guardo la transacción
-#    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
-#    And Guardo la transacción
-#    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
-#    And Guardo la transacción
-#    And Ahora imprimimos los reportes de los documentos habilitantes
-#    And Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo
-#    And Guardo la transacción
-#    And Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo
-#    And Guardo la transacción
-#    Then Se muestra la transacción 06-4020 y nos da la consulta de datos generales del préstamo
+    When Ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
+    And Guardo la transacción
+    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
+    And Guardo la transacción
+    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
+    And Guardo la transacción
+    And Ahora imprimimos los reportes de los documentos habilitantes
+    And Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo
+    And Guardo la transacción
+    And Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo
+    And Guardo la transacción
+    Then Se muestra la transacción 06-4020 y nos da la consulta de datos generales del préstamo
     Examples:
       | caso |
       | 1    |

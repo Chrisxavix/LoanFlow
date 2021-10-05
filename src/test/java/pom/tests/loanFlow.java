@@ -504,7 +504,7 @@ public class loanFlow extends StartPages {
         /* Obtengo el número de crédito */
         WebElement getNumberCredit = util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber());
         creditNumber = getNumberCredit.getAttribute("value");
-        System.out.println("Número de crédito: " + creditNumber);
+        System.out.println("Number Credit: " + creditNumber);
         util.driverIncognito.findElement(tr062001.getTxtRequestNumber()).click();
         util.screenshot(caseScreen, caseScreenTx062001Incognito, util.driverIncognito);
         util.driverIncognito.close();
@@ -512,27 +512,29 @@ public class loanFlow extends StartPages {
 
     /* VALORES ADICIONALES ASOCIADOS AL PRESTAMO */
     public void tr063002() throws Throwable {
-        // Quemamos el número de préstamo
+        /* Ingresar a la transacción 06-3002 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(56) + Keys.ENTER);
-        util.waitPass(timeMedium, "Code Transactions", driver);
+        util.waitPass(timeLong, "Code Transactions", driver);
+        /* Ingresamos el número del préstamo */
         driver.findElement(tr063002.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Número de Préstamo", driver);
+        util.waitPass(timeLong, "Number Loan", driver);
         driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(57) + Keys.ENTER);
         util.screenshot(caseScreen, caseScreenTx063002, driver);
-
     }
 
     /* ASOCIACION DE GARANTIAS A PRESTAMOS */
     public void loanWarranty() throws Throwable {
         util.reactPage();
+        /* Ingresamos a la transacción 06-2006 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(58) + Keys.ENTER);
         util.waitPass(timeMedium, "Code Transaction", driver);
+        /* Ingresamos el número del préstamo */
         driver.findElement(tr062006.getTxtWarranty()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Préstamo", driver);
+        util.waitPass(timeMedium, "Warranty", driver);
         driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(59) + Keys.ENTER);
-        util.waitPass(timeMedium, "Número de Préstamo", driver);
+        util.waitPass(timeMedium, "Number Warranty", driver);
         WebElement txtValueWarranty = driver.findElement(tr062006.getTxtValueWarranty());
         driver.findElement(tr062006.getTxtValueToWarranty()).sendKeys(txtValueWarranty.getAttribute("value"));
         util.waitPass(timeMedium, "Value to Warranty", driver);
@@ -542,20 +544,19 @@ public class loanFlow extends StartPages {
     /* EMISION DE DOCUMENTOS HABILITANTES */
     public void enablingDocuments() throws Throwable {
         util.reactPage();
+        /* Ingresamos a la transacción 06-3005 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(60) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
         util.multipleValidate(driver);
-        Thread.sleep(3000);
-        driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber);
-        util.waitPass(timeMedium, "Número de Préstamo", driver);
+        driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
+        util.waitPass(timeMedium, "Number Loan", driver);
+        /* Ingresamos el la fecha de inicio de pagos mediante el método addMonth */
         driver.findElement(tr063005.getTxtStarDatePay()).sendKeys(addMonth());
         util.waitPass(timeMedium, "Add Month", driver);
+        /* Ingresamos el día fijo de pagos mediante el método getDay */
         driver.findElement(tr063005.getTxtFixedDayPay()).sendKeys(getDay());
         util.waitPass(timeMedium, "Get Day", driver);
-        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
-        String dateOpen = openDate.getAttribute("value");
-        System.out.println("Mes: " + dateOpen);
         util.screenshot(caseScreen, caseScreenTx063005, driver);
     }
 
@@ -570,6 +571,7 @@ public class loanFlow extends StartPages {
             WebElement columnCode = driver.findElement(By.xpath(code));
             WebElement columnBtnPrint = driver.findElement(By.xpath(btnPrint));
             String base = columnCode.getAttribute("value");
+            /* Verificamos todos los datos que contiene la tabla para imprimir los reportes */
             if (base.length() > 0 ) {
                 columnBtnPrint.click();
                 util.switchPages(6000, "yes");
@@ -578,44 +580,6 @@ public class loanFlow extends StartPages {
                 break;
             }
         }
-    }
-
-    /* Método para sumar un mes, para la emision de documentos habilitantes*/
-    public String addMonth() throws Throwable {
-        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
-        String dateOpen = openDate.getAttribute("value");
-        // create a LocalDate object
-//        LocalDate date = LocalDate.parse(dateOpen);
-//        // print instance
-//        System.out.println("LocalDate before" + " adding months: " + date);
-//        // add 1 months
-//        LocalDate returnvalue = date.plusMonths(1);
-//        String formattedString = returnvalue.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-//        // print result
-//        System.out.println("LocalDate after " + " adding months: " + returnvalue);
-//        SimpleDateFormat formatoOrigen = new SimpleDateFormat("dd-MM-yyyy");
-//        String fechaOriginal = dateOpen;
-//        SimpleDateFormat formatoSalida = new SimpleDateFormat("yyyy-MM-dd");
-//        Date date = formatoOrigen.parse(fechaOriginal);
-//        System.out.println(formatoSalida.format(date));
-//
-//        LocalDate dateP = LocalDate.parse(formatoSalida.format(date));
-//        LocalDate newDate = dateP.plusMonths(1);
-//        System.out.println(dateP);
-//        System.out.println(newDate);
-//        String formattedString = newDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-//        String formattedString = "04-10-2021";
-//        System.out.println(formattedString);
-        System.out.println("Mes: " + dateOpen);
-        return dateOpen;
-    }
-
-    /* Método para sacar el día, para la emision de documentos habilitantes*/
-    public String getDay() {
-        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
-        String string = openDate.getAttribute("value");
-        String[] parts = string.split("-");
-        return parts[0];
     }
 
     /* VALIDACIÓN DOCUMENTOS DE CRÉDITO */
@@ -799,5 +763,35 @@ public class loanFlow extends StartPages {
         } else {
             System.out.println("Con email");
         }
+    }
+
+    /* Método para sumar un mes, para la emision de documentos habilitantes*/
+    public String addMonth() throws Throwable {
+        /* Capturamos la fecha Valor/Apertura */
+        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
+        /* El formato capturado de la fecha es dd-MM-yyyy y lo tenemos que convertir a yyyy-MM-dd para poder
+        * sumar el mes para la Fecha de Inicio de Pagos*/
+        SimpleDateFormat formatoOrigen = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaOriginal = openDate.getAttribute("value");;
+        /* Conversion de dd-MM-yyyy a yyyy-MM-dd */
+        SimpleDateFormat formatoSalida = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = formatoOrigen.parse(fechaOriginal);
+        LocalDate month = LocalDate.parse(formatoSalida.format(date));
+        /* Sumamos el 1 al mes correspondiente  */
+        LocalDate newDate = month.plusMonths(1);
+        String formattedString = newDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        /* Retornamos la Fecha de Inicio de Pagos */
+        return formattedString;
+    }
+
+    /* Método para sacar el día, para la emision de documentos habilitantes*/
+    public String getDay() {
+        /* Capturamos la fecha Valor/Apertura */
+        WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
+        String string = openDate.getAttribute("value");
+        /* Separamos la fecha en un arreglo */
+        String[] parts = string.split("-");
+        /* Capturamos el día fijo para el pago */
+        return parts[0];
     }
 }
