@@ -634,7 +634,7 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(67) + Keys.ENTER);
         /* Validación: Compruebo que la pantalla es el entorno FitBank */
-        Assert.assertEquals(message.getErrorTx066010(), message.getTitleConsultGeneralDataLoans(), driver.getTitle());
+        Assert.assertEquals(message.getErrorTx064022(), message.getTitleConsultGeneralDataLoans(), driver.getTitle());
         util.waitPass(timeLong, "Code Transactions", driver);
         driver.findElement(tr064022.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Value Amounts", driver);
