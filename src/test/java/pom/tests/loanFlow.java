@@ -209,7 +209,7 @@ public class loanFlow extends StartPages {
         /* Descargar el reporte de checklist */
         WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
         btnChklReport.click();
-        util.switchPages(4000, "yes");
+        util.switchPages(6000, "yes");
         util.reactPage();
         /* Descargar el reporte de orden de crédito */
         WebElement btnOperationOrder = driver.findElement(tr062016.getBtnOperationOrder());
@@ -584,13 +584,15 @@ public class loanFlow extends StartPages {
     /* VALIDACIÓN DOCUMENTOS DE CRÉDITO */
     public void creditDocumentsValidation() throws Throwable {
         util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(62) + Keys.ENTER);
+        util.waitPass(timeLong, "Code Transactions", driver);
         driver.findElement(tr063018.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Number Credit", driver);
         util.multipleValidate(driver);
-        Thread.sleep(5000);
-        driver.findElement(tr063018.getTxtStatus()).sendKeys( loanFlow.get(62) + Keys.ENTER);
+        driver.findElement(tr063018.getTxtStatus()).sendKeys( loanFlow.get(63) + Keys.ENTER);
         util.waitPass(timeMedium, "Status", driver);
-        driver.findElement(tr063018.getTxtObservations()).sendKeys(loanFlow.get(63) + Keys.ENTER);
+        driver.findElement(tr063018.getTxtObservations()).sendKeys(loanFlow.get(64) + Keys.ENTER);
         util.waitPass(timeMedium, "Observations", driver);
         util.screenshot(caseScreen, caseScreenTx063018, driver);
     }
@@ -598,20 +600,39 @@ public class loanFlow extends StartPages {
     /* FORMA DE DESEMBOLSO DEL PRÉSTAMO */
     public void outlayLoan() throws Throwable {
         util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(65) + Keys.ENTER);
+        util.waitPass(timeLong, "Code Transactions", driver);
         driver.findElement(tr066010.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Number Loan", driver);
+        util.waitPass(timeLong, "Number Loan", driver);
+        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66));
+//        util.waitPass(timeLong, "Credit Accounts", driver);
+        Thread.sleep(2000);
+        driver.findElement(tr066010.getTxtCreditAccounts()).clear();
+        //util.waitPass(timeLong, "Credit Accounts", driver);
+        Thread.sleep(2000);
+        WebElement abc = driver.findElement(tr066010.getTxtCreditAccounts());
+        util.reactPageOp2();
+        abc.sendKeys(loanFlow.get(66));
+        util.reactPageOp2();
+        abc.sendKeys(Keys.ENTER);
+        //driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66));
+        util.waitPass(timeLong, "Credit Accounts", driver);
         util.multipleValidate(driver);
-        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(64) + Keys.TAB);
-        util.waitPass(timeMedium, "Credit Accounts", driver);
+//        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(Keys.TAB);
+//        util.waitPass(timeLong, "Credit Accounts", driver);
         WebElement valueAmount = driver.findElement(tr066010.getTxtPayOutValue());
         driver.findElement(tr066010.getTxtValue()).sendKeys(valueAmount.getAttribute("value") + Keys.ENTER);
-        util.waitPass(timeMedium, "Value Amounts", driver);
+        util.waitPass(timeLong, "Value Amounts", driver);
         util.screenshot(caseScreen, caseScreenTx066010, driver);
     }
 
     /* CONSULTA DATOS GENERALES DE PRESTAMOS */
     public void generalLoanData() throws Throwable {
         util.reactPage();
+        driver.findElement(global.getBoxCodeTransaction()).clear();
+        driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(67) + Keys.ENTER);
+        util.waitPass(timeLong, "Code Transactions", driver);
         driver.findElement(tr064022.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Value Amounts", driver);
         util.screenshot(caseScreen, caseScreenTx064022, driver);

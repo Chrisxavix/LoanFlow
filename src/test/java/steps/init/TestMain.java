@@ -160,7 +160,7 @@ public class TestMain {
         loanFlow.outlayLoan();
     }
 
-    @Then("^Se muestra la transacción 06-4020 y nos da la consulta de datos generales del préstamo$")
+    @Then("^Se muestra la transacción 06-4022 y nos da la consulta de datos generales del préstamo$")
     public void generalLoanData() throws Throwable {
         loanFlow.generalLoanData();
     }
