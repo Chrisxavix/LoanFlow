@@ -214,7 +214,7 @@ public class loanFlow extends StartPages {
         /* Descargar el reporte de orden de crédito */
         WebElement btnOperationOrder = driver.findElement(tr062016.getBtnOperationOrder());
         btnOperationOrder.click();
-        util.switchPages(4000, "yes");
+        util.switchPages(6000, "yes");
         util.screenshot(caseScreen, caseScreenTx062016, driver);
     }
 
@@ -511,11 +511,13 @@ public class loanFlow extends StartPages {
     }
 
     /* VALORES ADICIONALES ASOCIADOS AL PRESTAMO */
-    public void tr063002() throws Throwable {
+    public void dataLoan() throws Throwable {
         /* Ingresar a la transacción 06-3002 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(57) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx063002(), message.getTitleAdditionalSecuritiresAssociatedLoan(), driver.getTitle());
         /* Ingresamos el número del préstamo */
         driver.findElement(tr063002.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeLong, "Number Loan", driver);
@@ -530,6 +532,8 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(59) + Keys.ENTER);
         util.waitPass(timeMedium, "Code Transaction", driver);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx062006(), message.getTitleLoanGuaranteeAssociation(), driver.getTitle());
         /* Ingresamos el número del préstamo */
         driver.findElement(tr062006.getTxtWarranty()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Warranty", driver);
@@ -549,6 +553,8 @@ public class loanFlow extends StartPages {
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(61) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
         util.multipleValidate(driver);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx063005(), message.getTitleIssuanceEnablingDocmunets(), driver.getTitle());
         driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Number Loan", driver);
         /* Ingresamos el la fecha de inicio de pagos mediante el método addMonth */
@@ -584,9 +590,12 @@ public class loanFlow extends StartPages {
     /* VALIDACIÓN DOCUMENTOS DE CRÉDITO */
     public void creditDocumentsValidation() throws Throwable {
         util.reactPage();
+        /* Ingresamos a la transacción 06-3018 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(62) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx063018(), message.getTitleCreditDocumentsValidation(), driver.getTitle());
         driver.findElement(tr063018.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Number Credit", driver);
         util.multipleValidate(driver);
@@ -600,27 +609,18 @@ public class loanFlow extends StartPages {
     /* FORMA DE DESEMBOLSO DEL PRÉSTAMO */
     public void outlayLoan() throws Throwable {
         util.reactPage();
+        /* Ingreso a la transacción 06-6010 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(65) + Keys.ENTER);
         util.waitPass(timeLong, "Code Transactions", driver);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx066010(), message.getTitleLoanDisbursementForm(), driver.getTitle());
         driver.findElement(tr066010.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeLong, "Number Loan", driver);
-        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66));
-//        util.waitPass(timeLong, "Credit Accounts", driver);
-        Thread.sleep(2000);
-        driver.findElement(tr066010.getTxtCreditAccounts()).clear();
-        //util.waitPass(timeLong, "Credit Accounts", driver);
-        Thread.sleep(2000);
-        WebElement abc = driver.findElement(tr066010.getTxtCreditAccounts());
-        util.reactPageOp2();
-        abc.sendKeys(loanFlow.get(66));
-        util.reactPageOp2();
-        abc.sendKeys(Keys.ENTER);
-        //driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66));
+        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66) + Keys.TAB);
         util.waitPass(timeLong, "Credit Accounts", driver);
         util.multipleValidate(driver);
-//        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(Keys.TAB);
-//        util.waitPass(timeLong, "Credit Accounts", driver);
+        util.waitPass(timeLong, "Credit Accounts", driver);
         WebElement valueAmount = driver.findElement(tr066010.getTxtPayOutValue());
         driver.findElement(tr066010.getTxtValue()).sendKeys(valueAmount.getAttribute("value") + Keys.ENTER);
         util.waitPass(timeLong, "Value Amounts", driver);
@@ -630,8 +630,11 @@ public class loanFlow extends StartPages {
     /* CONSULTA DATOS GENERALES DE PRESTAMOS */
     public void generalLoanData() throws Throwable {
         util.reactPage();
+        /* Ingreso a la transacción 06-4022 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(67) + Keys.ENTER);
+        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        Assert.assertEquals(message.getErrorTx066010(), message.getTitleConsultGeneralDataLoans(), driver.getTitle());
         util.waitPass(timeLong, "Code Transactions", driver);
         driver.findElement(tr064022.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
         util.waitPass(timeMedium, "Value Amounts", driver);

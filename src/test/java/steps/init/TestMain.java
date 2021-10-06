@@ -131,8 +131,8 @@ public class TestMain {
     }
 
     @When("^Ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")
-    public void tr063002() throws Throwable {
-        loanFlow.tr063002();
+    public void dataLoan() throws Throwable {
+        loanFlow.dataLoan();
     }
 
     @And("^Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes$")
