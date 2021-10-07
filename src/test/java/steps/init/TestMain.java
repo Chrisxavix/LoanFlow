@@ -135,12 +135,12 @@ public class TestMain {
         loanFlow.dataLoan();
     }
 
-    @And("^Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes$")
+    @When("^Ingresamos a la transacción 06-2006, ingresamos el número de préstamos y las garantías existentes$")
     public void loanWarranty() throws Throwable {
         loanFlow.loanWarranty();
     }
 
-    @And("^Ingresamos a la transacción 06-3005 y llenamos la información del préstamo$")
+    @When("^Ingresamos a la transacción 06-3005, llenamos la información del préstamo$")
     public void enablingDocuments() throws Throwable {
         loanFlow.enablingDocuments();
     }
@@ -150,17 +150,17 @@ public class TestMain {
         loanFlow.printReportDocuments();
     }
 
-    @And("^Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo$")
+    @And("^Nos dirigimos a la transacción 06-3018 que es la validación de documentos habilitantes, ingresamos los datos del préstamo$")
     public void creditDocumentValidation() throws Throwable {
         loanFlow.creditDocumentsValidation();
     }
 
-    @And("^Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo$")
+    @And("^Por último ingresamos a la transacción 06-6010 forma de desembolso del préstamo$")
     public void outlayLoan() throws Throwable {
         loanFlow.outlayLoan();
     }
 
-    @Then("^Se muestra la transacción 06-4022 y nos da la consulta de datos generales del préstamo$")
+    @Then("^Se muestra la transacción 06-4022 y la consulta de datos generales del préstamo$")
     public void generalLoanData() throws Throwable {
         loanFlow.generalLoanData();
     }
