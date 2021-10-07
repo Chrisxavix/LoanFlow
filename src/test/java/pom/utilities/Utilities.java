@@ -76,7 +76,7 @@ public class Utilities {
                 driver.close();
                 driver.switchTo().window(mainOfWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
-                if(print.equalsIgnoreCase("yes")) {
+                if (print.equalsIgnoreCase("yes")) {
                     Thread.sleep(timeWindow);
                     this.downloadPDF();
                     driver.close();

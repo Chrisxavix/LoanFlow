@@ -3,6 +3,7 @@ package pom.pages.transactions;
 import org.openqa.selenium.By;
 
 public class Tr063040 {
+
     /* VARIABLES */
 
     /* Número de Solicitud */

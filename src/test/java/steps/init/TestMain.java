@@ -130,37 +130,37 @@ public class TestMain {
         loanFlow.saveIncognitoAndGetCreditNumber();
     }
 
-    @When("^Ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar$")
-    public void dataLoan() throws Throwable {
-        loanFlow.dataLoan();
+    @When("^Ingresamos a la transacción 06-3002 e ingresamos el número de préstamo y la cuenta a debitar$")
+    public void typeLoanNumberAndAccountDebit() throws Throwable {
+        loanFlow.typeLoanNumberAndAccountDebit();
     }
 
-    @When("^Ingresamos a la transacción 06-2006, ingresamos el número de préstamos y las garantías existentes$")
-    public void loanWarranty() throws Throwable {
-        loanFlow.loanWarranty();
+    @When("^Ingresamos a la transacción 06-2006 e ingresamos el número de préstamo y las garantías existentes$")
+    public void typeLoanNumberAndloanWarrantyExistWarranties() throws Throwable {
+        loanFlow.typeLoanNumberAndloanWarrantyExistWarranties();
     }
 
-    @When("^Ingresamos a la transacción 06-3005, llenamos la información del préstamo$")
-    public void enablingDocuments() throws Throwable {
-        loanFlow.enablingDocuments();
+    @When("^Ingresamos a la transacción 06-3005 y llenamos la información del préstamo$")
+    public void fillLoanInformation() throws Throwable {
+        loanFlow.fillLoanInformation();
     }
 
     @And("^Ahora imprimimos los reportes de los documentos habilitantes$")
     public void printEnablingDocuments() throws Throwable {
-        loanFlow.printReportDocuments();
+        loanFlow.printEnablingDocuments();
     }
 
-    @And("^Nos dirigimos a la transacción 06-3018 que es la validación de documentos habilitantes, ingresamos los datos del préstamo$")
+    @When("^Nos dirigimos a la validación de documentos habilitantes 06-3018, ingresamos los datos del préstamo$")
     public void creditDocumentValidation() throws Throwable {
-        loanFlow.creditDocumentsValidation();
+        loanFlow.creditDocumentValidation();
     }
 
-    @And("^Por último ingresamos a la transacción 06-6010 forma de desembolso del préstamo$")
+    @And("^Por último ingresamos al desembolso del préstamo 06-6010$")
     public void outlayLoan() throws Throwable {
         loanFlow.outlayLoan();
     }
 
-    @Then("^Se muestra la transacción 06-4022 y la consulta de datos generales del préstamo$")
+    @And("^Se muestra la consulta de datos generales del préstamo 06-4022$")
     public void generalLoanData() throws Throwable {
         loanFlow.generalLoanData();
     }

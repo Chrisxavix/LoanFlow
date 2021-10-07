@@ -59,7 +59,6 @@ public class StartPages {
     protected static final Tr062016 tr062016 = new Tr062016();
     protected static final Tr062008 tr062008 = new Tr062008();
     protected static final Tr063071 tr063071 = new Tr063071();
-    protected static final Tr000267 tr000267 = new Tr000267();
     protected static final Tr063078 tr063078 = new Tr063078();
     protected static final Tr063040 tr063040 = new Tr063040();
     protected static final Tr063080 tr063080 = new Tr063080();

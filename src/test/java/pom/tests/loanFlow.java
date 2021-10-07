@@ -32,6 +32,7 @@ public class loanFlow extends StartPages {
 
     public void typeDebtorDataProductDataLoan() throws Throwable {
         /* Ingresar a la transacción 06-2100 */
+        util.reactPageOp2();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(3) + Keys.ENTER);
         util.waitPass(timeLong, "typeDebtorDataProductDataLoan Transacción 06-2100", driver);
         /* Validación: Compruebo que la pantalla es SIMULACIÓN DE PRÉSTAMOS - FitBank */
@@ -104,6 +105,7 @@ public class loanFlow extends StartPages {
         requestNumber = driver.findElement(tr062100.getNumberSoli()).getAttribute("value");
         util.screenshot(caseScreen, caseScreenTx062100, driver);
         /* Ir a la transacción 06-2000 */
+        util.reactPageOp2();
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(18) + Keys.ENTER);
         util.waitPass(timeLong, "typeDataGeographicalDataLoanComment Ir a la transacción 06-2000", driver);
@@ -220,6 +222,7 @@ public class loanFlow extends StartPages {
 
     public void validateOrder() throws Throwable {
         /* Ingresar a la transacción 00-0267 */
+        util.reactPageOp2();
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(32) + Keys.ENTER);
         util.waitPass(timeLong, "validateOrder Ingresar a la transacción 00-0267", driver);
@@ -235,8 +238,8 @@ public class loanFlow extends StartPages {
     }
 
     public void pressChecksAndSave() throws Throwable {
-        /* Ingresar a la transacción 06-3071 */
         util.reactPage();
+        /* Ingresar a la transacción 06-3071 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(33) + Keys.ENTER);
         util.waitPass(timeLong, "pressChecksAndSave Ingresar a la transacción 06-3071", driver);
@@ -248,6 +251,8 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx063071, driver);
         driver.findElement(tr063071.getTxtNumSoli()).sendKeys(Keys.ENTER);
         util.waitPass(timeMedium, "pressChecksAndSave Ingreso el número de solicitud", driver);
+        util.multipleValidate(driver);
+        util.reactPage();
         /* Marcar los checklist */
         List<WebElement> tablePrint = driver.findElements(tr063071.getTbCheckList());
         for (int i = 1; i <= tablePrint.size(); i++) {
@@ -267,8 +272,8 @@ public class loanFlow extends StartPages {
     }
 
     public void typeComment() throws Throwable {
-        /* Ingresar a la transacción 06-3040 */
         util.reactPage();
+        /* Ingresar a la transacción 06-3040 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(34) + Keys.ENTER);
         util.waitPass(timeLong, "typeComment Ingresar a la transacción 06-3040", driver);
@@ -296,7 +301,7 @@ public class loanFlow extends StartPages {
 
     public void typeValuesRiskActivesPasives() throws Throwable {
         driver.findElement(tr063078.getTabAnalysisCred()).click();
-        util.waitPass(timeLong, "Riego Indirecto", driver);
+        util.waitPass(timeLong, "typeValuesRiskActivesPasives Riego Indirecto", driver);
         util.multipleValidate(driver);
         /* Validación: Comprobar que esté en la pestaña de ANÁLISIS DE CRÉDITO - FitBank */
         WebElement tabTitleCreditAnaysis = driver.findElement(tr063078.getLblAnalysisCred());
@@ -305,17 +310,17 @@ public class loanFlow extends StartPages {
         WebElement indirectRisk = driver.findElement(tr063078.getTxtIndirectRisk());
         if (indirectRisk.isEnabled()) {
             driver.findElement(tr063078.getTxtSubsCancel()).sendKeys(loanFlow.get(36) + Keys.ENTER);
-            util.waitPass(timeMedium, "creditAnalysis Riesgos", driver);
+            util.waitPass(timeMedium, "typeValuesRiskActivesPasives Riesgos", driver);
             util.screenshot(caseScreen, caseScreenTx063078, driver);
         }
         /* Activos - Pasivos */
         driver.findElement(tr063078.getTabActPasiv()).click();
-        util.waitPass(timeLong, "creditAnalysis Activo-Pasivo", driver);
+        util.waitPass(timeLong, "typeValuesRiskActivesPasives Activo-Pasivo", driver);
         String patrimony = driver.findElement(tr063078.getTxtPatrimony()).getAttribute("value");
         driver.findElement(tr063078.getTxtConfirmedPatr()).sendKeys(patrimony + Keys.ENTER);
-        util.waitPass(timeMedium, "creditAnalysis patrimony", driver);
+        util.waitPass(timeMedium, "typeValuesRiskActivesPasives patrimony", driver);
         driver.findElement(tr063078.getAtxtComment()).sendKeys(loanFlow.get(37));
-        util.waitPass(timeLong, "creditAnalysis Update Balance", driver);
+        util.waitPass(timeLong, "typeValuesRiskActivesPasives Update Balance", driver);
         driver.findElement(tr063078.getChkUpdtaBalance()).click();
         util.screenshot(caseScreen, caseScreenTx063078, driver);
     }
@@ -325,7 +330,7 @@ public class loanFlow extends StartPages {
         /* Ir a la pestaña de Cumplimiento De Políticas */
         WebElement tabPolicyCompliance = driver.findElement(tr063080.getTabPolicyCompliance());
         tabPolicyCompliance.click();
-        util.waitPass(timeLong, "pressChecksPoliticsComment", driver);
+        util.waitPass(timeLong, "pressChecksPoliticsComment Ir a la pestaña de Cumplimiento De Políticas", driver);
         util.multipleValidate(driver);
         /* Validación: Comprobar que esté en la pestaña de CUMPLIMIENTO DE POLITICAS */
         WebElement lblCpTitle = driver.findElement(tr063080.getLblCpTitle());
@@ -373,7 +378,9 @@ public class loanFlow extends StartPages {
 
     public void openNewBrowserIncognito() throws Throwable {
         util.screenshot(caseScreen, caseScreenTx063080, driver);
-        this.mailValidationAndGetUser(caseScreenTx063080, caseScreenWithoutMail01, caseScreenWithoutMail02 );
+        /* Validación de que el usuario que aprueba la transacción posee correo */
+        this.mailValidationAndGetUser(caseScreenTx063080, caseScreenWithoutMail01, caseScreenWithoutMail02);
+        /* Obtiene el Usuario a loguear de manera incógnita */
         this.getUser();
         this.openBrowserIncognito();
     }
@@ -385,6 +392,7 @@ public class loanFlow extends StartPages {
     }
 
     public void approveNumberRequest() throws Throwable {
+        util.reactPage();
         /* Ingresar a la transacción 00-2008 */
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeLong, "approveNumberRequest Ingresar a la transacción 00-2008", util.driverIncognito);
@@ -424,7 +432,7 @@ public class loanFlow extends StartPages {
         /* Ingresar a la transacción 06-2033 */
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).clear();
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(51) + Keys.ENTER);
-        util.waitPass(timeLong, "typeRiskAnalysisApproval", util.driverIncognito);
+        util.waitPass(timeLong, "typeRiskAnalysisApproval Ingresar a la transacción 06-2033", util.driverIncognito);
         /* Validación: Comprobar que esté en la ventana de CUMPLIMIENTO DE POLITICAS */
         Assert.assertEquals(message.getErrorTx062033(), message.getTitleRiskAnalysisApproval(), util.driverIncognito.getTitle());
         /* Número de Solicitud */
@@ -477,6 +485,7 @@ public class loanFlow extends StartPages {
     }
 
     public void validateTransactionToGenerateCreditNumber() throws Throwable {
+        util.reactPageOp2();
         /* Ingresar a la transacción 00-2008 */
         util.driverIncognito.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(48) + Keys.ENTER);
         util.waitPass(timeLong, "selectTransactionIncognito Ingresar a la transacción 00-2008", util.driverIncognito);
@@ -504,35 +513,34 @@ public class loanFlow extends StartPages {
         /* Obtengo el número de crédito */
         WebElement getNumberCredit = util.driverIncognito.findElement(tr062001.getTxtBaLoanNumber());
         creditNumber = getNumberCredit.getAttribute("value");
-        System.out.println("Number Credit: " + creditNumber);
         util.driverIncognito.findElement(tr062001.getTxtRequestNumber()).click();
         util.screenshot(caseScreen, caseScreenTx062001Incognito, util.driverIncognito);
         util.driverIncognito.close();
     }
 
-    /* VALORES ADICIONALES ASOCIADOS AL PRESTAMO */
-    public void dataLoan() throws Throwable {
+    public void typeLoanNumberAndAccountDebit() throws Throwable {
+        util.reactPage();
         /* Ingresar a la transacción 06-3002 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(57) + Keys.ENTER);
-        util.waitPass(timeLong, "Code Transactions", driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        util.waitPass(timeLong, "typeLoanNumberAndAccountDebit Ingresar a la transacción 06-3002", driver);
+        /* Validación: Compruebo que la pantalla es VALORES ADICIONALES ASOCIADOS AL PRESTAMO - FitBank */
         Assert.assertEquals(message.getErrorTx063002(), message.getTitleAdditionalSecuritiresAssociatedLoan(), driver.getTitle());
         /* Ingresamos el número del préstamo */
         driver.findElement(tr063002.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeLong, "Number Loan", driver);
+        util.waitPass(timeLong, "typeLoanNumberAndAccountDebit Ingresamos el número del préstamo", driver);
         driver.findElement(tr063002.getTxtAccountDebit()).sendKeys(loanFlow.get(58) + Keys.ENTER);
+        util.waitPass(timeLong, "typeLoanNumberAndAccountDebit Ingresamos el número del préstamo 2", driver);
         util.screenshot(caseScreen, caseScreenTx063002, driver);
     }
 
-    /* ASOCIACION DE GARANTIAS A PRESTAMOS */
-    public void loanWarranty() throws Throwable {
+    public void typeLoanNumberAndloanWarrantyExistWarranties() throws Throwable {
         util.reactPage();
         /* Ingresamos a la transacción 06-2006 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(59) + Keys.ENTER);
-        util.waitPass(timeMedium, "Code Transaction", driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        util.waitPass(timeMedium, "typeLoanNumberAndloanWarrantyExistWarranties Ingresamos a la transacción 06-2006", driver);
+        /* Validación: Compruebo que la pantalla es ASOCIACIÓN DE GARANTÍAS A PRÉSTAMOS - FitBank */
         Assert.assertEquals(message.getErrorTx062006(), message.getTitleLoanGuaranteeAssociation(), driver.getTitle());
         /* Ingresamos el número del préstamo */
         driver.findElement(tr062006.getTxtWarranty()).sendKeys(creditNumber + Keys.ENTER);
@@ -545,39 +553,38 @@ public class loanFlow extends StartPages {
         util.screenshot(caseScreen, caseScreenTx062006, driver);
     }
 
-    /* EMISION DE DOCUMENTOS HABILITANTES */
-    public void enablingDocuments() throws Throwable {
+    public void fillLoanInformation() throws Throwable {
         util.reactPage();
         /* Ingresamos a la transacción 06-3005 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(61) + Keys.ENTER);
-        util.waitPass(timeLong, "Code Transactions", driver);
+        util.waitPass(timeLong, "fillLoanInformation Ingresamos a la transacción 06-3005", driver);
         util.multipleValidate(driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        /* Validación: Compruebo que la pantalla es EMISION DE DOCUMENTOS HABILITANTES - FitBank */
         Assert.assertEquals(message.getErrorTx063005(), message.getTitleIssuanceEnablingDocmunets(), driver.getTitle());
         driver.findElement(tr063005.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Number Loan", driver);
+        util.waitPass(timeMedium, "fillLoanInformation Número de crédito", driver);
         /* Ingresamos el la fecha de inicio de pagos mediante el método addMonth */
         driver.findElement(tr063005.getTxtStarDatePay()).sendKeys(addMonth());
-        util.waitPass(timeMedium, "Add Month", driver);
+        util.waitPass(timeMedium, "fillLoanInformation Mes", driver);
         /* Ingresamos el día fijo de pagos mediante el método getDay */
         driver.findElement(tr063005.getTxtFixedDayPay()).sendKeys(getDay());
-        util.waitPass(timeMedium, "Get Day", driver);
+        util.waitPass(timeMedium, "fillLoanInformation Día", driver);
     }
 
-    public void printReportDocuments() throws Throwable {
+    public void printEnablingDocuments() throws Throwable {
         util.reactPageOp2();
         /* Imprimir Reportes */
         List<WebElement> tablePrint = driver.findElements(tr063005.getTbPrintDocuments());
         util.screenshot(caseScreen, caseScreenTx063005, driver);
-        for(int i = 1; i <= tablePrint.size(); i++) {
+        for (int i = 1; i <= tablePrint.size(); i++) {
             String code = tr063005.getTxtPrintDocCod1Part1() + i + tr063005.getTxtPrintDocCod1Part2();
             String btnPrint = tr063005.getBtnPrintPart1() + i + tr063005.getBtnPrintPart2();
             WebElement columnCode = driver.findElement(By.xpath(code));
             WebElement columnBtnPrint = driver.findElement(By.xpath(btnPrint));
             String base = columnCode.getAttribute("value");
             /* Verificamos todos los datos que contiene la tabla para imprimir los reportes */
-            if (base.length() > 0 ) {
+            if (base.length() > 0) {
                 columnBtnPrint.click();
                 util.switchPages(6000, "yes");
                 util.reactPageOp2();
@@ -587,61 +594,66 @@ public class loanFlow extends StartPages {
         }
     }
 
-    /* VALIDACIÓN DOCUMENTOS DE CRÉDITO */
-    public void creditDocumentsValidation() throws Throwable {
+    public void creditDocumentValidation() throws Throwable {
         util.reactPage();
         /* Ingresamos a la transacción 06-3018 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(62) + Keys.ENTER);
-        util.waitPass(timeLong, "Code Transactions", driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        util.waitPass(timeLong, "creditDocumentValidation Ingresamos a la transacción 06-3018", driver);
+        /* Validación: Compruebo que la pantalla es Validación Documentos de Crédito - FitBank */
         Assert.assertEquals(message.getErrorTx063018(), message.getTitleCreditDocumentsValidation(), driver.getTitle());
         driver.findElement(tr063018.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Number Credit", driver);
+        util.waitPass(timeMedium, "creditDocumentValidation Número de crédito", driver);
         util.multipleValidate(driver);
-        driver.findElement(tr063018.getTxtStatus()).sendKeys( loanFlow.get(63) + Keys.ENTER);
-        util.waitPass(timeMedium, "Status", driver);
+        driver.findElement(tr063018.getTxtStatus()).sendKeys(loanFlow.get(63) + Keys.ENTER);
+        util.waitPass(timeMedium, "creditDocumentValidation Estado", driver);
         driver.findElement(tr063018.getTxtObservations()).sendKeys(loanFlow.get(64) + Keys.ENTER);
-        util.waitPass(timeMedium, "Observations", driver);
+        util.waitPass(timeMedium, "creditDocumentValidation Observaciones", driver);
         util.screenshot(caseScreen, caseScreenTx063018, driver);
     }
 
-    /* FORMA DE DESEMBOLSO DEL PRÉSTAMO */
     public void outlayLoan() throws Throwable {
         util.reactPage();
         /* Ingreso a la transacción 06-6010 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(65) + Keys.ENTER);
-        util.waitPass(timeLong, "Code Transactions", driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        util.waitPass(timeLong, "outlayLoan Ingreso a la transacción 06-6010", driver);
+        /* Validación: Compruebo que la pantalla es Forma de Desembolso del Préstamo - FitBank */
         Assert.assertEquals(message.getErrorTx066010(), message.getTitleLoanDisbursementForm(), driver.getTitle());
         driver.findElement(tr066010.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeLong, "Number Loan", driver);
-        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66) + Keys.TAB);
-        util.waitPass(timeLong, "Credit Accounts", driver);
+        util.waitPass(timeLong, "outlayLoan Número de crédito", driver);
         util.multipleValidate(driver);
-        util.waitPass(timeLong, "Credit Accounts", driver);
+        driver.findElement(tr066010.getTxtCreditAccounts()).sendKeys(loanFlow.get(66) + Keys.TAB);
+        util.waitPass(timeLong, "outlayLoan Cuenta de crédito", driver);
+        util.multipleValidate(driver);
         WebElement valueAmount = driver.findElement(tr066010.getTxtPayOutValue());
         driver.findElement(tr066010.getTxtValue()).sendKeys(valueAmount.getAttribute("value") + Keys.ENTER);
-        util.waitPass(timeLong, "Value Amounts", driver);
+        util.waitPass(timeLong, "outlayLoan Cantidades", driver);
         util.screenshot(caseScreen, caseScreenTx066010, driver);
     }
 
-    /* CONSULTA DATOS GENERALES DE PRESTAMOS */
     public void generalLoanData() throws Throwable {
         util.reactPage();
         /* Ingreso a la transacción 06-4022 */
         driver.findElement(global.getBoxCodeTransaction()).clear();
         driver.findElement(global.getBoxCodeTransaction()).sendKeys(loanFlow.get(67) + Keys.ENTER);
-        util.waitPass(timeLong, "Code Transactions", driver);
-        /* Validación: Compruebo que la pantalla es el entorno FitBank */
+        util.waitPass(timeLong, "generalLoanData Ingreso a la transacción 06-4022", driver);
+        /* Validación: Compruebo que la pantalla es CONSULTA DATOS GENERALES DE PRESTAMOS - FitBank */
         Assert.assertEquals(message.getErrorTx064022(), message.getTitleConsultGeneralDataLoans(), driver.getTitle());
         driver.findElement(tr064022.getTxtLoan()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Value Amounts", driver);
+        util.waitPass(timeMedium, "generalLoanData Número de crédito", driver);
+        util.multipleValidate(driver);
         util.screenshot(caseScreen, caseScreenTx064022, driver);
+        driver.findElement(tr064022.getTxtStatus()).click();
+        util.screenshot(caseScreen, caseScreenTx064022, driver);
+        driver.findElement(tr064022.getTxtDateNext()).click();
+        util.screenshot(caseScreen, caseScreenTx064022, driver);
+        System.out.println("Número de Solicitud: " + requestNumber);
+        System.out.println("Número de Crédito: " + creditNumber);
     }
 
-    /* Métodos que se usa en modo normal e incógnito */
+    /* MÉTODOS QUE SE USAN EN MODO NORMAL E INCÓGNITO */
+
     public void openBrowserIncognito() {
         util.options.addArguments("-incognito");
         util.driverIncognito = new ChromeDriver(util.options);
@@ -675,18 +687,18 @@ public class loanFlow extends StartPages {
         util.reactPage();
         WebElement save = typeDriver.findElement(global.getBtnF12());
         save.click();
-        util.waitPass(timeLong, "saveTransaction saveTransaction", typeDriver);
+        util.waitPass(timeLong, "saveFormGeneral Guardar", typeDriver);
         util.multipleValidate(typeDriver);
     }
 
-    /* Extraer usuario para aprobaciones */
     public void getUser() {
+        /* Extraer usuario para aprobaciones en login incógnito */
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
         String txtStatus = statustNotification.getText();
         userIncognit = txtStatus.substring(txtStatus.indexOf(":") + 1, txtStatus.indexOf("NOMBRE")).trim();
     }
 
-    /* VALIDACIÓN DE CORREO: Validar si el usuario que va a guardar las transacciones posee mail  */
+    /* VALIDACIÓN DE CORREO: Validar si el usuario que va a guardar las transacciones posee mail */
     public void mailValidationAndGetUser(String screenshotBase, String screenshotWindowTwo, String screenshotWindowThree) throws Throwable {
         this.validateMail(screenshotBase, screenshotWindowTwo);
         WebElement statustNotification = driver.findElement(global.getTxtStatus());
@@ -797,28 +809,27 @@ public class loanFlow extends StartPages {
         /* Capturamos la fecha Valor/Apertura */
         WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
         /* El formato capturado de la fecha es dd-MM-yyyy y lo tenemos que convertir a yyyy-MM-dd para poder
-        * sumar el mes para la Fecha de Inicio de Pagos*/
-        SimpleDateFormat formatoOrigen = new SimpleDateFormat("dd-MM-yyyy");
-        String fechaOriginal = openDate.getAttribute("value");;
-        /* Conversion de dd-MM-yyyy a yyyy-MM-dd */
-        SimpleDateFormat formatoSalida = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = formatoOrigen.parse(fechaOriginal);
-        LocalDate month = LocalDate.parse(formatoSalida.format(date));
-        /* Sumamos el 1 al mes correspondiente  */
+           sumar el mes para la Fecha de Inicio de Pagos*/
+        SimpleDateFormat originFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String originalDate = openDate.getAttribute("value");
+        /* Conversión de dd-MM-yyyy a yyyy-MM-dd */
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = originFormat.parse(originalDate);
+        LocalDate month = LocalDate.parse(outputFormat.format(date));
+        /* Sumamos 1 mes correspondiente  */
         LocalDate newDate = month.plusMonths(1);
-        String formattedString = newDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         /* Retornamos la Fecha de Inicio de Pagos */
-        return formattedString;
+        return newDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
 
-    /* Método para sacar el día, para la emision de documentos habilitantes*/
+    /* Método para sacar el día, para la emision de documentos habilitantes */
     public String getDay() {
         /* Capturamos la fecha Valor/Apertura */
         WebElement openDate = driver.findElement(tr063005.getTxtOpenDate());
         String string = openDate.getAttribute("value");
         /* Separamos la fecha en un arreglo */
-        String[] parts = string.split("-");
+        String[] day = string.split("-");
         /* Capturamos el día fijo para el pago */
-        return parts[0];
+        return day[0];
     }
 }
