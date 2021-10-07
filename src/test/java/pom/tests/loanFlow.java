@@ -70,7 +70,7 @@ public class loanFlow extends StartPages {
         /* Identificacion Ejecutivo */
         driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(11) + Keys.ENTER);
         util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Ejecutivo", driver);
-        /* Validación: Que se haya cargado el deudor */
+        /* Validación: Que se haya cargado el Id del Ejecutivo */
         WebElement relationIdEje = driver.findElement(tr062100.getTxtIdExecutive());
         Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(11), relationIdEje.getAttribute("value"));
         /* Origen */
