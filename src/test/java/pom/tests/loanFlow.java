@@ -41,6 +41,9 @@ public class loanFlow extends StartPages {
         /* Deudor, siempre será el primero de la fila */
         driver.findElement(tr062100.getTxtId()).sendKeys(loanFlow.get(4) + Keys.ENTER);
         util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Deudor id", driver);
+        /* Validación: Que se haya cargado el deudor */
+        WebElement relationDebtor = driver.findElement(tr062100.getTxtRelationsText());
+        Assert.assertEquals(message.getErrorGeneral(), message.getDebtor(), relationDebtor.getAttribute("value"));
         /* Opcionales: Codeudor y Garante */
         if (loanFlow.get(5).length() > 0) {
             /* Fila 2 */
@@ -57,9 +60,6 @@ public class loanFlow extends StartPages {
             util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Garante Relación", driver);
         }
         util.screenshot(caseScreen, caseScreenTx062100, driver);
-        /* Validación: Que se haya cargado el deudor */
-        WebElement relationDebtor = driver.findElement(tr062100.getTxtRelationsText());
-        Assert.assertEquals(message.getErrorGeneral(), message.getDebtor(), relationDebtor.getAttribute("value"));
         /* DATOS DEL PRODUCTO */
         /* Grupo de Producto */
         driver.findElement(tr062100.getTxtProductGroup()).sendKeys(loanFlow.get(9) + Keys.ENTER);
@@ -70,6 +70,9 @@ public class loanFlow extends StartPages {
         /* Identificacion Ejecutivo */
         driver.findElement(tr062100.getTxtIdExecutive()).sendKeys(loanFlow.get(11) + Keys.ENTER);
         util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Ejecutivo", driver);
+        /* Validación: Que se haya cargado el Id del Ejecutivo */
+        WebElement relationIdEje = driver.findElement(tr062100.getTxtIdExecutive());
+        Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(11), relationIdEje.getAttribute("value"));
         /* Origen */
         driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(12) + Keys.ENTER);
         util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Origen", driver);
