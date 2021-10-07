@@ -4,7 +4,6 @@ const fecha = new Date();
 report.generate({
     jsonDir: './src/test/assets/report/',
     reportPath: './src/test/assets/report/',
-    /*reportPath: './test/report/',*/
     //Abrir el navegador después de terminar el test
     openReportInBrowser: true,
     //Duración en segundos de la prueba

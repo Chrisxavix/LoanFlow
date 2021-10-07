@@ -49,6 +49,7 @@ public class StartPages {
     protected static final String caseScreenTx063005 = "Tx20_06_3005";
     protected static final String caseScreenTx063018 = "Tx21_06_3018";
     protected static final String caseScreenTx066010 = "Tx22_06_6010";
+    protected static final String caseScreenTx064022 = "Tx23_06_4022";
     protected static final String caseScreenWithoutMail01 = "Tx09_MailValidation01_01_0117";
     protected static final String caseScreenWithoutMail02 = "Tx09_MailValidation02_01_0117";
     protected static final String caseScreenWithoutMail03 = "Tx14_MailValidation01_06_2001";
@@ -58,7 +59,6 @@ public class StartPages {
     protected static final Tr062016 tr062016 = new Tr062016();
     protected static final Tr062008 tr062008 = new Tr062008();
     protected static final Tr063071 tr063071 = new Tr063071();
-    protected static final Tr000267 tr000267 = new Tr000267();
     protected static final Tr063078 tr063078 = new Tr063078();
     protected static final Tr063040 tr063040 = new Tr063040();
     protected static final Tr063080 tr063080 = new Tr063080();
@@ -71,6 +71,7 @@ public class StartPages {
     protected static final Tr063005 tr063005 = new Tr063005();
     protected static final Tr063018 tr063018 = new Tr063018();
     protected static final Tr066010 tr066010 = new Tr066010();
+    protected static final Tr064022 tr064022 = new Tr064022();
     protected static final Tr010117 tr010117 = new Tr010117();
     /* Lectura de datos del excel */
     protected final Utilities util = new Utilities();
@@ -79,6 +80,4 @@ public class StartPages {
     protected String requestNumber;
     /* Número de Crédito */
     protected String creditNumber;
-    /* Variable suma mes */
-    protected String addMes;
 }

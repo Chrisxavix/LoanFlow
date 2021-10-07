@@ -32,16 +32,18 @@ Feature: Flujo de Préstamos
     And Cierro sesiones activas, ingreso el usuario aprobador y contraseña en modo incógnito
     When Ingresamos al buzón de autorizaciones 00-2008, seleccionamos la trasacción correspondiente e ingresamos los datos para generar el número de crédito
     Then Guardo la transacción en modo incógnito y capturo el número de crédito generado
-#    And Ahora ingresamos a la transacción 06-3002 e ingresamos el número de préstamos y la cuenta a debitar
-#    And Guardo la transacción
-#    And Luego ingresamos a la transacción 06-2006 e ingresamos el número de préstamos y las garantías existentes
-#    And Guardo la transacción
-#    And Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
-#    And Guardo la transacción
-#    And Ahora imprimimos los reportes de los documentos habilitantes
-#    And Nos dirigimos a la transacción 06-3018 que es ka validación de documentos habilitantes e ingresamos el préstamo
-#    And Guardo la transacción
-#    And Por ultimo ingresamos a la transacción 06-6010 forma de desembolso del préstamo
+    When Ingresamos a la transacción 06-3002 e ingresamos el número de préstamo y la cuenta a debitar
+    Then Guardo la transacción
+    When Ingresamos a la transacción 06-2006 e ingresamos el número de préstamo y las garantías existentes
+    Then Guardo la transacción
+    When Ingresamos a la transacción 06-3005 y llenamos la información del préstamo
+    Then Guardo la transacción
+    And Ahora imprimimos los reportes de los documentos habilitantes
+    When Nos dirigimos a la validación de documentos habilitantes 06-3018, ingresamos los datos del préstamo
+    Then Guardo la transacción
+    And Por último ingresamos al desembolso del préstamo 06-6010
+    Then Guardo la transacción
+    And Se muestra la consulta de datos generales del préstamo 06-4022
     Examples:
       | caso |
       | 1    |
@@ -50,5 +52,3 @@ Feature: Flujo de Préstamos
 #      | 4    |
 #      | 5    |
 #      | 6    |
-#      | 7    |
-#      | 8    |

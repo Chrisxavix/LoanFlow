@@ -3,6 +3,7 @@ package pom.pages.transactions;
 import org.openqa.selenium.By;
 
 public class Tr062001 {
+
     /* VARIABLES */
 
     /* APROBACIÓN DE SOLICITUDES PRÉSTAMOS: Asp */

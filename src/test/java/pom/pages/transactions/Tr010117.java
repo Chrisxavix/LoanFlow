@@ -10,7 +10,6 @@ public class Tr010117 {
     private final By txtImuUser = By.xpath("//*[@id='container_1']/div/table/thead/tr[1]/td[3]/input");
     private final By txtImuUserType = By.xpath("//*[@id='container_0']/table/tbody/tr/td[2]/input[1]");
     private final By txtImuF1UserType = By.xpath("//*[@id='container_1']/div/table/tbody/tr[1]/td[3]/input");
-    private final By txtImuEmail = By.xpath("//*[@id='container_1']/div/table/tbody/tr[1]/td[8]/input");
 
     /* GETTERS */
 
@@ -18,5 +17,4 @@ public class Tr010117 {
     public By getTxtImuUser() { return this.txtImuUser; }
     public By getTxtImuUserType() { return this.txtImuUserType; }
     public By getTxtImuF1UserType() { return this.txtImuF1UserType; }
-    public By getTxtImuEmail() { return txtImuEmail; }
 }
