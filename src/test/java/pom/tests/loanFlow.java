@@ -544,12 +544,13 @@ public class loanFlow extends StartPages {
         Assert.assertEquals(message.getErrorTx062006(), message.getTitleLoanGuaranteeAssociation(), driver.getTitle());
         /* Ingresamos el número del préstamo */
         driver.findElement(tr062006.getTxtWarranty()).sendKeys(creditNumber + Keys.ENTER);
-        util.waitPass(timeMedium, "Warranty", driver);
+        util.waitPass(timeMedium, "typeLoanNumberAndloanWarrantyExistWarranties Ingresamos el número del préstamo", driver);
+        util.multipleValidate(driver);
         driver.findElement(tr062006.getTxtNumberWarranty()).sendKeys(loanFlow.get(60) + Keys.ENTER);
-        util.waitPass(timeMedium, "Number Warranty", driver);
+        util.waitPass(timeMedium, "typeLoanNumberAndloanWarrantyExistWarranties Cuenta", driver);
         WebElement txtValueWarranty = driver.findElement(tr062006.getTxtValueWarranty());
         driver.findElement(tr062006.getTxtValueToWarranty()).sendKeys(txtValueWarranty.getAttribute("value"));
-        util.waitPass(timeMedium, "Value to Warranty", driver);
+        util.waitPass(timeMedium, "typeLoanNumberAndloanWarrantyExistWarranties Valor a garantizar", driver);
         util.screenshot(caseScreen, caseScreenTx062006, driver);
     }
 
