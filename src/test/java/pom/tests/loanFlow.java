@@ -73,6 +73,7 @@ public class loanFlow extends StartPages {
         /* Validación: Que se haya cargado el deudor */
         WebElement relationIdEje = driver.findElement(tr062100.getTxtIdExecutive());
         Assert.assertEquals(message.getErrorGeneral(), loanFlow.get(11), relationIdEje.getText());
+        /*/
         /* Origen */
         driver.findElement(tr062100.getTxtOrigin()).sendKeys(loanFlow.get(12) + Keys.ENTER);
         util.waitPass(timeMedium, "typeDebtorDataProductDataLoan Origen", driver);
