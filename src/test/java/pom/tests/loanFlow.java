@@ -157,7 +157,7 @@ public class loanFlow extends StartPages {
     public void generateReport() throws Throwable {
         WebElement generateReport = driver.findElement(tr062000.getBtnVlcGenerateReport());
         generateReport.click();
-        util.switchPages(0, "no");
+        util.switchPages();
         /* Validación: Comprobar que esté en la ventana principal después de abrir la pestaña de reporte */
         Assert.assertEquals(message.getErrorMainView(), message.getTitleIncoMainLoan(), driver.getTitle());
     }
@@ -208,18 +208,16 @@ public class loanFlow extends StartPages {
     }
 
     public void generateReportCheklistReportOperation() throws Throwable {
-        /* Descargar el reporte de la transacción 06-2000 */
-        util.switchPDF();
         util.reactPage();
         /* Descargar el reporte de checklist */
         WebElement btnChklReport = driver.findElement(tr062016.getBtnChklReport());
         btnChklReport.click();
-        util.switchPages(6000, "yes");
+        util.switchPages();
         util.reactPage();
         /* Descargar el reporte de orden de crédito */
         WebElement btnOperationOrder = driver.findElement(tr062016.getBtnOperationOrder());
         btnOperationOrder.click();
-        util.switchPages(6000, "yes");
+        util.switchPages();
         util.screenshot(caseScreen, caseScreenTx062016, driver);
     }
 
@@ -590,7 +588,7 @@ public class loanFlow extends StartPages {
             /* Verificamos todos los datos que contiene la tabla para imprimir los reportes */
             if (base.length() > 0) {
                 columnBtnPrint.click();
-                util.switchPages(6000, "yes");
+                util.switchPages();
                 util.reactPageOp2();
             } else {
                 break;
