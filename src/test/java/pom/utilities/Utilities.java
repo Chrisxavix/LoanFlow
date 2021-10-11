@@ -149,14 +149,6 @@ public class Utilities {
         return dataExcel;
     }
 
-    /* Cambia a la pestaña secundaria, llama al método de descargar el pdf, cierra la pestaña y regresa a la ventana principal */
-    public void switchPDF() throws AWTException {
-        driver.switchTo().window(secondOfWindow);
-        this.downloadPDF();
-        driver.close();
-        driver.switchTo().window(mainOfWindow);
-    }
-
     /* Abre la ventana del sistema para guardar el pdf */
     public void downloadPDF() throws AWTException {
         Robot robot = new Robot();
