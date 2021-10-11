@@ -11,6 +11,7 @@ public class Global {
     private final By txtStatus = By.id("entorno-estatus-contenido");
     private final By btnF12 = By.xpath("//*[@id='entorno-teclas']/button[9]");
     private final By btnF7 = By.xpath("//*[@id='entorno-teclas']/button[5]");
+    private final By browserDocumentPDF = By.xpath("/html/body/embed");
 
     /* GETTERS */
 
@@ -18,4 +19,5 @@ public class Global {
     public By getTxtStatus() { return this.txtStatus; }
     public By getBtnF12() { return this.btnF12; }
     public By getBtnF7() { return this.btnF7; }
+    public By getBrowserDocumentPDF() { return this.browserDocumentPDF; }
 }

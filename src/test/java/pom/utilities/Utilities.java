@@ -6,6 +6,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import steps.hook.Hook;
 import pom.pages.global.Global;
 import java.awt.*;
@@ -18,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class Utilities {
     /* Obtener el driver */
@@ -59,7 +62,7 @@ public class Utilities {
     }
 
     /* Jugar con las pestañas del navegador entre principal y secundarias */
-    public void switchPages(int timeWindow, String print) throws Throwable {
+    public void switchPages() throws Throwable {
         /* Todas las ventanas abiertas en prueba */
         Set<String> windows = driver.getWindowHandles();
         /* Ventana principal */
@@ -73,14 +76,25 @@ public class Utilities {
             }
             if (pageTitle.equalsIgnoreCase("Error")) {
                 Thread.sleep(3000);
+                this.downloadPDF();
                 driver.close();
                 driver.switchTo().window(mainOfWindow);
             } else if (pageTitle.equalsIgnoreCase("")) {
-                if (print.equalsIgnoreCase("yes")) {
-                    Thread.sleep(timeWindow);
-                    this.downloadPDF();
-                    driver.close();
+                this.reactTypeData();
+                if (driver.getTitle().equalsIgnoreCase("")) {
+                    try {
+                        Wait<WebDriver> fwait = new FluentWait<WebDriver>(driver)
+                                .withTimeout(120, TimeUnit.SECONDS)
+                                .pollingEvery(500, TimeUnit.MILLISECONDS)
+                                .ignoring(NoSuchElementException.class);
+                        WebElement newBadge = fwait.until(driver -> driver.findElement(global.getBrowserDocumentPDF()));
+                        assert newBadge.isDisplayed();
+                    } catch (TimeoutException ex) {
+                        ex.printStackTrace(System.out);
+                    }
                 }
+                this.downloadPDF();
+                driver.close();
                 driver.switchTo().window(mainOfWindow);
             } else {
                 driver.switchTo().window(mainOfWindow);
